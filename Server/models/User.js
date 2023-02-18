@@ -35,11 +35,11 @@ const UserSchema = new mongoose.Schema(
     electricityBills: {
       type: [String],
     },
-    myRewards: {
-      type: [String],
-    },
     donations: {
       type: [String],
+    },
+    claimedRewards: {
+      type:[String],
     },
     isAdmin:{
       type: Boolean,

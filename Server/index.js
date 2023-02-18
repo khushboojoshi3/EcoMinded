@@ -6,6 +6,9 @@ import authRoute from "./routes/auth.js";
 import usersRoute from "./routes/users.js";
 import donateRoute from "./routes/donate.js";
 import electricityBillRoute from "./routes/electricityBill.js";
+import artRoute from "./routes/art.js";
+import blogRoute from "./routes/blog.js";
+import rewardRoute from "./routes/reward.js";
 const app = express();
 dotenv.config();
 const connect = async () => {
@@ -22,9 +25,12 @@ mongoose.connection.on("disconnected", () => {
 app.use(express.json());
 app.use(cookieParser());
 app.use("/api/auth", authRoute);
-app.use("/api/users", usersRoute);
+app.use("/api/user", usersRoute);
 app.use("/api/electricityBill", electricityBillRoute);
 app.use("/api/donate", donateRoute);
+app.use("/api/art", artRoute);
+app.use("/api/blog", blogRoute);
+app.use("/api/reward", rewardRoute);
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
   const errorMessage = err.message || "Something went wrong!";

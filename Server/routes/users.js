@@ -6,6 +6,11 @@ import {
   getUsers,
   getMyDonations,
   getMyBills,
+  updateClaimedReward,
+  getMyArt,
+  getMyBlogs,
+  getMyClaimedRewards,
+  getAllRewards,
 } from "../controllers/user.js";
 import { verifyUser, verifyAdmin } from "../utils/verifyToken.js";
 
@@ -37,6 +42,15 @@ router.get("/", verifyAdmin, getUsers);
 //GET BILLS
 router.get("/electricityBills/:id",verifyUser,getMyBills);
 //GET DONATIONS
-router.get("/donations/:id", verifyUser,getMyDonations);
-
+router.get("/donations/:id", verifyUser, getMyDonations);
+//GET ART
+router.get("/art/:id", verifyUser, getMyArt);
+//GET BLOGS
+router.get("/blogs/:id", verifyUser, getMyBlogs);
+//GET CLAIMED REWARDS
+router.get("/claimedRewards/:id", verifyUser, getMyClaimedRewards);
+//UPDATE CLAIMED REWARDS
+router.put("/claimedRewards/:id/:rewardid", verifyUser, updateClaimedReward);
+//GET ALL REWARDS
+router.get("/allRewards/:id", verifyUser, getAllRewards);
 export default router;
