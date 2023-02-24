@@ -1,0 +1,136 @@
+.electricity{
+    font-family: 'Hanuman';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+.main{
+    display:flex;
+    margin-top:12px;
+    border:10px solid #b1dab4;
+    padding: 10px;
+}
+.graph{
+    flex-basis:75%;
+}
+.zone{
+    flex-basis:25%;
+    border:10px solid #629e70;
+    padding: 5px;
+    background-color: yellow;
+}
+.zone h1{
+    color: #5ba26f;
+}
+.consumption{
+    display: flex;
+    padding: 10px;
+}
+.myconsumption{
+    flex-basis: 75%;;
+}
+.consumptionHeader{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.consumptionHeader div{
+    flex-basis: 50%;
+}
+.myconsumption h1{
+    color: #3F9256F2;
+    text-decoration: underline #3F9256F2;
+    margin-top:0px;
+    margin-bottom: 0px;;
+}
+.btn{
+    flex-basis:50%;
+    margin-right: 10%;
+}
+.newBtn{
+    background: rgba(67, 135, 86, 0.9);
+    border-radius: 5px;
+    color:#FFF9F9;
+    width: 80px;
+    padding: 5px;
+    text-align: center;
+    border: none;
+    font-size: 1rem;
+}
+.plusIcon{
+    font-size:1rem;
+    color:white;
+    height: 15px;
+}
+.history{
+    display: grid;
+    grid-template-columns:20% 20% 20% 20%;
+    row-gap: 10px;
+    justify-items: center;
+}
+.colhead{
+    background: rgba(67, 135, 86, 0.9);
+    border-radius: 5px;
+    color:#FFF9F9;
+    width: 120px;
+    padding: 5px;
+    text-align: center;
+}
+.tips{
+    flex-basis: 25%;
+    background: linear-gradient(180deg, rgba(63, 146, 86, 0.7) 0%, rgba(225, 228, 49, 0.6) 76.56%);
+    border:10px solid #629e70;
+}
+.modalHeader{
+    margin-bottom: 40px;
+}
+.modalHeader div{
+   display: inline-block;
+}
+.close{
+    float:right;
+}
+.close button{
+    background-color: red;
+    color:white;
+    border:none;
+    border-radius: 5px;
+    padding: 5px;
+    width: 50px;
+    font-size: 1rem;
+}
+.newBillForm input{
+    display: block;
+    font-size: 1rem;
+    margin-top:10px;
+    width: 150px;
+    padding: 5px;
+}
+.newBillForm div{
+    margin-top:20px;
+}
+#submitBtn{
+    position: absolute;
+    bottom:22px;
+    border: none;
+    border-radius: 5px;
+    width: 170px;
+    padding: 6px;
+    color:white;
+}
+.submitEnabled{
+    background-color: #1183ca;
+}
+.submitDisabled{
+    background-color: #88B0D7;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

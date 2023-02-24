@@ -1,9 +1,12 @@
-
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Electricity } from "./pages/Electricity/Electricity";
 function App() {
   return (
-    <div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/electricity" element={<Electricity/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
