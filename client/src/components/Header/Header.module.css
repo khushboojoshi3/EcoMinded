@@ -1,13 +1,28 @@
-.header{
+.header {
+    position: sticky;
+    background-color: white;
+    border-top: 10px solid #375F42;
+    width: 100%;
+    top: 0;
+    height: 50px;
+    z-index: 1;
     display: flex;
     align-items: center;
-    column-gap: 3px;
+    padding-top: 5px;
 }
-.header h2{
-    margin-top: 0;
-    margin-bottom: 0;
+
+.header img {
+    width: 45px;
+    margin-right: 0px;
+    margin-left: 10px;
 }
-.logo{
-    width:3%;
-    height:3%
+
+.heading h1 {
+    font-family: 'Hanuman', serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    color: #375F42;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }

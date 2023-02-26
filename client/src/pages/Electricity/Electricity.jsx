@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useQuery } from "react-query";
-import { Header } from "../../components/Header/Header";
+import  Header  from "../../components/Header/Header";
 import Style from "./Electricity.module.css";
 import axios from "axios";
 import { Graph } from "../../components/Graph/Graph";
