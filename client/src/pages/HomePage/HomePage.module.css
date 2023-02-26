@@ -139,10 +139,11 @@ background-clip: text;
     background: #375F42;
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
-background-clip: text;
-position: absolute;
-top: 790px;
-left: 769px;
+    background-clip: text;
+    position: absolute;
+    top: 790px;
+    left: 769px;
+
 }
 
 
