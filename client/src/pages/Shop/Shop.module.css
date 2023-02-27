@@ -3,7 +3,7 @@
 font-family: 'Hanuman';
 font-style: normal;
 font-weight: 700;
-top: 73px;
+top: 50px;
 left: 460px;
 font-size: 35px;
 line-height: 73px;
@@ -15,7 +15,7 @@ color: #FFFFFF;
  font-size: 24px;
  left: 290px;
  text-align: center;
- top: 137px;
+ top: 107px;
  color: white;
 }
 .shop{
@@ -57,7 +57,7 @@ top: 8px;
     font-size: 22px;
     font-style: 'Hanuman';
     position: absolute;
-    top:190px;
+    top:170px;
     left: 60px;
 }
 .circle_groc{
@@ -80,7 +80,7 @@ top:16px;
     font-size: 22px;
     font-style: 'Hanuman';
     position: absolute;
-    top:190px;
+    top:170px;
     left: 60px;
 }
 .circle_foot{
@@ -103,12 +103,12 @@ top:16px;
     font-size: 22px;
     font-style: 'Hanuman';
     position: absolute;
-    top:190px;
+    top:170px;
     left: 60px;
 }
 .second_row{
     position: absolute;
-    top: 420px;
+    top: 410px;
 }
 .circle_fur{
     position: absolute;
@@ -124,7 +124,7 @@ top:16px;
     font-size: 22px;
     font-style: 'Hanuman';
     position: absolute;
-    top:190px;
+    top:170px;
     left: 60px;
 }
 .circle_fur img{
@@ -155,6 +155,6 @@ top:16px;
     font-size: 22px;
     font-style: 'Hanuman';
     position: absolute;
-    top:190px;
+    top:170px;
     left: 60px;
 }
