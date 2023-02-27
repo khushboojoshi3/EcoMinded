@@ -56,8 +56,10 @@ export function Graph({ graphData }) {
                     (graphData[tooltipItem[0].dataIndex].to === ""
                       ? "Data not available"
                       : graphData[tooltipItem[0].dataIndex].to);
-                  
-                    return `From: ${from}\nTo: ${to}`;
+                  const units = (graphData[tooltipItem[0].dataIndex].units === "0"
+                      ? "Data not available"
+                      : graphData[tooltipItem[0].dataIndex].units);
+                    return `From: ${from}\nTo: ${to}\nUnits: ${units}`;
                   }
               }
           }

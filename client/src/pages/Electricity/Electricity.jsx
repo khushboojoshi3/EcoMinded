@@ -8,6 +8,7 @@ import { getFormattedDate, getYears } from "../../utils/date";
 import { AiOutlinePlus } from "react-icons/ai";
 import Modal from "react-modal";
 import { avgMonthWiseConsumption } from "../../utils/consumption";
+import { getTips } from "../../utils/tips";
 Modal.setAppElement("#root");
 export function Electricity() {
     const { data, isLoading, error,refetch } = useQuery("bill", () => {
@@ -33,78 +34,86 @@ export function Electricity() {
     };
     const getGraphData = () => {
       const arr = new Array(12);
-      arr.fill({from:"",to:"",co2e:"0"});
+      arr.fill({from:"",to:"",units:"0",co2e:"0"});
       data?.data?.forEach((bill) => {
         const date = getFormattedDate(bill.from);
         const year = date.substring(0, 4);
         const month = parseInt(date.substring(5, 7));
         if (year === selectedYear) {
-          arr[month-1] = { from:date,to:getFormattedDate(bill.to),units:bill.units,co2e:bill.co2e };
+          arr[month-1] = { from:date,to:getFormattedDate(bill.to),units:bill.units,co2e:parseFloat(bill.co2e).toFixed(2) };
         }
       });
       return arr; 
     }
-    const getDataBasedOnYear=(cyear)=>{
+    const getDataBasedOnYear=()=>{
       const arr=[];
       if(data===undefined)
       return [];
        data.data.forEach((bill) => {
          const date = getFormattedDate(bill.from);
          const year = date.substring(0, 4);
-         if (year === cyear) {
+         if (year === selectedYear) {
            arr.push({
              from: date,
              to: getFormattedDate(bill.to),
              units: bill.units,
-             co2e: bill.co2e,
+             co2e: parseFloat(bill.co2e).toFixed(2),
            });
          }
        });
        return arr; 
     }
-    const [dataBasedOnYear,setDataBasedOnYear]=useState(getDataBasedOnYear(selectedYear));
     const getZone=()=>{
-      const lastBill=dataBasedOnYear[dataBasedOnYear.length-1];
-      if(lastBill===undefined)
-        return { type: "Yellow", avg: "varies according to month", stand: 0 };
+      const arr = getDataBasedOnYear();
+       if (arr === [])
+        return(<div className={`${Style.zone} ${Style.yellow}`}>
+          <p>Yellow Zone</p>,
+          <p>Carbon Dioxide Equivalent: 0</p>,
+          <p>
+            Ideal Consumption: depends on month
+          </p>,
+          <p>You carbon consumption is 0% is more than average user</p>,
+        </div>);
+      const lastBill = arr[arr.length - 1];
       let month = parseInt(lastBill.from.substring(5, 7));
-       const stand =
-         (Math.abs(avgMonthWiseConsumption[month - 1] - lastBill.units) /
-           avgMonthWiseConsumption[month - 1]) *
-         100;
+      const stand = ((Math.abs(avgMonthWiseConsumption[month - 1][0]-lastBill.units)/avgMonthWiseConsumption[month - 1][0])*100).toFixed(2);
       if (lastBill.units < avgMonthWiseConsumption[month - 1][0]) {
-        return ([
-          <p>Green Zone</p>,
-          <p>Carbon Dioxide Equivalent {lastBill.co2e}</p>,
-          <p>`Avergae User: avgMonthWiseConsumption[month - 1][0]-avgMonthWiseConsumption[month - 1][1] units`</p>,
-          <p>You carbon consumption is {stand}% less than average user</p>
-        ]);
+        return (
+          <div className={`${Style.zone} ${Style.green}`}>
+            <p>Green Zone</p>,<p>Carbon Dioxide Equivalent: {lastBill.co2e}</p>
+            <p>
+              Ideal Consumption: {avgMonthWiseConsumption[month - 1][0]}-
+              {avgMonthWiseConsumption[month - 1][1]} units
+            </p>
+            <p>You carbon consumption is {stand}% less than average user</p>
+          </div>
+        );
       }else if (
         lastBill.units >= avgMonthWiseConsumption[month - 1][0] &&
         lastBill.units < avgMonthWiseConsumption[month - 1][1]
       ) {
         return (
-          [
-            <p>Yellow Zone</p>,
-            <p>Carbon Dioxide Equivalent {lastBill.co2e}</p>,
+          <div className={`${Style.zone} ${Style.yellow}`}>
+            <p>Yellow Zone</p>
+            <p>Carbon Dioxide Equivalent: {lastBill.co2e}</p>
             <p>
-              `Avergae User: avgMonthWiseConsumption[month -
-              1][0]-avgMonthWiseConsumption[month - 1][1] units`
-            </p>,
+              Ideal Consumption: {avgMonthWiseConsumption[month -
+                1][0]}-{avgMonthWiseConsumption[month - 1][1]} units
+            </p>
             <p>You carbon consumption is {stand}% is more than average user</p>
-          ]
+          </div>
         );
       } else {
        return (
-         [
-           <p>Red Zone</p>,
-           <p>Carbon Dioxide Equivalent {lastBill.co2e}</p>,
+         <div className={`${Style.zone} ${Style.red}`}>
+           <p>Red Zone</p>
+           <p>Carbon Dioxide Equivalent: {lastBill.co2e}</p>
            <p>
-             `Avergae User: avgMonthWiseConsumption[month -
-             1][0]-avgMonthWiseConsumption[month - 1][1] units`
-           </p>,
+             Ideal Consumption: {avgMonthWiseConsumption[month - 1][0]}-
+             {avgMonthWiseConsumption[month - 1][1]} units
+           </p>
            <p>You carbon consumption is {stand}% is more than average user</p>
-         ]
+         </div>
        );
       }
     }
@@ -131,11 +140,12 @@ export function Electricity() {
         console.log(err.response.data);
       }
     }
-    return (
+  return (
+    <>
+      <Header/>
       <div className={Style.electricity}>
-        <Header />
         <section className={Style.main}>
-          <div className={Style.graph}>
+          <div>
             {error ? (
               "An error occured"
             ) : isLoading ? (
@@ -144,19 +154,21 @@ export function Electricity() {
               <>
                 <select
                   value={selectedYear}
+                  className={Style.selection}
                   onChange={(e) => {
                     setSelectedYear(e.target.value);
-                    setDataBasedOnYear(getDataBasedOnYear(e.target.value));
                   }}
                 >
                   {getYears().map((year) => (
                     <option value={year}>{year}</option>
                   ))}
                 </select>
-                <Graph graphData={getGraphData(data.data)} />
-                {/* <div className={Style.zone}>
-                  {getZone().map((child)=>child)}
-                </div> */}
+                <div className={Style.visualization}>
+                  <div className={Style.graph}>
+                    <Graph graphData={getGraphData(data.data)} />
+                  </div>
+                  {getZone()}
+                </div>
               </>
             )}
           </div>
@@ -183,17 +195,21 @@ export function Electricity() {
                   ? "An error occurred"
                   : isLoading
                   ? "Loading"
-                  : dataBasedOnYear.map((bill) => (
+                  : getDataBasedOnYear().map((bill) => (
                       <>
                         <div>{bill.from}</div>
                         <div>{bill.to}</div>
                         <div>{bill.units}</div>
-                        <div>{parseFloat(bill.co2e).toFixed(2)} </div>
+                        <div>{bill.co2e} </div>
                       </>
                     ))}
               </div>
             </div>
-            <div className={Style.tips}>Tips to reduce electricity</div>
+            <div className={Style.tips}>
+              {getTips().map((tip) => (
+                <p>{tip}</p>
+              ))}
+            </div>
           </div>
         </section>
         <Modal
@@ -249,5 +265,6 @@ export function Electricity() {
           </form>
         </Modal>
       </div>
-    );
+    </>
+  );
 }

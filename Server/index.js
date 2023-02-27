@@ -9,6 +9,7 @@ import electricityBillRoute from "./routes/electricityBill.js";
 import artRoute from "./routes/art.js";
 import blogRoute from "./routes/blog.js";
 import rewardRoute from "./routes/reward.js";
+import cors from "cors";
 const app = express();
 dotenv.config();
 const connect = async () => {
@@ -22,6 +23,7 @@ const connect = async () => {
 mongoose.connection.on("disconnected", () => {
   console.log("mongoDB disconnected!");
 });
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use("/api/auth", authRoute);

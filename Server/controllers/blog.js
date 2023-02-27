@@ -65,4 +65,4 @@ export const getBlogs = async (req,res,next)=>{
     } catch (err) {
       next(err);
     }
-  };
+};
