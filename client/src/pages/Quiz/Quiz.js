@@ -20,7 +20,9 @@ function Quiz(){
                 <img src={quiz} />
                 <div className={styles.button}>
                     <div className={styles.rect}>
-                     
+                     <Link to="#" className={styles.playicon}>
+                          <AiIcons.AiOutlinePlayCircle />
+                      </Link>
                      <h1>Play Quiz!</h1>
                     </div>
                 </div>
