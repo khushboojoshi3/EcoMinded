@@ -49,10 +49,21 @@ export const deleteArt = async (req, res, next) => {
   }
 };
 
+
+
 export const getArt = async (req, res, next) => {
   try {
     const art = await Art.findById(req.params.id);
-    res.status(200).json(art);
+    const artist = await User.findById(art.artist);
+    const obj = {
+      data: art,
+      artist: {
+        name: artist.username,
+        id: artist._id,
+        photo: artist.photo,
+      },
+    };
+    res.status(200).json(obj);
   } catch (err) {
     next(err);
   }
@@ -61,7 +72,20 @@ export const getArt = async (req, res, next) => {
 export const getArts = async (req,res,next)=>{
     try {
       const arts = await Art.find();
-      res.status(200).json(arts);
+      const obj = [];
+      for (let i = 0; i < arts.length; i++) {
+        const art = arts[i];
+        const artist = await User.findById(art.artist);
+        obj.push({
+          data: art,
+          artist: {
+            name: artist.username,
+            id: artist._id,
+            photo: artist.photo,
+          },
+        });
+      }
+      res.status(200).json(obj);
     } catch (err) {
       next(err);
     }

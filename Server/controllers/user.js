@@ -94,6 +94,8 @@ export const getMyBlogs = async (req, res, next) => {
     next(err);
   }
 };
+
+
 export const getMyClaimedRewards = async (req, res, next) => {
   try {
     const user = await User.findById(req.params.id);

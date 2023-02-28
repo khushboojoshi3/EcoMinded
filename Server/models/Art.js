@@ -1,16 +1,18 @@
 import mongoose from "mongoose";
 const ArtSchema = new mongoose.Schema(
   {
-    name: {
+    title: {
       type: String,
       required: true,
     },
     likes: {
       type: Number,
+      default: 0,
       required: true,
     },
     views: {
       type: Number,
+      default: 0,
       required: true,
     },
     url: {
@@ -20,7 +22,11 @@ const ArtSchema = new mongoose.Schema(
     description: {
       type: String,
       required: true,
-    }
+    },
+    artist: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );

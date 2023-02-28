@@ -6,20 +6,20 @@ import {
   getArts,
   updateArt,
 } from "../controllers/Art.js";
-import {verifyUser} from "../utils/verifyToken.js"
+// import {verifyUser} from "../utils/verifyToken.js"
 
 const router = express.Router();
 
 //CREATE
-router.post("/:userid", verifyUser, createArt);
+router.post("/:userid", createArt);
 
 //UPDATE
-router.put("/:id",verifyUser, updateArt);
+router.put("/:id",updateArt);
 //DELETE
-router.delete("/:id/:userid", verifyUser, deleteArt);
+router.delete("/:id/:userid",deleteArt);
 //GET
-router.get("/find/:id",verifyUser, getArt);
+router.get("/find/:id", getArt);
 //GET ALL
-router.get("/", verifyUser, getArts);
+router.get("/", getArts);
 
 export default router;

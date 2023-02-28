@@ -6,20 +6,27 @@ import {
   getBlog,
   getBlogs,
   updateBlog,
+  getAuthor,
+  updateLikes
 } from "../controllers/Blog.js";
-import {verifyUser} from "../utils/verifyToken.js"
+// import {verifyUser} from "../utils/verifyToken.js"
 
 const router = express.Router();
 
 //CREATE
-router.post("/:userid", verifyUser, createBlog);
+router.post("/:userid", createBlog);
 //UPDATE
-router.put("/:id",verifyUser, updateBlog);
+router.put("/:id", updateBlog);
+
+//UPDATE LIKES
+router.put("/likes/:blogid/:userid", updateLikes);
 //DELETE
-router.delete("/:id/:userid", verifyUser, deleteBlog);
+router.delete("/:id/:userid", deleteBlog);
 //GET
-router.get("/find/:id", verifyUser, getBlog);
+router.get("/find/:id", getBlog);
 //GET ALL
-router.get("/", verifyUser, getBlogs);
+router.get("/", getBlogs);
+//GET AUTHOR
+router.get("/author/:blogid", getAuthor);
 
 export default router;
