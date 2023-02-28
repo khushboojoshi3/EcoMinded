@@ -5,6 +5,7 @@ import Register from "./pages/Register/Register";
 import HomePage from "./pages/HomePage/HomePage";
 import Shop from "./pages/Shop/Shop";
 import Quiz from "./pages/Quiz/Quiz";
+import Store from "./pages/Store/Store";
 import { ProtectedRoutes } from "./components/ProtectedRoutes/ProtectedRoutes";
 function App() {
   return (
@@ -34,6 +35,14 @@ function App() {
           element={
             <ProtectedRoutes>
               <Quiz />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/store"
+          element={
+            <ProtectedRoutes>
+              <Store />
             </ProtectedRoutes>
           }
         />
