@@ -1,0 +1,57 @@
+.gif img{
+    position: absolute;
+width: 1366px;
+height: 351px;
+left: 0px;
+top:20px;
+
+
+}
+.button{
+    position:absolute;
+}
+.rect{
+    position: absolute;
+width: 468px;
+height: 111px;
+left: 472px;
+top: 215px;
+background: linear-gradient(180deg, rgba(38, 119, 165, 0.741) 0%, rgba(63, 146, 86, 0.6745) 98.44%);
+border-radius: 20px;
+}
+.playicon{
+    position: absolute;
+    font-size: 100px;
+    color: white;
+    padding: 0px 0px 0px 40px;
+    top:7px;
+}
+.rect h1{
+    color:white;
+    font-size:60px;
+    position: absolute;
+    left: 150px;
+    top:20px;
+}
+.leader h1{
+position: absolute;
+width: 487px;
+height: 183px;
+left: 70px;
+font-family: 'Hanuman';
+font-style: normal;
+font-weight: 700;
+font-size: 40px;
+background: linear-gradient(180deg, rgba(38, 119, 165, 0.741) 6%, rgba(63, 146, 86, 0.6745) 17.44%);
+top: 400px;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+text-fill-color: transparent;
+}
+.trophy img{
+    position: absolute;
+    top: 370px;
+    height: 100px;
+    width: 100px;
+}

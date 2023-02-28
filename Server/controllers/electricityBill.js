@@ -35,6 +35,7 @@ export const createElectricityBill = async (req, res, next) => {
     try {
       await User.findByIdAndUpdate(userId, {
         $push: { electricityBills: savedElectricityBill._id },
+        $inc:{coins:10}
       });
     } catch (err) {
       next(err);

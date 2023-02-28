@@ -47,3 +47,10 @@ export const login = async (req, res, next) => {
     next(err);
   }
 };
+export const logout = async (req, res) => {
+  // Set access_token to none and expire after 5 seconds
+  res.clearCookie("access_token");
+  res
+    .status(200)
+    .json({ success: true, message: "User logged out successfully" });
+};
