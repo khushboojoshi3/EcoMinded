@@ -5,6 +5,8 @@ import {
   getArt,
   getArts,
   updateArt,
+  updateDislikes,
+  updateLikes
 } from "../controllers/Art.js";
 import {verifyUser} from "../utils/verifyToken.js"
 
@@ -14,12 +16,22 @@ const router = express.Router();
 router.post("/:userid", verifyUser, createArt);
 
 //UPDATE
-router.put("/:id",verifyUser, updateArt);
+router.put("/:id", verifyUser, updateArt);
+//UPDATE LIKES
+router.put("/likes/:artid/:userid",verifyUser, updateLikes);
+//UPDATE DISLIKES
+router.put("/dislikes/:artid/:userid",verifyUser, updateDislikes);
 //DELETE
 router.delete("/:id/:userid", verifyUser, deleteArt);
 //GET
-router.get("/find/:id",verifyUser, getArt);
+router.get("/find/:id", verifyUser, getArt);
 //GET ALL
 router.get("/", verifyUser, getArts);
+
+// //GET AUTHOR
+// router.get("/artist/:blogid",verifyUser, getAuthor);
+
+//UPDATE LIKES
+// router.put("/likes/:blogid/:userid",verifyUser, updateLikes);
 
 export default router;

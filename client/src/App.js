@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Innovate from "./pages/Innovate/Innovate";
+import BlogView from "./components/BlogView/BlogView";
 import Electricity  from "./pages/Electricity/Electricity";
 import Login  from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
@@ -11,6 +13,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/electricity" element={<Electricity />} />
+        <Route path="/innovate" element={<Innovate />} />
+        <Route path="/blogview/:id" element={<BlogView />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
@@ -43,6 +48,14 @@ function App() {
           element={
             <ProtectedRoutes>
               <Store />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/innovate"
+          element={
+            <ProtectedRoutes>
+              <Innovate />
             </ProtectedRoutes>
           }
         />
