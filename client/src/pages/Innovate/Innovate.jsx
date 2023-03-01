@@ -9,7 +9,7 @@ import axios from "axios";
 import styles from "./Innovate.module.css";
 
 const labelStyles = {
-  root: { marginTop: 5, backgroundColor: "#DFF5CE" },
+  root: { marginTop: 5, backgroundColor: "#E4E4DC" },
 };
 
 const Innovate = (props) => {

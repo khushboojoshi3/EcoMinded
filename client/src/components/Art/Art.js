@@ -357,12 +357,12 @@ const Art = ({ arts, updateArts }) => {
               </div>
             </div>
             <div className={styles.singleArt}>
-              <div>
+              <div className={styles.modalTitle}>
                 <h3>{artInfo?.data?.title}</h3>
               </div>
 
               <div className={styles.art_img}>
-                <img width="300" height="200" src={artInfo?.data?.url} />
+                <img src={artInfo?.data?.url} />
               </div>
               <div className={styles.contentClass}>
                 <p>{artInfo?.data?.description}</p>
