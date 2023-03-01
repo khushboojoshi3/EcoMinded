@@ -51,6 +51,14 @@ function App() {
             </ProtectedRoutes>
           }
         />
+        <Route
+          path="/innovate"
+          element={
+            <ProtectedRoutes>
+              <Innovate />
+            </ProtectedRoutes>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

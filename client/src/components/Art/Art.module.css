@@ -29,7 +29,8 @@ body {
 
 .hero_section {
   align-items: flex-start;
-  background-image: url(../../assets/art_bg.jpg);
+  /* background-image: url(../../assets/art_bg.jpg); */
+  background-color: #DFF5CE;
   background-size: contain;
   display: flex;
   /* height: 100vh; */

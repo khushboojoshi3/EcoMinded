@@ -7,6 +7,7 @@ import {
 } from "@fortawesome/free-regular-svg-icons";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
+import Header from "../Header/Header";
 import axios from "axios";
 import styles from "./BlogView.module.css";
 const BlogView = () => {
@@ -44,6 +45,8 @@ const BlogView = () => {
   };
   //   console.log(blog);
   return (
+    <>
+    <Header />
     <div className={styles.blog_post}>
       {isLoading ? (
         "Loading"
@@ -93,6 +96,7 @@ const BlogView = () => {
         </>
       )}
     </div>
+    </>
   );
 };
 

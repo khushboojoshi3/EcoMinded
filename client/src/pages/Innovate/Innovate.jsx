@@ -4,12 +4,12 @@ import { Feed } from "../../components/Feed/Feed";
 import Art from "../../components/Art/Art";
 import { useState } from "react";
 import { useQuery } from "react-query";
-import { Header } from "../../components/Header/Header";
+import Header from "../../components/Header/Header";
 import axios from "axios";
 import styles from "./Innovate.module.css";
 
 const labelStyles = {
-  root: { marginTop: 10 },
+  root: { marginTop: 5, backgroundColor: "#DFF5CE" },
 };
 
 const Innovate = (props) => {
@@ -49,7 +49,7 @@ const Innovate = (props) => {
 
   return (
     <>
-      {/* <Header/> */}
+      <Header/>
       <div className={styles.pivot}>
         <Pivot aria-label="Innovate">
           <PivotItem headerText="Art">
