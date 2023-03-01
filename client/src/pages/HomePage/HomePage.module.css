@@ -115,16 +115,17 @@ color: #FFFFFF;
     padding: 20px 20px 20px 20px;
 }   
 .heading h1{
-    font-size:35px;
+    font-size:42px;
     font-family: 'Hanuman';
 font-style: normal;
 font-weight: 700;
-padding-left: 510px;
-padding-top: 28px;
-background: linear-gradient(90.03deg, rgba(63, 146, 86, 0.95) 1.95%, rgba(31, 184, 37, 0.95) 91.07%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
+padding-left: 520px;
+position: absolute;
+margin-top:10px;
+
+
+color: #375F42;
+
 
 } 
 .cause{
@@ -245,7 +246,7 @@ font-weight:700;
     
   }
   .polaroid{
-    height: 589px;
+    height: 593px;
     width: 34.3%;
     background-color: white;
     margin-top:40px;
@@ -317,13 +318,141 @@ font-weight:700;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
-.gif img{
+/* .gif img{
     
     width: 645px;
     height: 460px;
     margin-top: -310px;
      margin-left:704px;
      margin-bottom: -85px;
+} */
+.soln{
+height:710px;
+background:linear-gradient(180deg, rgba(154, 225, 143, 0.73) 10.27%, rgba(240, 241, 149, 0.963002) 96.87%);
+}
+.frontrow{
+    position: absolute;
+    top:210px;
+    left: 250px;
+}
+.card1{
+    background-color: #F6F6DB;
+    height: 250px;
+    width: 370px;
+    position: absolute;
+    left: 40px;
+    top: 1320px;
+    border-radius: 15px;
+    box-shadow: #9ace9a 5px 6px;
+
+}
+.card1 p{
+    position: absolute;
+    top: 180px;
+    left: 50px;
+    font-size:20px;
+    font-weight:600;
+    color:#375F42;
+}
+.card1 img{
+    height: 260px;
+    width: 90%;
+    position : absolute;
+    top:-46px;
+    left:22px;
+
+}
+.card2 {
+    background-color: #F6F6DB;
+    height: 250px;
+    width: 370px;
+    position: absolute;
+    left: 40px;
+    top: 1620px;
+    border-radius: 15px;
+    box-shadow: #9ace9a 5px 6px;
+
+}
+
+.card2 p {
+    position: absolute;
+    top: 180px;
+    left: 80px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #375F42;
+}
+
+.card2 img {
+    height: 230px;
+    width: 75%;
+    position: absolute;
+    top: -16px;
+    left: 47px;
+
+}
+.secondrow {
+    position: absolute;
+    top: 210px;
+    left: 670px;
+}
+.card3 {
+    background-color: #F6F6DB;
+    height: 250px;
+    width: 370px;
+    position: absolute;
+    left: 40px;
+    top: 1320px;
+    border-radius: 15px;
+    box-shadow: #9ace9a 5px 6px;
+
+}
+
+.card3 p {
+    position: absolute;
+    top: 180px;
+    left: 80px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #375F42;
+}
+
+.card3 img {
+    height: 260px;
+    width: 90%;
+    position: absolute;
+    top: -36px;
+    left: 1px;
+
+}
+.card4 {
+    background-color: #F6F6DB;
+    height: 250px;
+    width: 370px;
+    position: absolute;
+    left: 40px;
+    top: 1620px;
+    border-radius: 15px;
+    box-shadow: #9ace9a 5px 6px;
+
+}
+
+.card4 p {
+    position: absolute;
+    top: 180px;
+    left: 100px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #375F42;
+}
+
+.card4 img {
+    height: 230px;
+    width: 75%;
+    position: absolute;
+    top: -16px;
+    left: 47px;
+
 }
 
 .footer{

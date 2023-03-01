@@ -5,6 +5,8 @@ import quiz from '../../assets/quiz.jpg';
 import trophy from '../../assets/trophy.gif';
 import { Link } from 'react-router-dom';
 
+
+
 import * as AiIcons from 'react-icons/ai';
 function Quiz(){
     const playclick =()=>{
@@ -20,7 +22,7 @@ function Quiz(){
                 <img src={quiz} />
                 <div className={styles.button}>
                     <div className={styles.rect}>
-                     <Link to="#" className={styles.playicon}>
+                     <Link to="./questions" className={styles.playicon}>
                           <AiIcons.AiOutlinePlayCircle />
                       </Link>
                      <h1>Play Quiz!</h1>

@@ -4,6 +4,10 @@ import Header from '../../components/Header/Header';
 
 import main from '../../assets/main.jpg'
 import env from '../../assets/env.png';
+import card1 from '../../assets/card1.png';
+import card2 from '../../assets/card2.png';
+import card3 from '../../assets/card3.png';
+import card4 from '../../assets/card4.png';
 
 
 import gif from '../../assets/gif.gif';
@@ -72,27 +76,37 @@ return(
           </div>
 
    
-      <div className={styles.logo}>
+      <div className={styles.border}>
+       <div className={styles.soln}>
       <div className={styles.heading}>
         <h1>We are the solution!</h1>
         </div>
-        <div className={styles.para}>
-        <p>Sustainable living is a lifestyle that seeks to reduce the impact of
-        human activities on the environment and conserve natural
-        resources for future generations.
-        </p>
-        <div className={styles.pointer}>
-            <p>Reducing Energy Consumption.<br/>
-               Proper Waste Disposal.<br/>
-               Purchasing Sustainably from brands that care for the environment.<br/>
-               Reducing waste production by following zero waste practices.</p>
+        <div className={styles.cards}>
+        <div className={styles.frontrow}>
+          <div className={styles.card1}>
+            <img src={card1} alt="../reduce energy consumption"/>
+           <p>Reducing Energy Consumption</p>
+          </div>
+          <div className={styles.card2}>
+            <img src={card2} alt="../reduce energy consumption"/>
+           <p>Proper Waste Disposal</p>
+          </div>
+        </div>
+          <div className={styles.secondrow}>
+          <div className={styles.card3}>
+            <img src={card3} alt="../reduce energy consumption"/>
+           <p>Purchasing Sustainably</p>
+          </div>
+          <div className={styles.card4}>
+            <img src={card4} alt="../reduce energy consumption"/>
+           <p>Zero waste practices</p>
+          </div>
         </div>
         </div>
       </div>
-    <div className={styles.gif}>
-    <img src={gif} alt="loading..."/>
+    
     </div>
-    <div className={styles.logo}>
+    <div className={styles.border}>
     <div className={styles.footer}>
     <div className={styles.contain}>
     <div className={styles.col}>
