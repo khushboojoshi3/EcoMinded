@@ -72,12 +72,12 @@ const Art = ({ arts, updateArts }) => {
   };
 
   const [viewArt, setViewArt] = useState(false);
-  const openArt = async (artid) => {
+  const openArt = async (art) => {
     setViewArt(true);
     try {
-      const artObj = await axios.get(`/art/find/${artid}`);
-      setArtInfo(artObj.data);
-      console.log(artObj);
+      // const artObj = await axios.get(`/art/find/${artid}`);
+      setArtInfo(art);
+      // console.log(artObj);
       // console.log(artInfo);
     } catch (err) {
       console.log(err.response.data);
@@ -179,7 +179,7 @@ const Art = ({ arts, updateArts }) => {
           style={{
             backgroundImage: `url(${art.data.url})`,
           }}
-          onClick={() => openArt(art.data._id)}
+          onClick={() => openArt(art)}
         ></div>
         <div className={styles.card__content}>
           <p className={styles.card__category}>{art.data.title}</p>
@@ -342,8 +342,14 @@ const Art = ({ arts, updateArts }) => {
               <div className={`${styles.post_stats} ${styles.clearfix}`}>
                 <div className={styles.pull_right}>
                   <div className={styles.iconClass}>
-                    <FontAwesomeIcon icon={faHeart} size="2x"></FontAwesomeIcon>
-                    <p className={styles.count}>{artInfo?.data?.likes.length}</p>
+                    <FontAwesomeIcon
+                      className={artInfo.isLiked ? styles.liked : styles.unliked}
+                      icon={faHeart}
+                      size="2x"
+                    ></FontAwesomeIcon>
+                    <p className={styles.count}>
+                      {artInfo?.data?.likes.length}
+                    </p>
                   </div>
                   <div className={styles.iconClass}>
                     <FontAwesomeIcon icon={faEye} size="2x" />
