@@ -91,15 +91,28 @@ export const getArts = async (req,res,next)=>{
     }
   };
 
-// export const updateLikes = async (req, res, next) => {
-//   try {
-//       const updatedArt = await Art.findByIdAndUpdate(
-//         req.params.id,
-//         { $inc: 1 },
-//         { new: true }
-//       );
-//       res.status(200).json(updatedArt);
-//   } catch(err) {
-//     next(err);
-//    }
-//  } 
+export const updateLikes = async (req, res, next) => {
+  try {
+    const updatedArt = await Art.findByIdAndUpdate(
+      req.params.artid,
+      { $addToSet: { likes: req.params.userid } },
+      { new: true }
+    );
+    res.status(200).json(updatedArt);
+  } catch (err) {
+    next(err);
+  }
+};
+
+export const updateDislikes = async (req, res, next) => {
+  try {
+    const updatedArt = await Art.findByIdAndUpdate(
+      req.params.artid,
+      { $pull: { likes: req.params.userid } },
+      { new: true }
+    );
+    res.status(200).json(updatedBlog);
+  } catch (err) {
+    next(err);
+  }
+};

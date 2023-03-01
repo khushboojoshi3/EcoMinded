@@ -6,9 +6,7 @@ const ArtSchema = new mongoose.Schema(
       required: true,
     },
     likes: {
-      type: Number,
-      default: 0,
-      required: true,
+      type: [String],
     },
     views: {
       type: Number,

@@ -8,7 +8,7 @@ import {
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import axios from "axios";
-import styles from './BlogView.module.css';
+import styles from "./BlogView.module.css";
 const BlogView = () => {
   const { id } = useParams();
   const {
@@ -42,7 +42,7 @@ const BlogView = () => {
     const str = `${day}-${arr[month]}-${year}`;
     return str;
   };
-//   console.log(blog);
+  //   console.log(blog);
   return (
     <div className={styles.blog_post}>
       {isLoading ? (
@@ -71,14 +71,11 @@ const BlogView = () => {
               </div>
               <div className={styles.pull_right}>
                 <div className={styles.iconClass}>
-                  <FontAwesomeIcon
-                    icon={faHeart}
-                  ></FontAwesomeIcon>
+                  <FontAwesomeIcon icon={faHeart}></FontAwesomeIcon>
                   <div className={styles.count}>{blog.data.data.likes}</div>
                 </div>
                 <div className={styles.iconClass}>
-                  <FontAwesomeIcon icon={faEye} 
-                   />
+                  <FontAwesomeIcon icon={faEye} />
                   <div className={styles.count}>{blog.data.data.views}</div>
                 </div>
               </div>
@@ -97,7 +94,6 @@ const BlogView = () => {
       )}
     </div>
   );
-}
-
+};
 
 export default BlogView;

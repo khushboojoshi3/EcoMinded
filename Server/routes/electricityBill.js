@@ -5,7 +5,7 @@ import { verifyUser,verifyAdmin } from "../utils/verifyToken.js";
 const router = express.Router();
 //CREATE
 router.post("/:userid", verifyUser, createElectricityBill);
-
+// router.post("/:userid", createElectricityBill);
 //UPDATE
 router.put("/:id", verifyUser, updateElectricityBill);
 

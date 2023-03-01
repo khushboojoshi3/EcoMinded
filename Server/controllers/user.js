@@ -49,6 +49,9 @@ export const getMyBills = async (req, res, next) => {
         return ElectricityBill.findById(electricityBill);
       })
     );
+    list.sort(function (a, b) {
+      return new Date(a.from) - new Date(b.from);
+    });
     res.status(200).json(list);
   } catch (err) {
     next(err);

@@ -108,3 +108,16 @@ export const updateLikes = async (req, res, next) => {
     next(err);
   }
 };
+
+export const updateDislikes = async (req, res, next) => {
+  try {
+    const updatedBlog = await Blog.findByIdAndUpdate(
+      req.params.blogid,
+      { $pull: { likes: req.params.userid } },
+      { new: true }
+    );
+    res.status(200).json(updatedBlog);
+  } catch (err) {
+    next(err);
+  }
+};

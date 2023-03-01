@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Cedarville+Cursive&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital@1&display=swap');
+/*
+   width: 1200px;
+   height: 500px;
+   margin-left: 80px;
+   margin-top:20px;
+   padding:20px 20px 20px 20px;
+   background-repeat: no-repeat;
+   background-image: linear-gradient(180deg, #375F42 0%, rgba(38, 165, 58, 0.94) 100%),url(bg.gif);
+   background-size: cover;
+   
+  }*/
+  
+ #bg {
+    
+    background: linear-gradient(180deg, #375F42 , rgba(67, 135, 86, 0.6) 100%),
+    url('../../assets/bg.gif');
+    width: 100%;
+    height: 100vh;
+     
+    
+    margin-bottom: 54px;
+    background-size: contain;
+    color: white;
+    
+} 
+#bg h1{
+    position: absolute;
+width: 419px;
+height: 137px;
+left: 160px;
+top: 162px;
+
+font-family: 'Hanuman', serif;
+font-style: normal;
+font-weight: 700;
+font-size: 50px;
+line-height: 73px;
+
+color: #FFF9F9;
+
+}
+.bor_env img{
+   width: 52.5%;
+   height: 370px;
+   position: absolute; 
+   top: 1095px;
+   left: 641px;
+  
+
+}
+#bg p{
+    position: absolute;
+width: 449px;
+height: 247px;
+left: 160px;
+top: 340px;
+
+font-family: 'Hanuman', serif;
+font-style: normal;
+font-weight: 200;
+font-size: 30px;
+line-height: 30px;
+
+color: #FFFFFF;
+}
+.mainpic img{
+    position: absolute;
+    width: 420px;
+    height: 400px;
+    top:165px;
+    left: 770px;
+    border-radius: 50%;
+
+}
+/*.mainpic1 img{
+    top: 480px;
+    width: 100%;
+    height: 100vh;
+    z-index:1;
+
+}*/
+
+
+.gifi{
+   
+    background-color: white;
+}
+
+.gifi img{
+
+    height: 1600px;
+    width: 100%;
+    z-index: 1;
+}
+.border{
+    border-top: 12px  solid #375F42;
+    
+    
+    
+    }
+    .logo{
+        border-top: 12px solid #375F42;
+        
+        /*background: linear-gradient(180deg, #375F42 , rgba(38, 165, 58, 0.75) 100%);
+    */}
+
+.bg img{
+    position: absolute;
+    width: 1168px;
+    height: 583px;
+    left: 100px;
+    top: 60px;
+    padding: 20px 20px 20px 20px;
+}   
+.heading h1{
+    font-size:35px;
+    font-family: 'Hanuman';
+font-style: normal;
+font-weight: 700;
+padding-left: 510px;
+padding-top: 28px;
+background: linear-gradient(90.03deg, rgba(63, 146, 86, 0.95) 1.95%, rgba(31, 184, 37, 0.95) 91.07%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+
+} 
+.cause{
+    background-color: #DEFCF9;
+    height: 640px;
+}
+.headingcause{
+    font-size:22px;
+    font-family: 'Hanuman';
+    font-style: normal;
+    font-weight: 700;
+    background: #375F42;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: absolute;
+    top: 790px;
+    left: 769px;
+
+}
+
+
+.content_det1{
+    position: absolute;
+    top:890px;
+    left: 690px;
+}
+.content_det1 h1{
+    font-size:23px;
+    font-family: 'Hanuman';
+    font-style: normal;
+    font-weight: 700;
+    color: #375F42;
+   
+}
+.content_det1 p{
+    font-size:16px;
+    font-family: 'Hanuman';
+    font-style: normal;
+    font-weight: 500;
+    color: #227C70;
+}
+.content_det2{
+    position: absolute;
+    top:1000px;
+    left: 690px;
+}
+.content_det2 h1{
+    font-size:22px;
+    font-family: 'Hanuman';
+    font-style: normal;
+    font-weight: 700;
+    color: #375F42;
+    
+}
+.content_det2 p{
+    font-size:16px;
+    font-family: 'Hanuman';
+    font-style: normal;
+    color: #227C70;
+   
+}
+.content_det3{
+    position: absolute;
+    top:1100px;
+    left: 690px;
+}
+.content_det3 h1{
+    font-size:22px;
+    font-family: 'Hanuman';
+    font-style: normal;
+    font-weight: 700;
+    color: #375F42;
+   
+}
+.content_det3 p{
+    font-size:16px;
+    font-family: 'Hanuman';
+    font-style: normal;
+    color: #227C70;
+    
+}
+  
+ 
+ .fact{
+    position: absolute;
+    top:380px;
+    padding: 18px;
+    
+ }
+  .fact h1{
+    font-size: 28px;
+    
+    font-family: 'Allura', cursive;
+    font-family: 'Cedarville Cursive', cursive;
+   /* position: absolute;
+    top: 1163px;
+    left:100px;*/
+    margin-left:20px;
+    color: black;
+    
+    
+  }
+  .fact p{
+    font-size: 1.1rem;
+    margin-top: -19px;
+    font-family: 'Shantell Sans', cursive;
+    /*font-family: 'Allura', cursive;
+font-family: 'Cedarville Cursive', cursive;*/
+font-weight:700;
+    /*position: absolute;
+    top: 1200px;
+    left:692px;*/
+    margin-left:20px;
+    color: black;
+    
+
+    
+  }
+  .polaroid{
+    height: 589px;
+    width: 34.3%;
+    background-color: white;
+    margin-top:40px;
+    margin-left: 85px;
+    transform: rotate(-20deg);
+    border-radius: 8px;
+    
+  }
+  
+  .rec1{
+    background-color: #93C6E7;
+    height: 500px;
+    width: 39%;
+    position :absolute;
+    left: 40px;
+    top: 780px;
+    border-radius: 16px;
+  }
+  .rec2{
+    background-color: #B5F1CC;
+    height: 500px;
+    width: 39%;
+    position :absolute;
+    left: 40px;
+    top: 820px;
+    border-radius: 16px;
+    transform: rotate(20deg);
+  }
+  .rec3{
+    background-color:#D9ACF5 ;
+    height: 500px;
+    width: 39%;
+    position :absolute;
+    left: 40px;
+    top: 820px;
+    border-radius: 16px;
+    transform: rotate(170deg);
+  }
+  .gifi img{
+    
+    height: 380px;
+    width: 85%;
+    margin-left:36px;
+    margin-top: 35px;
+    
+
+  }
+  
+.para p{
+    font-size:22px;
+    font-family: 'Hanuman';
+    font-style: italic;
+    font-weight: 100;
+    padding-top: 28px;
+    margin-left: 58px;
+    background: rgba(63, 146, 86, 0.95);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 22px;
+}
+.pointer p{
+    font-size:22px;
+    font-family: 'Hanuman';
+    padding-bottom: 15px;
+    font-style: normal;
+    background: brown;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.gif img{
+    
+    width: 645px;
+    height: 460px;
+    margin-top: -310px;
+     margin-left:704px;
+     margin-bottom: -85px;
+}
+
+.footer{
+    background: linear-gradient(180deg, rgba(81, 102, 142, 0.729) 0%, rgba(83, 149, 101, 0.729) 62.51%, rgba(41, 164, 61, 0.783) 96.35%, rgba(38, 165, 58, 0.846) 100%);
+}
+.col{
+    color: whitesmoke;
+}
+.idea h1{
+    margin-left: 18px;
+    
+}

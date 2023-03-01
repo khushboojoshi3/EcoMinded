@@ -21,7 +21,7 @@ export const register = async (req, res, next) => {
 };
 export const login = async (req, res, next) => {
   try {
-    const user = await User.findOne({ username: req.body.username });
+    const user = await User.findOne({ email: req.body.email });
     if (!user) return next(createError(404, "User not found!"));
 
     const isPasswordCorrect = await bcrypt.compare(
@@ -46,4 +46,11 @@ export const login = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
+};
+export const logout = async (req, res) => {
+  // Set access_token to none and expire after 5 seconds
+  res.clearCookie("access_token");
+  res
+    .status(200)
+    .json({ success: true, message: "User logged out successfully" });
 };

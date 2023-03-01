@@ -6,6 +6,13 @@ const UserSchema = new mongoose.Schema(
       required: true,
       unique:true,
     },
+    fname: {
+      type: String,
+      required:true
+    },
+    lname: {
+      type: String,
+    },
     mobileNo: {
       type: String,
       required: true,
@@ -23,11 +30,7 @@ const UserSchema = new mongoose.Schema(
     },
     coins: {
       type: Number,
-      default: 0,
-    },
-    zone: {
-        type: String,
-        default:"yellow"
+      default: 50,
     },
     art: {
       type: [String],

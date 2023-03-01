@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useContext, useEffect } from "react";
 import styles from "./Feed.module.css";
 import {
   faHeart,
@@ -14,19 +14,33 @@ import Picker from "@emoji-mart/react";
 import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import { VscSmiley } from "react-icons/vsc";
+import { AuthContext } from "../../context/AuthContext";
 Modal.setAppElement("#root");
 
 export function Feed({ blogs, updateBlogs }) {
+  const { user } = useContext(AuthContext);
+  console.log(user);
   const [blogData, setBlogData] = useState(
     blogs.map((blog) => {
-      
       return {
         ...blog,
         likeCount: blog.data.likes.length,
-        isLiked: blog.data.likes.includes("63f8661ffebeaf2c928772c7"),
+        isLiked: blog.data.likes.includes(user?._id),
       };
     })
   );
+
+  useEffect(() => {
+    setBlogData(
+      blogs.map((blog) => {
+        return {
+          ...blog,
+          likeCount: blog.data.likes.length,
+          isLiked: blog.data.likes.includes(user?._id),
+        };
+      })
+    );
+  }, [blogs]);
   const [image, setImage] = useState("");
   const [url, setUrl] = useState("");
   const uploadImage = () => {
@@ -72,18 +86,22 @@ export function Feed({ blogs, updateBlogs }) {
   };
   const handleLikeClick = async (blogid) => {
     try {
+      let currBlog = false;
       setBlogData(
         blogData.map((blog) => {
           if (blog.data._id === blogid) {
             blog.likeCount += blog.isLiked ? -1 : 1;
             blog.isLiked = !blog.isLiked;
+            currBlog = blog.isLiked;
           }
           return blog;
         })
       );
-      const update = await axios.put(
-        `/blog/likes/${blogid}/63f8661ffebeaf2c928772c7`
-      );
+      if (currBlog) {
+        await axios.put(`/blog/likes/${blogid}/${user._id}`);
+      } else {
+        await axios.put(`/blog/dislikes/${blogid}/${user._id}`);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -91,12 +109,12 @@ export function Feed({ blogs, updateBlogs }) {
   const handleSubmit = async (id) => {
     try {
       const newBlog = await axios.post(
-        "/blog/63f8661ffebeaf2c928772c7",
+        `/blog/${user._id}`,
         {
           title: title,
           content: content,
           feature_img: url,
-          author: "63f8661ffebeaf2c928772c7",
+          author: user._id,
         },
         {
           headers: { "Content-Type": "application/json" },

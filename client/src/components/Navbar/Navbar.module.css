@@ -1,0 +1,108 @@
+.menu_bars {
+  font-size: 40px;
+  color:rgba(38, 165, 58, 0.94);
+  background: none;
+  position: absolute;
+  top: 0;
+  right: 20px;
+}
+.menu_bars_cross{
+  margin-left: 13rem;
+  margin-top: -3rem;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.nav_menu {
+  background: linear-gradient(180deg, #375F42 0%, rgba(38, 165, 58, 0.94) 100%);  
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  margin-left:70rem;
+  top: 0;
+  transition: 850ms;
+  right: 0;
+  /* transition: 350ms; */
+  z-index: 1;
+}
+.pfpdet h2{
+  font-size: 18px;
+  font-family: 'Hanuman';
+  margin-top:-9px;
+  
+}
+.user{
+    display: flex;
+    color:white;
+    column-gap: 10px;
+    padding: 0px 20px;
+}
+.pfpdet{
+  font-family: 'Hanuman';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+}
+.pfpdet h1{
+    margin-top:0px;
+    margin-bottom:10px;
+}
+.pfp_logo{
+  font-size: 68px;
+}
+.coins{
+  margin-top:-8px;
+}
+.coins p{
+  display: inline-block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.coins img{
+  width: 20%;
+}
+.nav_text {
+  padding: 4px 0px 0px 0px;
+  font-family: 'Hanuman';
+  font-style: normal;
+  font-weight: 700;
+}
+
+.nav_text a,.nav_text div {
+  text-decoration: none;
+  border-bottom: 2px solid white;
+  color: #f5f5f5;
+  align-content: center;
+  font-size: 18px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px 60px 10px;
+}
+
+.nav_text a:hover,.nav_text div:hover {
+  background-color: white;
+  color:rgba(38, 165, 58, 0.94);
+}
+
+.nav_menu_items {
+  width: 100%;
+  list-style: none;
+  padding: 0px;
+}
+.nav_det{
+  border-top: 2px solid white;
+  margin-top: 20px;
+}
+
+.navbar_toggle {  
+  width: 100%;
+}
+
+.nav_text span {
+  margin-left: 16px;
+}
