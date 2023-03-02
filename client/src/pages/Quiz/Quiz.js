@@ -1,14 +1,15 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import Header from '../../components/Header/Header';
 import styles from  './Quiz.module.css';
 import quiz from '../../assets/quiz.jpg';
 import trophy from '../../assets/trophy.gif';
 import { Link } from 'react-router-dom';
-
-
-
+// import {AuthContext} from "../../context/AuthContext";
 import * as AiIcons from 'react-icons/ai';
+
 function Quiz(){
+    // const { user } = useContext(AuthContext);
+    console.log(user.username);
     const playclick =()=>{
         console.log('Click');
     }
