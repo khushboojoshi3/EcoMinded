@@ -111,7 +111,20 @@ export const updateDislikes = async (req, res, next) => {
       { $pull: { likes: req.params.userid } },
       { new: true }
     );
-    res.status(200).json(updatedBlog);
+    res.status(200).json(updatedArt);
+  } catch (err) {
+    next(err);
+  }
+};
+
+export const updateViews = async (req, res, next) => {
+  try {
+    const updatedArt = await Art.findByIdAndUpdate(
+      req.params.artid,
+      { $inc: { views: 1 } },
+      { new: true }
+    );
+    res.status(200).json(updatedArt);
   } catch (err) {
     next(err);
   }

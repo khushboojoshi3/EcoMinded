@@ -8,6 +8,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useQuery } from "react-query";
 import { useState } from "react";
+import {months} from "../../utils/date";
 import axios from "axios";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
@@ -19,7 +20,7 @@ Modal.setAppElement("#root");
 
 export function Feed({ blogs, updateBlogs }) {
   const { user } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
   const [blogData, setBlogData] = useState(
     blogs.map((blog) => {
       return {
@@ -74,16 +75,24 @@ export function Feed({ blogs, updateBlogs }) {
   };
   const customstyless = {
     content: {
-      top: "50%",
+      top: "60%",
       left: "50%",
       right: "auto",
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      height: "550px",
+      height: "500px",
       width: "400px",
     },
   };
+  const handleReadMoreClick =async (blogid) => {
+    try{
+      await axios.put(`/blog/views/${blogid}`);
+      navigate(`/blogview/${blogid}`);
+    }catch(err){
+      console.log(err.response.data);
+    }
+  }
   const handleLikeClick = async (blogid) => {
     try {
       let currBlog = false;
@@ -135,21 +144,7 @@ export function Feed({ blogs, updateBlogs }) {
     const day = date.getDate();
     const month = date.getMonth(); // getMonth() returns month from 0 to 11
     const year = date.getFullYear();
-    const arr = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-    const str = `${day}-${arr[month]}-${year}`;
+    const str = `${day}-${months[month]}-${year}`;
     return str;
   };
   const articles = blogData.map((blog) => {
@@ -185,7 +180,9 @@ export function Feed({ blogs, updateBlogs }) {
               {blog.data.content.substring(0, 200)} ...
               <a
                 className={styles.read_more}
-                href={`/blogview/${blog.data._id}`}
+                href="javascript:void(0)"
+                onClick={() => handleReadMoreClick(blog.data._id)}
+                // href={`/blogview/${blog.data._id}`}
               >
                 Read more
               </a>
@@ -300,6 +297,7 @@ export function Feed({ blogs, updateBlogs }) {
           <div>
             <input
               type="file"
+              placeholder="Choose image"
               onChange={(e) => setImage(e.target.files[0])}
             ></input>
             <button
@@ -307,13 +305,14 @@ export function Feed({ blogs, updateBlogs }) {
                 e.preventDefault();
                 uploadImage();
               }}
+              className={styles.uploadButton}
             >
               Upload
             </button>
           </div>
           <div>
             Uploaded image will be displayed here
-            <img width="200" height="180" src={url} />
+            <img width="200" height="120" src={url} />
           </div>
           <input
             type="submit"

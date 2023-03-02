@@ -8,7 +8,8 @@ import {
   updateBlog,
   getAuthor,
   updateLikes,
-  updateDislikes
+  updateDislikes,
+  updateViews
 } from "../controllers/Blog.js";
 import {verifyUser} from "../utils/verifyToken.js"
 
@@ -18,7 +19,8 @@ const router = express.Router();
 router.post("/:userid",verifyUser, createBlog);
 //UPDATE
 router.put("/:id", verifyUser,updateBlog);
-
+//UPDATE VIEWS
+router.put("/views/:blogid/",verifyUser, updateViews);
 //UPDATE LIKES
 router.put("/likes/:blogid/:userid",verifyUser, updateLikes);
 //UPDATE DISLIKES

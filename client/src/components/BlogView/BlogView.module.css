@@ -1,5 +1,5 @@
 
-body {
+/* body {
 
 	font:500 14px "Source Sans Pro";
 	color:#555353;
@@ -34,7 +34,7 @@ h4 {
 
 a {
 	text-decoration:none;
-}
+} */
 
 
 
@@ -81,11 +81,11 @@ summary .blog_date {
     padding-left:2px ;
     color:#909090;
 }
-article {
+/* article {
     
     padding-bottom:50px;
     
-}
+} */
 .blog_content {
     width:55%;
     margin:auto;
@@ -142,11 +142,11 @@ img.avatar_image {
     display: -ms-flexbox;
     display: flex;
    }
-body.posts.show .metabar-author-info [data-react-class="PopoverLink"] {
+.posts.show .metabar-author-info [data-react-class="PopoverLink"] {
     display: inline-block;
     margin-left: 8px;
    }
-body.posts.show .metabar-author-info [data-react-class="PopoverLink"] a {
+.posts.show .metabar-author-info [data-react-class="PopoverLink"] a {
     color: rgba(0, 0, 0, 0.6);
    }
 .popover_link {
@@ -198,8 +198,15 @@ body.posts.show .metabar-author-info [data-react-class="PopoverLink"] a {
 } 
 
 .count{
-
     position: relative;
     /* top: 20%; */
     text-align: center;
+}
+
+.liked {
+  color: red;
+}
+
+.unliked {
+  color: black;
 }
