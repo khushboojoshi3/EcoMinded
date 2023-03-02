@@ -40,7 +40,8 @@ router.get("/:id", verifyUser, getUser);
 //GET ALL
 router.get("/", verifyAdmin, getUsers);
 //GET BILLS
-router.get("/electricityBills/:id",verifyUser,getMyBills);
+router.get("/electricityBills/:id", verifyUser, getMyBills);
+// router.get("/electricityBills/:id", getMyBills);
 //GET DONATIONS
 router.get("/donations/:id", verifyUser, getMyDonations);
 //GET ART

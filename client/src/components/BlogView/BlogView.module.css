@@ -1,0 +1,212 @@
+
+/* body {
+
+	font:500 14px "Source Sans Pro";
+	color:#555353;
+}
+
+h1, h2, h3, h4 {
+	color:#373737;
+}
+
+h1 {
+	font-size:2em;
+	font-weight:700;
+	display:flex;
+	justify-content:flex-start;
+	align-items:center;
+	margin:30px 0;
+}
+
+h2 {
+	font-size:1.8em;
+	font-weight:700;
+}
+
+h3 {
+	font-size:1.6em;
+	font-weight:700;
+}
+
+h4 {
+	font-size:1.4em;
+}
+
+a {
+	text-decoration:none;
+} */
+
+
+
+.contentClass {
+    line-height:1.9em;
+    margin:2em 0;
+    font-size:1em;
+    font-weight: 500;
+}
+
+.blog_post {
+    width:80%;
+    max-width:1100px;
+    background:white;
+    margin:20px auto 0;   
+    border:1px solid #f4f4f4;
+    box-shadow:0 0 25px rgba(0,0,0,.05);
+}
+
+.blog_hero {
+    width:100%;
+    height:0;
+    padding-bottom:30%;
+    background:url('https://media.istockphoto.com/id/942483984/vector/green-eco-urban-city-environment-concept.jpg?s=612x612&w=0&k=20&c=257TCMAfgdMS2NFzIdt2wuxW-GKXPpoAAIr9NVx7id4=') 20% 70% no-repeat ;
+    background-size: cover;
+    position: relative;
+}
+
+
+summary {
+    margin-top:20px;
+    display:inline-block;
+}
+summary h3 {
+    width:100%;
+    font-size:2.5em;
+    color:#555;
+    font-weight: 500;
+}
+
+summary .blog_date {
+    width:100%;
+    font-size:15px;
+    padding-left:2px ;
+    color:#909090;
+}
+/* article {
+    
+    padding-bottom:50px;
+    
+} */
+.blog_content {
+    width:55%;
+    margin:auto;
+}
+
+.blog_img img{
+    width: 100%;
+    height: 40%;
+    margin:50px auto 20px;
+    /* padding-bottom:15%; */
+    background-size:cover;
+    left: 0%;
+    position:relative;
+}
+
+.blog_img_caption {
+    position:absolute;
+    bottom:-30px;
+    font-size:.9em;
+    color:#888;
+    left:4%;
+}
+
+b {
+    font-weight:bold;
+}
+
+.post_metadata {
+    font-size: 1.2rem;
+    padding-top: 3%;
+    position: relative;
+    left: 23%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+   }
+   .post_metadata .post_info {
+    padding-left: 10px;
+   }
+   .post_metadata .post_info a {
+    color: #00ab6b;
+    text-decoration: none;
+   }
+   .post_metadata .post_info small {
+    color: rgba(0, 0, 0, 0.44);
+   }
+
+img.avatar_image {
+    border-radius: 50%}
+   .post_metadata {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+   }
+.posts.show .metabar-author-info [data-react-class="PopoverLink"] {
+    display: inline-block;
+    margin-left: 8px;
+   }
+.posts.show .metabar-author-info [data-react-class="PopoverLink"] a {
+    color: rgba(0, 0, 0, 0.6);
+   }
+.popover_link {
+    position: relative;
+   }
+@media (min-width:601px) and (max-width:1000px){
+    .blog_post {
+        width:90%;
+    }
+    .blog_content {
+        width:75%;
+    }
+  
+    .blog_hero {
+        padding-bottom:35%;
+    }
+}
+
+
+
+
+@media (max-width:600px){
+    .blog_post {
+        font-size:.9em;
+        width:90%;
+    }
+    .blog_content {
+        width:80%;
+    }
+    .blog_img {
+        width:90%;
+        padding-bottom: 50%;
+    }
+    .blog_hero {
+        padding-bottom:60%;
+    }
+}
+
+.pull_right{
+    display: flex;
+    float: right;
+    margin-left: 50%;
+    position: relative;
+    /* left: 80%; */
+}
+
+.iconClass{
+    margin: 4px;
+} 
+
+.count{
+    position: relative;
+    /* top: 20%; */
+    text-align: center;
+}
+
+.liked {
+  color: red;
+}
+
+.unliked {
+  color: black;
+}

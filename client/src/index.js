@@ -7,12 +7,15 @@ import App from './App';
    QueryClientProvider,
 } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+import { AuthContextProvider } from './context/AuthContext';
 const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <App />
+      <AuthContextProvider>
+        <App />
+      </AuthContextProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   </React.StrictMode>

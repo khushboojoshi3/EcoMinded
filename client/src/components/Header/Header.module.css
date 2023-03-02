@@ -9,6 +9,7 @@
     display: flex;
     align-items: center;
     padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .header img {
@@ -25,4 +26,17 @@
     color: #375F42;
     margin-top: 0px;
     margin-bottom: 0px;
+}
+.login{
+    position:absolute;
+    right:20px;
+}
+.login button{
+    border:none;
+    background-color: #375F42;
+    color:white;
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 5px;
+    width: 80px;
 }

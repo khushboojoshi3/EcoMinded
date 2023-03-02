@@ -22,19 +22,20 @@ export const createElectricityBill = async (req, res, next) => {
               lca_activity: "electricity_generation",
             },
             parameters: {
-              energy: req.body.units,
+              energy: parseInt(req.body.units),
               energy_unit: "kWh",
             },
           }),
         }
     );
     const responseCo2 = await response.json();
-    const request={...req.body,co2e: responseCo2.co2e}
+    const request = { ...req.body, co2e: responseCo2.co2e };
     const newElectricityBill = new ElectricityBill(request);
     const savedElectricityBill = await newElectricityBill.save();
     try {
       await User.findByIdAndUpdate(userId, {
         $push: { electricityBills: savedElectricityBill._id },
+        $inc:{coins:10}
       });
     } catch (err) {
       next(err);

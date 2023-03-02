@@ -3,20 +3,36 @@
     font-style: normal;
     font-weight: 400;
     font-size: 1.2rem;
+    margin:15px;
 }
 .main{
-    display:flex;
     margin-top:12px;
     border:10px solid #b1dab4;
     padding: 10px;
 }
+.selection{
+    padding: 5px 10px 5px 10px;
+    width: 100px;
+}
+.visualization{
+    display: flex;
+}
 .graph{
-    flex-basis:75%;
+    flex-basis:70%;
+    padding: 10px;
 }
 .zone{
-    flex-basis:25%;
+    flex-basis:30%;
     border:10px solid #629e70;
-    padding: 5px;
+    padding: 50px 20px 50px 20px;
+}
+.red{
+    background-color: #ff726f;
+}
+.green{
+    background-color: #629e70;
+}
+.yellow{
     background-color: yellow;
 }
 .zone h1{
@@ -27,7 +43,7 @@
     padding: 10px;
 }
 .myconsumption{
-    flex-basis: 75%;;
+    flex-basis: 70%;;
 }
 .consumptionHeader{
     display: flex;
@@ -77,9 +93,10 @@
     text-align: center;
 }
 .tips{
-    flex-basis: 25%;
+    flex-basis: 30%;
     background: linear-gradient(180deg, rgba(63, 146, 86, 0.7) 0%, rgba(225, 228, 49, 0.6) 76.56%);
     border:10px solid #629e70;
+    padding: 50px 20px 50px 20px;
 }
 .modalHeader{
     margin-bottom: 40px;
