@@ -121,3 +121,16 @@ export const updateDislikes = async (req, res, next) => {
     next(err);
   }
 };
+
+export const updateViews = async (req, res, next) => {
+  try {
+    const updatedBlog = await Blog.findByIdAndUpdate(
+      req.params.blogid,
+      { $inc: { views: 1 } },
+      { new: true }
+    );
+    res.status(200).json(updatedBlog);
+  } catch (err) {
+    next(err);
+  }
+};

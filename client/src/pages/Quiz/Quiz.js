@@ -1,29 +1,34 @@
-import React from "react";
-import Header from "../../components/Header/Header";
-import styles from "./Quiz.module.css";
-import quiz from "../../assets/quiz.jpg";
-import trophy from "../../assets/trophy.gif";
-import { Link } from "react-router-dom";
+import React,{useContext} from 'react';
+import Header from '../../components/Header/Header';
+import styles from  './Quiz.module.css';
+import quiz from '../../assets/quiz.jpg';
+import trophy from '../../assets/trophy.gif';
+import { Link } from 'react-router-dom';
+// import {AuthContext} from "../../context/AuthContext";
+import * as AiIcons from 'react-icons/ai';
 
-import * as AiIcons from "react-icons/ai";
-function Quiz() {
-  const playclick = () => {
-    console.log("Click");
-  };
+function Quiz(){
+    // const { user } = useContext(AuthContext);
+    console.log(user.username);
+    const playclick =()=>{
+        console.log('Click');
+    }
 
-  return (
-    <>
-      <Header />
-      <div className={styles.quiz}>
-        <div className={styles.gif}>
-          <img src={quiz} alt="quiz"/>
-          <div className={styles.button}>
-            <div className={styles.rect}>
-              <Link to="#" className={styles.playicon}>
-                <AiIcons.AiOutlinePlayCircle />
-              </Link>
-              <h1>Play Quiz!</h1>
-            </div>
+    return(
+        <>
+        <Header/>
+        <div className={styles.quiz}>
+
+          <div className={styles.gif}>
+                <img src={quiz} />
+                <div className={styles.button}>
+                    <div className={styles.rect}>
+                     <Link to="./questions" className={styles.playicon}>
+                          <AiIcons.AiOutlinePlayCircle />
+                      </Link>
+                     <h1>Play Quiz!</h1>
+                    </div>
+                </div>
           </div>
         </div>
 
@@ -86,7 +91,7 @@ function Quiz() {
             <hr className={styles.line5}></hr>
           </div>
         </div>
-      </div>
+      
     </>
   );
 }

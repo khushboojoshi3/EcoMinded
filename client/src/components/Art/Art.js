@@ -2,12 +2,14 @@ import React, { Component, useContext, useEffect } from "react";
 import styles from "../Art/Art.module.css";
 import { render } from "react-dom";
 import { useState } from "react";
+import { months } from "../../utils/date";
 import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import { faHeart, faEye } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useFetch from "../../utils/useFetch";
 import { useQuery } from "react-query";
+import ArtView from "../ArtView/ArtView";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 Modal.setAppElement("#root");
@@ -37,6 +39,8 @@ const Art = ({ arts, updateArts }) => {
       })
     );
   }, [arts]);
+
+  
 
   const [image, setImage] = useState("");
   const [url, setUrl] = useState("");
@@ -70,35 +74,34 @@ const Art = ({ arts, updateArts }) => {
   const closeModal = () => {
     setIsOpen(false);
   };
-
+ 
   const [viewArt, setViewArt] = useState(false);
   const openArt = async (art) => {
     setViewArt(true);
     try {
-      // const artObj = await axios.get(`/art/find/${artid}`);
-      setArtInfo(art);
-      // console.log(artObj);
-      // console.log(artInfo);
+      const artObj = art;
+      artObj.data.views += 1;
+      setArtInfo(artObj);
+      await axios.put(`/art/views/${art.data._id}`);
     } catch (err) {
       console.log(err.response.data);
     }
   };
   const closeArt = () => {
     setArtInfo({});
-    // console.log(artInfo);
     setViewArt(false);
   };
 
   const customstyless = {
     content: {
-      top: "50%",
+      top: "60%",
       left: "50%",
       right: "auto",
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
       height: "550px",
-      width: "450px",
+      width: "320px",
     },
   };
 
@@ -107,24 +110,31 @@ const Art = ({ arts, updateArts }) => {
     const day = date.getDate();
     const month = date.getMonth(); // getMonth() returns month from 0 to 11
     const year = date.getFullYear();
-    const arr = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-    const str = `${day}-${arr[month]}-${year}`;
+
+    const str = `${day}-${months[month]}-${year}`;
     return str;
   };
 
+  // const handleLikeClickForModal = async () => {
+  //   try {
+  //     let currArt = false;
+  //     const artid = artInfo?.data?._id;
+  //     const artObj = artInfo;
+  //     // console.log(artObj);
+  //     artObj.likeCount += artObj.isLiked ? -1 : 1;
+  //     artObj.isLiked = !artObj.isLiked;
+  //     currArt = artObj.isLiked;
+  //     setArtInfo(artObj);
+
+  //     if (currArt) {
+  //       await axios.put(`/art/likes/${artid}/${user._id}`);
+  //     } else {
+  //       await axios.put(`/art/dislikes/${artid}/${user._id}`);
+  //     }
+  //   } catch (err) {
+  //     console.log(err.response.data);
+  //   }
+  // };
   const handleLikeClick = async (artid) => {
     try {
       let currArt = false;
@@ -232,9 +242,7 @@ const Art = ({ arts, updateArts }) => {
       <section className={styles.hero_section}>
         <div className={styles.buttonGrid}>
           <button className={styles.button_9} role="button">
-            <span onClick={openModal} className={styles.text}>
-              + New Art
-            </span>
+            <span onClick={openModal} className={styles.text}>+ New Art</span>
           </button>
         </div>
 
@@ -287,13 +295,14 @@ const Art = ({ arts, updateArts }) => {
                 e.preventDefault();
                 uploadImage();
               }}
+              className={styles.uploadButton}
             >
               Upload
             </button>
           </div>
           <div>
             Uploaded image will be displayed here
-            <img width="200" height="180" src={url} />
+            <img width="200" height="120" src={url} />
           </div>
           <input
             type="submit"
@@ -306,7 +315,7 @@ const Art = ({ arts, updateArts }) => {
         </form>
       </Modal>
 
-      <Modal
+      {/* <Modal
         isOpen={viewArt}
         onRequestClose={closeArt}
         style={customstyless}
@@ -343,7 +352,10 @@ const Art = ({ arts, updateArts }) => {
                 <div className={styles.pull_right}>
                   <div className={styles.iconClass}>
                     <FontAwesomeIcon
-                      className={artInfo.isLiked ? styles.liked : styles.unliked}
+                      className={
+                        artInfo.isLiked ? styles.liked : styles.unliked
+                      }
+                      onClick={handleLikeClickForModal}
                       icon={faHeart}
                       size="2x"
                     ></FontAwesomeIcon>
@@ -376,7 +388,14 @@ const Art = ({ arts, updateArts }) => {
             </div>
           </>
         }
-      </Modal>
+      </Modal> */}
+      <ArtView
+        viewArt={viewArt}
+        closeArt={closeArt}
+        art={artInfo}
+        userid={user._id}
+        updateArts={updateArts}
+      />
     </React.Fragment>
   );
 };

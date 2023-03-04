@@ -6,7 +6,8 @@ import {
   getArts,
   updateArt,
   updateDislikes,
-  updateLikes
+  updateLikes,
+  updateViews
 } from "../controllers/Art.js";
 import {verifyUser} from "../utils/verifyToken.js"
 
@@ -17,6 +18,8 @@ router.post("/:userid", verifyUser, createArt);
 
 //UPDATE
 router.put("/:id", verifyUser, updateArt);
+//UPDATE VIEWS
+router.put("/views/:artid/",verifyUser, updateViews);
 //UPDATE LIKES
 router.put("/likes/:artid/:userid",verifyUser, updateLikes);
 //UPDATE DISLIKES
