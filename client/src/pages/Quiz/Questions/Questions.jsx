@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { AuthContext } from "../../../context/AuthContext.js";
 const Questions = ({updateLeaderboard}) => {
-  const { user } = useContext(AuthContext);
+  const { user,dispatch } = useContext(AuthContext);
   const [showButton, setShowButton] = useState(false);
   const [questionAnswered, setQuestionAnswered] = useState(false);
   const [score, setScore] = useState(0);
@@ -48,11 +48,7 @@ const handleFinish = async () => {
         headers: { "Content-Type": "application/json" },
       }
     );
-    // await updateLeaderboard();
-    // closeModal();
-    // setIsSubmitDisabled(false);
-    // console.log(newPlayer);
-    // navigate(`/blogview/${newBlog.data._id}`);
+    dispatch({type: "UPDATE_USER", payload: newPlayer.data.user});
   } catch (err) {
     console.log(err.response.data);
   }

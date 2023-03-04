@@ -1,28 +1,31 @@
 import User from "../models/User.js";
 import Leaderboard from "../models/Leaderboard.js";
-export const createUpdatePlayer = async(req, res, next) =>{
-    const playerid = req.body.playerid;
-    try{
-        const player = await Leaderboard.findOne({playerid: playerid});
-        let savedPlayer = undefined;
-        if(player){
-            // player.score = req.body.score;
-            savedPlayer = await Leaderboard.findByIdAndUpdate(
-              player._id,
-              { $set: { score: req.body.score } },
-              {new: true}
-            );
-            res.status(200).json(savedPlayer);
-        }
-        else{
-            const newPlayer = new Leaderboard(req.body);
-            savedPlayer = await newPlayer.save();
-            res.status(200).json(savedPlayer);
-        }
-        
-    } catch(err) {
-        next(err);
+export const createUpdatePlayer = async (req, res, next) => {
+  const playerid = req.body.playerid;
+  try {
+    const player = await Leaderboard.findOne({ playerid: playerid });
+    let savedPlayer = undefined;
+    if (player) {
+      savedPlayer = await Leaderboard.findByIdAndUpdate(
+        player._id,
+        { $set: { score: req.body.score } },
+        { new: true }
+      );
+    } else {
+      const newPlayer = new Leaderboard(req.body);
+      savedPlayer = await newPlayer.save();
     }
+    const updatedUser=await User.findByIdAndUpdate(
+      playerid,
+      {
+        $inc: { coins: 5 },
+      },
+      { new: true }
+    );
+    res.status(200).json({player:savedPlayer, user:updatedUser});
+  } catch (err) {
+    next(err);
+  }
 };
 
 export const getPlayers = async (req, res, next) => {
