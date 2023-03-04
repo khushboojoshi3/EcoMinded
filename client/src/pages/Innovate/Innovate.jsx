@@ -12,7 +12,7 @@ const labelStyles = {
   root: { marginTop: 5, backgroundColor: "#E4E4DC" },
 };
 
-const Innovate = (props) => {
+const Innovate = () => {
   const {
     data: arts,
     isLoading: isLoadingArt,
@@ -37,9 +37,7 @@ const Innovate = (props) => {
     },
     { refetchInterval: 120000 }
   );
-  console.log(arts);
-  // console.log(arts.data);
-
+  console.log(blogs);
   const fetchUpdatedBlogs = async () => {
     await refetchBlog();
   };
