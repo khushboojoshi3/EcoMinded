@@ -7,7 +7,7 @@ import Myntra from "../../assets/myntra.png";
 import Amazon from "../../assets/amazon.png";
 import Flipkart from "../../assets/flipkart.png";
 import coin from "../../assets/coins.gif";
-
+import congrats from "../../assets/congrats.gif";
 import { AuthContext } from "../../context/AuthContext";
 import { useQuery } from "react-query";
 import axios from "axios";
@@ -43,6 +43,30 @@ function Store() {
     { refetchInterval: 120000 }
   );
 
+  const [modalIsOpen, setIsOpen] = useState(false);
+   const openModal = () => {
+     setIsOpen(true);
+   };
+   const closeModal = () => {
+     setRewardInfo({});
+     setIsOpen(false);
+   };
+
+   const customStyles = {
+     content: {
+       top: "50%",
+       left: "50%",
+       right: "auto",
+       bottom: "auto",
+       marginRight: "-50%",
+       transform: "translate(-50%, -50%)",
+       height: "300px",
+       width: "400px",
+       background: `url(${congrats})`,
+       backgroundPosition: "center",
+       position: "relative",
+     },
+   };
   const fetchUpdatedRewards = async () => {
     await refetchReward();
   };
@@ -54,15 +78,13 @@ function Store() {
     setViewReward(true);
     try {
       const rewardObj = reward;
-      // artObj.data.views += 1;
       setRewardInfo(rewardObj);
-      // await axios.put(`/art/views/${art.data._id}`);
-    } catch (err) {
+     } catch (err) {
       console.log(err.response.data);
     }
   };
   const closeReward = () => {
-    setRewardInfo({});
+    // setRewardInfo({});
     setViewReward(false);
   };
 
@@ -79,7 +101,11 @@ function Store() {
         );
         dispatch({ type: "UPDATE_USER", payload: updatedUser.data });
         await fetchUpdatedRewards();
+       
         closeReward();
+         openModal();
+        
+        
       } catch (err) {
         console.log(err.response.data);
       }
@@ -104,9 +130,7 @@ function Store() {
                 <div className={styles.row}>
                   {rewards.data.map((reward) => {
                     return (
-                      <div 
-                      className={styles.column}
-                      >
+                      <div className={styles.column}>
                         <div
                           onClick={() => openReward(reward)}
                           className={styles.card}
@@ -139,9 +163,6 @@ function Store() {
               <div className={styles.viewArt}>
                 <p>You can view chosen reward here</p>
               </div>
-              {/* <div className={styles.close}>
-                <button onClick={closeReward}>close</button>
-              </div> */}
             </div>
             <div className={styles.rewardInfo}>
               <p>
@@ -158,11 +179,41 @@ function Store() {
                 <button onClick={() => handleFinalClick()}>YES</button>
               </div>
               <div className={styles.endbutton2}>
-                <button onClick={closeReward}>NO</button>
+                <button onClick={(e) => {
+                  e.preventDefault();
+                  setRewardInfo({});
+                  closeReward();}}>NO</button>
               </div>
             </div>
           </div>
         }
+      </Modal>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+      >
+        <div className={styles.congrats}>
+          <p>Congratulations! 🥳 you have successfully redeemed the reward.</p>
+          <p>PROMO CODE:</p>
+          <p>{rewardInfo.promocode}</p>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              navigator.clipboard.writeText(rewardInfo.promocode);
+            }}
+          >
+            Copy
+          </button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              closeModal();
+            }}
+          >
+            Close
+          </button>
+        </div>
       </Modal>
     </>
   );
