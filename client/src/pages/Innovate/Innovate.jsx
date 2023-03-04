@@ -54,7 +54,8 @@ const Innovate = (props) => {
         <Pivot aria-label="Innovate">
           <PivotItem headerText="Art">
             {errArt ? (
-              "An error occured"
+             console.log(errArt.response.data)
+             
             ) : isLoadingArt ? (
               "Loading"
             ) : (

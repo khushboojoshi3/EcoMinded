@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Innovate from "./pages/Innovate/Innovate";
+import Questions from "./pages/Quiz/Questions/Questions";
 import BlogView from "./components/BlogView/BlogView";
-import Electricity  from "./pages/Electricity/Electricity";
-import Login  from "./pages/Login/Login";
+import Electricity from "./pages/Electricity/Electricity";
+import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import HomePage from "./pages/HomePage/HomePage";
 import Shop from "./pages/Shop/Shop";
@@ -13,6 +14,13 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* <Route path='/home' element={<Home/>}/> */}
+
+        <Route path="/shop" element={<Shop />} />
+
+        <Route path="/quiz" element={<Quiz />} />
+        <Route path="/quiz/questions" element={<Questions />} />
+        <Route path="/store" element={<Store />} />
         <Route path="/electricity" element={<Electricity />} />
         <Route path="/innovate" element={<Innovate />} />
         <Route path="/blogview/:id" element={<BlogView />} />
@@ -56,6 +64,14 @@ function App() {
           element={
             <ProtectedRoutes>
               <Innovate />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/quiz/questions"
+          element={
+            <ProtectedRoutes>
+              <Questions />
             </ProtectedRoutes>
           }
         />

@@ -24,7 +24,7 @@ router.delete("/:id", verifyAdmin, deleteReward);
 //GET
 router.get("/find/:id", verifyUser, getReward);
 //GET ALL
-router.get("/", verifyUser, getRewards);
+router.get("/:userid", verifyUser, getRewards);
 
 // router.put("/redeem/userid/:id", updateUserReward);
 export default router;

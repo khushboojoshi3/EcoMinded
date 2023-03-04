@@ -1,5 +1,5 @@
 import Reward from "../models/Reward.js";
-// import User from "../models/User.js";
+import User from "../models/User.js";
 export const createReward = async (req, res, next) => {
     const newReward = new Reward(req.body);
   
@@ -69,7 +69,11 @@ export const getReward = async (req, res, next) => {
 export const getRewards = async (req,res,next)=>{
     try {
       const rewards = await Reward.find();
-      res.status(200).json(rewards);
+      const user = await User.findById(req.params.userid);
+      const list = rewards.filter(
+        (reward) => user.claimedRewards.includes(reward._id, 0) === false
+      );
+      res.status(200).json(list);
     } catch (err) {
       next(err);
     }

@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 import Header from "../../components/Header/Header";
 import styles from "./Quiz.module.css";
 import quiz from "../../assets/quiz.jpg";
 import trophy from "../../assets/trophy.gif";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
+import { useQuery } from "react-query";
 import * as AiIcons from "react-icons/ai";
+
 function Quiz() {
+  const {
+    data: players,
+    isLoading: isLoadingPlayer,
+    error: errPlayer,
+    refetch: refetchPlayer,
+  } = useQuery(
+    "leaderboard",
+    () => {
+      return axios.get("/leaderboard");
+    },
+    { refetchInterval: 120000 }
+  );
+
+  console.log(players);
+  const fetchUpdatedPlayers = async () => {
+    await refetchPlayer();
+  };
+
   const playclick = () => {
     console.log("Click");
   };
@@ -16,75 +36,62 @@ function Quiz() {
       <Header />
       <div className={styles.quiz}>
         <div className={styles.gif}>
-          <img src={quiz} alt="quiz"/>
+          <img src={quiz} />
           <div className={styles.button}>
             <div className={styles.rect}>
-              <Link to="#" className={styles.playicon}>
+              <Link to="./questions" className={styles.playicon}>
                 <AiIcons.AiOutlinePlayCircle />
               </Link>
               <h1>Play Quiz!</h1>
             </div>
           </div>
         </div>
+      </div>
 
-        <div className={styles.leader}>
-          <div className={styles.trophy}>
-            <img src={trophy} alt="trophy"/>
-          </div>
-          <h1>Leaderboard</h1>
+      <div className={styles.leader}>
+        <div className={styles.trophy}>
+          <img src={trophy} alt="trophy" />
         </div>
-        <div className={styles.leadertable}>
-          <div className={styles.tableheading}>
-            <div className={styles.tablecont}>
-              <div className={styles.colrank}>
-                <div className={styles.headrank}>
-                  <h1>Rank</h1>
-                </div>
-                <div className={styles.rank1}>
-                  <h1>1</h1>
-                </div>
-                <div className={styles.rank2}>
-                  <h1>2</h1>
-                </div>
-                <div className={styles.rank3}>
-                  <h1>3</h1>
-                </div>
-              </div>
-              <div className={styles.colname}>
-                <div className={styles.headname}>
-                  <h1>Name</h1>
-                </div>
-                <div className={styles.name1}>
-                  <h1>Deepali</h1>
-                </div>
-                <div className={styles.name2}>
-                  <h1>Samay</h1>
-                </div>
-                <div className={styles.name3}>
-                  <h1>Hosana</h1>
-                </div>
-              </div>
-              <div className={styles.colcoin}>
-                <div className={styles.headcoin}>
-                  <h1>Coins</h1>
-                </div>
-                <div className={styles.coin1}>
-                  <h1>600</h1>
-                </div>
-                <div className={styles.coin2}>
-                  <h1>400</h1>
-                </div>
-                <div className={styles.coin3}>
-                  <h1>300</h1>
-                </div>
-              </div>
+        <h1>Leaderboard</h1>
+      </div>
+      <div className={styles.table}>
+        <div className={styles.table_box}>
+          <div className={`${styles.table_row} ${styles.table_head}`}>
+            <div className={`${styles.table_cell} ${styles.first_cell}`}>
+              <p>Rank</p>
             </div>
-            <hr className={styles.line1}></hr>
-            <hr className={styles.line2}></hr>
-            <hr className={styles.line3}></hr>
-            <hr className={styles.line4}></hr>
-            <hr className={styles.line5}></hr>
+            <div className={`${styles.table_cell} ${styles.mid_cell}`}>
+              <p>Name</p>
+            </div>
+            <div className={`${styles.table_cell} ${styles.last_cell}`}>
+              <p>Score</p>
+            </div>
           </div>
+          {errPlayer ? (
+            "Error required"
+          ) : isLoadingPlayer ? (
+            "Loading Player"
+          ) : (
+            <>
+              {players.data.map((playerInfo, idx) => {
+                return (
+                  <div className={styles.table_row}>
+                    <div
+                      className={`${styles.table_cell} ${styles.first_cell}`}
+                    >
+                      <p>{idx + 1}</p>
+                    </div>
+                    <div className={`${styles.table_cell} ${styles.mid_cell}`}>
+                      <p>{playerInfo.player.name}</p>
+                    </div>
+                    <div className={`${styles.table_cell} ${styles.last_cell}`}>
+                      <p>{playerInfo.data.score * 10}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </>
+          )}
         </div>
       </div>
     </>

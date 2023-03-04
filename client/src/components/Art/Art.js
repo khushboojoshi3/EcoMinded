@@ -115,26 +115,7 @@ const Art = ({ arts, updateArts }) => {
     return str;
   };
 
-  // const handleLikeClickForModal = async () => {
-  //   try {
-  //     let currArt = false;
-  //     const artid = artInfo?.data?._id;
-  //     const artObj = artInfo;
-  //     // console.log(artObj);
-  //     artObj.likeCount += artObj.isLiked ? -1 : 1;
-  //     artObj.isLiked = !artObj.isLiked;
-  //     currArt = artObj.isLiked;
-  //     setArtInfo(artObj);
-
-  //     if (currArt) {
-  //       await axios.put(`/art/likes/${artid}/${user._id}`);
-  //     } else {
-  //       await axios.put(`/art/dislikes/${artid}/${user._id}`);
-  //     }
-  //   } catch (err) {
-  //     console.log(err.response.data);
-  //   }
-  // };
+  
   const handleLikeClick = async (artid) => {
     try {
       let currArt = false;
@@ -153,6 +134,7 @@ const Art = ({ arts, updateArts }) => {
       } else {
         await axios.put(`/art/dislikes/${artid}/${user._id}`);
       }
+      await updateArts();
     } catch (err) {
       console.log(err);
     }
@@ -172,7 +154,6 @@ const Art = ({ arts, updateArts }) => {
           headers: { "Content-Type": "application/json" },
         }
       );
-      // navigate("")
       await updateArts();
       closeModal();
       setIsSubmitDisabled(false);

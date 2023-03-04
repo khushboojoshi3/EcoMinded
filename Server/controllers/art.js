@@ -76,6 +76,7 @@ export const getArts = async (req,res,next)=>{
       for (let i = 0; i < arts.length; i++) {
         const art = arts[i];
         const artist = await User.findById(art.artist);
+
         obj.push({
           data: art,
           artist: {

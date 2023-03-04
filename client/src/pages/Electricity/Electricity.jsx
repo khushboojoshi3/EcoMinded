@@ -93,7 +93,7 @@ function Electricity() {
     if (lastBill.units < avgMonthWiseConsumption[month - 1][0]) {
       return (
         <div className={`${Style.zone} ${Style.green}`}>
-          <p>Green Zone</p>,<p>Carbon Dioxide Equivalent: {lastBill.co2e}</p>
+          <p>Green Zone</p><p>Carbon Dioxide Equivalent: {lastBill.co2e}</p>
           <p>
             Ideal Consumption: {avgMonthWiseConsumption[month - 1][0]}-
             {avgMonthWiseConsumption[month - 1][1]} units
