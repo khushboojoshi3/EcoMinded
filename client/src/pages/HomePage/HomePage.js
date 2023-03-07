@@ -3,17 +3,14 @@ import styles from "./HomePage.module.css";
 import Header from "../../components/Header/Header";
 
 import main from '../../assets/main.jpg'
-import env from '../../assets/env.png';
+
 import card1 from '../../assets/card1.png';
 import card2 from '../../assets/card2.png';
 import card3 from '../../assets/card3.png';
 import card4 from '../../assets/card4.png';
 
-import gif from "../../assets/gif.gif";
-import gif12 from "../../assets/gif12.gif";
 
-import gif from '../../assets/gif.gif';
-import gif12 from '../../assets/gif12.gif';
+import gif12 from "../../assets/gif12.gif";
 
 function HomePage(){
 return (
@@ -39,7 +36,7 @@ return (
       {/* <div className={styles.rec3}></div> */}
       <div className={styles.polaroid}>
         <div className={styles.gifi}>
-          <img src={gif12} />
+          <img src={gif12} alt="Global Warming"/>
         </div>
         <div className={styles.fact}>
           <h1>Did you know?</h1>

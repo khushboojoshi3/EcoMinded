@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {useState} from 'react';
 import Styles from './Questions.module.css';
 
 class Answers extends Component {

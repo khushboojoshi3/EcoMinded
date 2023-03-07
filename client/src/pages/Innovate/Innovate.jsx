@@ -1,16 +1,15 @@
 import * as React from "react";
-import { Label, Pivot, PivotItem } from "@fluentui/react";
-import { Feed } from "../../components/Feed/Feed";
+import { Pivot, PivotItem } from "@fluentui/react";
+import Feed  from "../../components/Feed/Feed";
 import Art from "../../components/Art/Art";
-import { useState } from "react";
 import { useQuery } from "react-query";
 import Header from "../../components/Header/Header";
 import axios from "axios";
 import styles from "./Innovate.module.css";
 
-const labelStyles = {
-  root: { marginTop: 5, backgroundColor: "white" },
-};
+// const labelStyles = {
+//   root: { marginTop: 5, backgroundColor: "white" },
+// };
 
 const Innovate = () => {
   const {
@@ -37,7 +36,6 @@ const Innovate = () => {
     },
     { refetchInterval: 120000 }
   );
-  console.log(blogs);
   const fetchUpdatedBlogs = async () => {
     await refetchBlog();
   };
@@ -56,9 +54,7 @@ const Innovate = () => {
             ) : isLoadingArt ? (
               "Loading"
             ) : (
-              <Label styles={labelStyles}>
                 <Art updateArts={fetchUpdatedArts} arts={arts.data} />
-              </Label>
             )}
           </PivotItem>
           <PivotItem headerText="Blog">
@@ -67,9 +63,7 @@ const Innovate = () => {
             ) : isLoadingBlog ? (
               "Loading"
             ) : (
-              <Label styles={labelStyles}>
                 <Feed updateBlogs={fetchUpdatedBlogs} blogs={blogs.data} />
-              </Label>
             )}
           </PivotItem>
         </Pivot>

@@ -8,22 +8,15 @@ import HomePage from "./pages/HomePage/HomePage";
 import Shop from "./pages/Shop/Shop";
 import Quiz from "./pages/Quiz/Quiz";
 import Store from "./pages/Store/Store";
+import Questions from "./pages/Quiz/Questions/Questions";
+import Donate from "./pages/Donate/Donate";
+import DonateForm from "./pages/Donate/DonateForm/DonateForm";
 import { ProtectedRoutes } from "./components/ProtectedRoutes/ProtectedRoutes";
+import Profile from "./pages/Profile/Profile";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-   
-   <Route path='/home' element={<Home/>}/>
-   
-        <Route path='/shop' element={<Shop/>} />
-   
-        <Route path='/quiz' element={<Quiz/>}/>
-        <Route path='/quiz/questions' element={<Questions/>}/>
-        <Route path='/store' element={<Store/>}/>
-        <Route path="/electricity" element={<Electricity />} />
-        <Route path="/innovate" element={<Innovate />} />
-        <Route path="/blogview/:id" element={<BlogView />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
@@ -67,14 +60,46 @@ function App() {
             </ProtectedRoutes>
           }
         />
-        <Route 
-        path='/quiz/questions' 
-        element={
-          <ProtectedRoutes>
-            <Questions/>
-          </ProtectedRoutes>
-        }/>
-       
+        <Route
+          path="/blogview/:id"
+          element={
+            <ProtectedRoutes>
+              <BlogView />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/quiz/questions"
+          element={
+            <ProtectedRoutes>
+              <Questions />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/donate"
+          element={
+            <ProtectedRoutes>
+              <Donate />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/donateform"
+          element={
+            <ProtectedRoutes>
+              <DonateForm />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/profile/:id"
+          element={
+            <ProtectedRoutes>
+              <Profile />
+            </ProtectedRoutes>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

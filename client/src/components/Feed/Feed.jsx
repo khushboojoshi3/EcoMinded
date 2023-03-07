@@ -18,7 +18,7 @@ import { VscSmiley } from "react-icons/vsc";
 import { AuthContext } from "../../context/AuthContext";
 Modal.setAppElement("#root");
 
-export function Feed({ blogs, updateBlogs }) {
+function Feed({ blogs, updateBlogs }) {
   const { user } = useContext(AuthContext);
   // console.log(user);
   const [blogData, setBlogData] = useState(
@@ -111,6 +111,7 @@ export function Feed({ blogs, updateBlogs }) {
       } else {
         await axios.put(`/blog/dislikes/${blogid}/${user._id}`);
       }
+      await updateBlogs();
     } catch (err) {
       console.log(err);
     }
@@ -312,7 +313,7 @@ export function Feed({ blogs, updateBlogs }) {
           </div>
           <div>
             Uploaded image will be displayed here
-            <img width="200" height="120" src={url} />
+            <img width="200" height="120" src={url} alt="User uploaded" />
           </div>
           <input
             type="submit"
@@ -327,3 +328,4 @@ export function Feed({ blogs, updateBlogs }) {
     </>
   );
 }
+export default Feed;

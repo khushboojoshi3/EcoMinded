@@ -1,0 +1,56 @@
+.donate{
+    font-family: 'Hanuman';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin:15px;
+    background-color:#FFFFE8;
+    margin-bottom:0;
+}
+.hero{
+    background: url("../../assets/donate5.jpg"),rgba(248,225,219,255);
+    height:60vh;
+    background-position:center;
+    position: relative;
+    background-repeat: no-repeat;
+}
+.hero button{
+    position: absolute;
+    top:20%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    padding:15px;
+    background-color: #1B4D3E;
+    color:white;
+    border:none;
+    border-radius: 5px;
+    font-size:1.7rem;
+}
+.hero button:hover{
+    background-color: #32de84;
+}
+.pickups{
+    width:900px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+    color:#1B4D3E;
+}
+.pickups table{
+    width:650px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:20px;
+}
+.pickups table, .pickups th, .pickups td{
+  border: 1px solid #1B4D3E;
+  border-collapse: collapse;
+  padding:10px;
+}
+.tags{
+  margin-left:10px;
+  background-color: #ACE1AF;
+  color:black;
+  padding: 5px;
+  border-radius: 5px;
+}

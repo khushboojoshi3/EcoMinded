@@ -74,12 +74,24 @@ export const getMyDonations = async (req, res, next) => {
 export const getMyArt = async (req, res, next) => {
   try {
     const user = await User.findById(req.params.id);
-    const list = await Promise.all(
+    const arts = await Promise.all(
       user.art.map((art_id) => {
         return Art.findById(art_id);
       })
     );
-    res.status(200).json(list);
+    const obj = [];
+    for (let i = 0; i < arts.length; i++) {
+      const art = arts[i];
+        obj.push({
+          data: art,
+          artist: {
+            name: user.username,
+            id: user._id,
+            photo: user.photo,
+          },
+        });
+    } 
+    res.status(200).json(obj);
   } catch (err) {
     next(err);
   }
@@ -87,12 +99,20 @@ export const getMyArt = async (req, res, next) => {
 export const getMyBlogs = async (req, res, next) => {
   try {
     const user = await User.findById(req.params.id);
-    const list = await Promise.all(
+    const blogs = await Promise.all(
       user.blogs.map((blog) => {
         return Blog.findById(blog);
       })
     );
-    res.status(200).json(list);
+     const obj = [];
+     for (let i = 0; i < blogs.length; i++) {
+       const blog = blogs[i];
+        obj.push({
+          data: blog,
+          author: { name: user.username, id: user._id, photo: user.photo },
+        });
+     }
+    res.status(200).json(obj);
   } catch (err) {
     next(err);
   }

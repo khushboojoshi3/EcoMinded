@@ -9,7 +9,7 @@ import * as AiIcons from 'react-icons/ai';
 
 function Quiz(){
     // const { user } = useContext(AuthContext);
-    console.log(user.username);
+    // console.log(user.username);
     const playclick =()=>{
         console.log('Click');
     }

@@ -1,0 +1,41 @@
+.personalInfo{
+    font-size:1.2rem;
+    font-family: 'Hanuman';
+    font-style: normal;
+    font-weight: 400;
+    background: linear-gradient(108.9deg, rgb(163, 217, 221) 10.4%, rgb(174, 250, 182) 56.2%, rgb(238, 243, 220) 86.1%);
+    padding:30px;
+}
+.form{
+    text-align:center;
+    background-color: white;
+    width:300px;
+    margin-left:auto;
+    margin-right: auto;
+}
+.form fieldset{
+    border:none;
+}
+.form input{
+    display:block;
+    margin-bottom:15px;
+    padding:5px;
+    font-size:1rem;
+    width:250px;
+    margin-left: auto;
+    margin-right:auto;
+}
+.form label{
+    display:block;
+    margin-bottom:15px;
+}
+.submit{
+    width:263px !important;
+    background-color: #00674b;
+    color:white;
+    margin-top:30px;
+    margin-bottom: 2px !important;
+    border:none;
+    border-radius:5px;
+    padding:10px !important;
+}

@@ -1,14 +1,11 @@
-import React, { Component, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import styles from "../Art/Art.module.css";
-import { render } from "react-dom";
 import { useState } from "react";
 import { months } from "../../utils/date";
 import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import { faHeart, faEye } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import useFetch from "../../utils/useFetch";
-import { useQuery } from "react-query";
 import ArtView from "../ArtView/ArtView";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
@@ -38,7 +35,7 @@ const Art = ({ arts, updateArts }) => {
         };
       })
     );
-  }, [arts]);
+  }, [arts,user._id]);
 
   
 
@@ -49,12 +46,13 @@ const Art = ({ arts, updateArts }) => {
     data.append("file", image);
     data.append("upload_preset", "ecoMinded");
     data.append("cloud_name", "drclthcb6");
-    fetch("  https://api.cloudinary.com/v1_1/drclthcb6/image/upload", {
+    fetch(" https://api.cloudinary.com/v1_1/drclthcb6/image/upload", {
       method: "post",
       body: data,
     })
       .then((resp) => resp.json())
       .then((data) => {
+        console.log(data.url);
         setUrl(data.url);
       })
       .catch((err) => console.log(err));
@@ -153,6 +151,7 @@ const Art = ({ arts, updateArts }) => {
       } else {
         await axios.put(`/art/dislikes/${artid}/${user._id}`);
       }
+      await updateArts();
     } catch (err) {
       console.log(err);
     }
