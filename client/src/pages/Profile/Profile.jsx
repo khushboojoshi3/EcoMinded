@@ -17,6 +17,7 @@ const labelStyles = {
   root: { marginTop: 5, backgroundColor: "white" },
 };
 
+
 function Profile() {
     const { user,dispatch } = useContext(AuthContext);
 
@@ -27,6 +28,7 @@ function Profile() {
       data.append("file", image);
       data.append("upload_preset", "ecoMinded");
       data.append("cloud_name", "drclthcb6");
+
       fetch("  https://api.cloudinary.com/v1_1/drclthcb6/image/upload", {
         method: "post",
         body: data,
@@ -128,7 +130,6 @@ function Profile() {
          console.log(err.response.data);
        }
      };
-
     return (
       <>
         <Header />

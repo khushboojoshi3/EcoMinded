@@ -90,14 +90,19 @@ const Art = ({ arts, updateArts }) => {
 
   const customstyless = {
     content: {
-      top: "60%",
+      top: "55%",
       left: "50%",
       right: "auto",
       bottom: "auto",
       marginRight: "-50%",
+      background: "#D4F1E0",
+
       transform: "translate(-50%, -50%)",
-      height: "550px",
+      height: "520px",
+      backdropFilter: "blur(1.4px)",
       width: "320px",
+      borderRadius: "16px",
+      boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
     },
   };
 
@@ -232,7 +237,7 @@ const Art = ({ arts, updateArts }) => {
         contentLabel="New Art"
       >
         <div className={styles.modalHeader}>
-          <div>Add a New Art</div>
+          <p>Add a New Art</p>
           <div className={styles.close}>
             <button onClick={closeModal}>close</button>
           </div>
@@ -253,20 +258,22 @@ const Art = ({ arts, updateArts }) => {
             placeholder="Title..."
             onChange={(e) => setTitle(e.target.value)}
           />
-          <label for="description">Add Art Description</label>
-          <textarea
-            id="description"
-            name="description"
-            rows="4"
-            cols="40"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-          <div>
-            <input
-              type="file"
-              onChange={(e) => setImage(e.target.files[0])}
-            ></input>
+          <div className={styles.box1}>
+            <label for="description">Add Art Description</label>
+            <textarea
+              id="description"
+              name="description"
+              rows="4"
+              cols="40"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+            <div className={styles.file}>
+              <input
+                type="file"
+                onChange={(e) => setImage(e.target.files[0])}
+              ></input>
+            </div>
             <button
               onClick={(e) => {
                 e.preventDefault();
@@ -277,13 +284,14 @@ const Art = ({ arts, updateArts }) => {
               Upload
             </button>
           </div>
-          <div>
-            Uploaded image will be displayed here
-            <img width="200" height="120" src={url} />
+          <div className={styles.upload}>
+            <p>Uploaded image will be displayed here</p>
+            <img width="200" height="120" src={url} alt= "Uploaded Art" />
           </div>
           <input
             type="submit"
             id={styles.submitBtn}
+            value="Submit"
             className={
               isSubmitDisabled ? styles.submitDisabled : styles.submitEnabled
             }
