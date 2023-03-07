@@ -99,7 +99,7 @@ function Electricity() {
             Ideal Consumption: {avgMonthWiseConsumption[month - 1][0]}-
             {avgMonthWiseConsumption[month - 1][1]} units
           </p>
-          <p>You carbon consumption is {stand}% less than average user</p>
+          <p>You carbon consumption is {stand}% less than ideal consumption.</p>
         </div>
       );
     } else if (
@@ -114,7 +114,9 @@ function Electricity() {
             Ideal Consumption: {avgMonthWiseConsumption[month - 1][0]}-
             {avgMonthWiseConsumption[month - 1][1]} units
           </p>
-          <p>You carbon consumption is {stand}% is more than average user</p>
+          <p>
+            You carbon consumption is {stand}% is more than ideal consumption.
+          </p>
         </div>
       );
     } else {
@@ -126,7 +128,7 @@ function Electricity() {
             Ideal Consumption: {avgMonthWiseConsumption[month - 1][0]}-
             {avgMonthWiseConsumption[month - 1][1]} units
           </p>
-          <p>You carbon consumption is {stand}% is more than average user</p>
+          <p>You carbon consumption is {stand}% is more than ideal consumption.</p>
         </div>
       );
     }

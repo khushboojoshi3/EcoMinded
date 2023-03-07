@@ -56,7 +56,7 @@ export const getMyBills = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
-}
+};
 
 export const getMyDonations = async (req, res, next) => {
   try {
@@ -96,6 +96,7 @@ export const getMyArt = async (req, res, next) => {
     next(err);
   }
 };
+
 export const getMyBlogs = async (req, res, next) => {
   try {
     const user = await User.findById(req.params.id);
@@ -118,7 +119,6 @@ export const getMyBlogs = async (req, res, next) => {
   }
 };
 
-
 export const getMyClaimedRewards = async (req, res, next) => {
   try {
     const user = await User.findById(req.params.id);
@@ -132,25 +132,32 @@ export const getMyClaimedRewards = async (req, res, next) => {
     next(err);
   }
 };
+
 export const updateClaimedReward = async (req, res, next) => {
   try {
     const reward = await Reward.findById(req.params.rewardid);
-    const updatedUser=await User.findByIdAndUpdate(req.params.id, {
-      $push: { claimedRewards: reward._id },
-      $inc: { coins: (-1*reward.coins) },
-    });
+    const updatedUser = await User.findByIdAndUpdate(
+      req.params.id,
+      {
+        $push: { claimedRewards: reward._id },
+        $inc: { coins: -1 * reward.coins },
+      },
+      { new: true }
+    );
     res.status(200).json(updatedUser);
   } catch (err) {
     next(err);
   }
-};
+};      
 export const getAllRewards = async (req, res, next) => {
   try {
     const rewards = await Reward.find();
     const user = await User.findById(req.params.id);
-    const list = rewards.filter((reward) => user.claimedRewards.includes(reward._id, 0) === false);
+    const list = rewards.filter(
+      (reward) => user.claimedRewards.includes(reward._id, 0) === false
+    );
     res.status(200).json(list);
   } catch (err) {
-    next(err)
+    next(err);
   }
-}
+};

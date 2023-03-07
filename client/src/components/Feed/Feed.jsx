@@ -20,7 +20,6 @@ Modal.setAppElement("#root");
 
 function Feed({ blogs, updateBlogs }) {
   const { user } = useContext(AuthContext);
-  // console.log(user);
   const [blogData, setBlogData] = useState(
     blogs.map((blog) => {
       return {

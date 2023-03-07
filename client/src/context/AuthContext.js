@@ -56,7 +56,7 @@ export const AuthContextProvider = ({ children }) => {
   //   };
   //   return (handleCookieChange());
   // }, []);
-  console.log(document.cookie);
+  // console.log(document.cookie);
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(state.user));
   }, [state.user]);

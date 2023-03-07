@@ -1,17 +1,15 @@
 import * as React from "react";
-import { Pivot, PivotItem } from "@fluentui/react";
-import Feed  from "../../components/Feed/Feed";
+import { Label, Pivot, PivotItem } from "@fluentui/react";
+import Feed from "../../components/Feed/Feed";
 import Art from "../../components/Art/Art";
 import { useQuery } from "react-query";
 import Header from "../../components/Header/Header";
 import axios from "axios";
-import styles from "./Innovate.module.css";
+const labelStyles = {
+  root: { marginTop: 5, backgroundColor: "white" },
+};
 
-// const labelStyles = {
-//   root: { marginTop: 5, backgroundColor: "white" },
-// };
-
-const Innovate = () => {
+const Innovate = (props) => {
   const {
     data: arts,
     isLoading: isLoadingArt,
@@ -36,25 +34,35 @@ const Innovate = () => {
     },
     { refetchInterval: 120000 }
   );
+  
   const fetchUpdatedBlogs = async () => {
     await refetchBlog();
   };
   const fetchUpdatedArts = async () => {
     await refetchArt();
   };
-
+  const pivotStyles = {
+    root: {
+      marginLeft:"20px"
+    },
+     text: {
+       fontSize: "1.2rem",
+     },
+   };
   return (
     <>
       <Header/>
-      <div className={styles.pivot}>
-        <Pivot aria-label="Innovate">
+        <Pivot aria-label="Innovate" styles={pivotStyles}>
           <PivotItem headerText="Art">
             {errArt ? (
-              "An error occured"
+             console.log(errArt.response.data)
+             
             ) : isLoadingArt ? (
               "Loading"
             ) : (
+              <Label styles={labelStyles}>
                 <Art updateArts={fetchUpdatedArts} arts={arts.data} />
+              </Label>
             )}
           </PivotItem>
           <PivotItem headerText="Blog">
@@ -63,11 +71,12 @@ const Innovate = () => {
             ) : isLoadingBlog ? (
               "Loading"
             ) : (
+              <Label styles={labelStyles}>
                 <Feed updateBlogs={fetchUpdatedBlogs} blogs={blogs.data} />
+              </Label>
             )}
           </PivotItem>
         </Pivot>
-      </div>
     </>
   );
 };

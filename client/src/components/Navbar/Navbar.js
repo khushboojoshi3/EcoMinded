@@ -13,17 +13,17 @@ function Navbar() {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
   const { user, dispatch } = useContext(AuthContext); 
-  const { data, isLoading, error } = useQuery("userInfo", () => {
-     return axios.get(`/user/${user._id}`);
-  });
+  // const { data, isLoading, error } = useQuery("userInfo", () => {
+  //    return axios.get(`/user/${user._id}`);
+  // });
   const handleLogout = async () => {
     try {
       await axios.get("/auth/logout");
-      dispatch({ type: "LOGOUT" }); 
+      dispatch({ type: "LOGOUT" });
     } catch (err) {
       console.log(err);
     }
-  }
+  };
   return (
     <>
       <div className={styles.navbar}>
@@ -31,11 +31,7 @@ function Navbar() {
           <FaIcons.FaBars onClick={showSidebar} value={{ color: "#375F42" }} />
         </Link>
       </div>
-      {sidebar && ( error ? (
-              "An error occured"
-            ) : isLoading ? (
-              "Loading"
-            ) : ( <nav className={styles.nav_menu}>
+      {sidebar && (<nav className={styles.nav_menu}>
           <ul className={styles.nav_menu_items} onClick={showSidebar}>
             <li className={styles.navbar_toggle}>
               <Link to="#" className={styles.menu_bars_cross}>
@@ -45,14 +41,14 @@ function Navbar() {
             <li>
               <div className={styles.user}>
                 <div className={styles.pfp_logo}>
-                    <img alt="avatar" src={data.data.photo} />
+                    <img alt="avatar" src={user.photo} />
                 </div>
                 <div className={styles.pfpdet}>
-                  <h1>{data.data.username}</h1>
+                  <h1>{user.username}</h1>
                   <h2>EcoWarrior</h2>
                   <div className={styles.coins}>
                     <img src={coins} alt="loading..." />
-                    <p>{data.data.coins}</p>
+                    <p>{user.coins}</p>
                   </div>
                 </div>
               </div>
@@ -77,7 +73,7 @@ function Navbar() {
             </div>
           </ul>
         </nav>)
-        )}
+        }
     </>
   );
 }
