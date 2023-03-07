@@ -43,7 +43,6 @@
     grid-row-gap: 30px;
     align-items: end;
 }
-
 .row:after {
     content: "";
     display: table;

@@ -73,7 +73,7 @@ class Answers extends Component {
                             
                     <span>A</span> 
                     <p>{answers[0]}</p>
-                    {console.log(Styles[classNames[0]])}</li>
+                    </li>
                   
 
                     <li onClick={this.checkAnswer} 

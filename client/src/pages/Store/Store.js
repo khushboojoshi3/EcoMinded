@@ -1,11 +1,6 @@
 import React, { useState, useContext } from "react";
 import Header from "../../components/Header/Header";
 import styles from "./Store.module.css";
-import Reward from "../../assets/reward.gif";
-import Netflix from "../../assets/netflix.png";
-import Myntra from "../../assets/myntra.png";
-import Amazon from "../../assets/amazon.png";
-import Flipkart from "../../assets/flipkart.png";
 import coin from "../../assets/coins.gif";
 import congrats from "../../assets/congrats.gif";
 import { AuthContext } from "../../context/AuthContext";

@@ -1,3 +1,5 @@
-export function Donate() {
+function Donate() {
     
 }
+
+export default Donate;

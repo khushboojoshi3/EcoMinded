@@ -89,6 +89,5 @@ const Popup =({score, total,text,title, buttonText,style,popupHandle})=> {
         );
     }
 
-
 export default Popup; 
 

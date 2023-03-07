@@ -148,7 +148,7 @@ export const updateClaimedReward = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
-};
+};      
 export const getAllRewards = async (req, res, next) => {
   try {
     const rewards = await Reward.find();

@@ -139,14 +139,7 @@ function App() {
             </ProtectedRoutes>
           }
         />
-        {/* <Route
-          path="/donate"
-          element={
-            <ProtectedRoutes>
-              <Donate />
-            </ProtectedRoutes>
-          }
-        /> */}
+        
       </Routes>
     </BrowserRouter>
   );

@@ -20,7 +20,6 @@ Modal.setAppElement("#root");
 
 function Feed({ blogs, updateBlogs }) {
   const { user } = useContext(AuthContext);
-  // console.log(user);
   const [blogData, setBlogData] = useState(
     blogs.map((blog) => {
       return {
@@ -111,6 +110,7 @@ function Feed({ blogs, updateBlogs }) {
       } else {
         await axios.put(`/blog/dislikes/${blogid}/${user._id}`);
       }
+      await updateBlogs();
     } catch (err) {
       console.log(err);
     }
