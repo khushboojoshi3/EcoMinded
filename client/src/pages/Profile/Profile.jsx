@@ -10,10 +10,12 @@ import { FaCamera } from "react-icons/fa";
 import Art from "../../components/Art/Art";
 import Feed  from "../../components/Feed/Feed";
 import Modal from "react-modal";
+import MyRewards from "../MyRewards/MyRewards";
 Modal.setAppElement("#root");
 const labelStyles = {
   root: { marginTop: 5, backgroundColor: "white" },
 };
+
 
 function Profile() {
     const { user } = useContext(AuthContext);
@@ -25,6 +27,7 @@ function Profile() {
       data.append("file", image);
       data.append("upload_preset", "ecoMinded");
       data.append("cloud_name", "drclthcb6");
+
       fetch("  https://api.cloudinary.com/v1_1/drclthcb6/image/upload", {
         method: "post",
         body: data,
@@ -110,7 +113,21 @@ function Profile() {
          console.log(err.response.data);
        }
      };
-
+const {
+       data: rewards,
+       isLoading: isLoadingReward,
+       error: errReward,
+       refetch: refetchReward,
+     } = useQuery(
+       "user_reward",
+       () => {
+         return axios.get(`/user/claimedRewards/${id}`);
+       },
+       { refetchInterval: 120000 }
+     );
+     const fetchUpdatedRewards = async () => {
+       await refetchReward();
+     };
     return (
       <>
         <Header />
@@ -171,7 +188,15 @@ function Profile() {
                 )}
               </PivotItem>
               {user._id === id && (
-                <PivotItem headerText="My ClaimedRewards"></PivotItem>
+                <PivotItem headerText="My ClaimedRewards">
+                  {errReward ? ("An error occured") : isLoadingReward ?
+                  ("Loading") : (
+                  <MyRewards
+                    updateRewards={fetchUpdatedRewards}
+                    rewards={rewards?.data}
+                  />
+                  )}
+                </PivotItem>
               )}
             </Pivot>
           </>

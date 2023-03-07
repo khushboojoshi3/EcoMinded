@@ -269,6 +269,12 @@ img.avatar_image {
   position: absolute;
   background-color: white;
 }
+.Modal{
+
+
+-webkit-backdrop-filter: blur(1.4px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+}
 
 .modalHeader {
   margin-bottom: 40px;
@@ -277,10 +283,16 @@ img.avatar_image {
 .modalHeader div {
   display: inline-block;
 }
+.modalHeader p{
+  font-family:'Hanuman';
+  font-size:20px;
+  font-weight: 500;
+}
 
 .close {
-  position: relative;
-  left: 48%;
+  position: absolute;
+  left: 76%;
+  top: 30px;
 }
 
 .close button {
@@ -299,31 +311,63 @@ img.avatar_image {
   margin-top: 10px;
   width: 150px;
   padding: 5px;
+  border: none;
+  border-radius: 5px;
+}
+.newBillForm p{
+  position: absolute;
+  top:30px;
 }
 
 .newBillForm div {
-  margin-top: 20px;
+  margin-top: -13px;
+  margin-bottom:-8px;
+}
+.box1 label{
+ position: absolute;
+ top:157px;
+ 
+
+}
+.box1 textarea {
+  position: absolute;
+  top:180px;
+  border:none;
+  border-radius: 5px;
+}
+.upload p{
+  position: absolute;
+  top:300px;
+}
+.upload img{
+  position: absolute;
+  top:350px;
 }
 
+
 #submitBtn {
-  position: relative;
+  position: absolute;
   bottom: 22px;
+  height:30px;
   border: none;
   border-radius: 5px;
-  width: 170px;
+  width: 90px;
   padding: 6px;
-  top: 15px;
+  top: 385px;
   color: white;
   text-align: center;
+  margin-top: 100px;
 }
 
 .submitEnabled {
   background-color: #1183ca;
+  
 }
 
 .submitDisabled {
   background-color: #88b0d7;
 }
+
 
 textarea {
   resize: none;
@@ -482,12 +526,20 @@ h3 {
 }
 
 .uploadButton {
-  position: relative;
-  left: 4px;
+  position: absolute;
+  left: 250px;
+  top:262px;
   border: none;
   border-radius: 5px;
   width: 90px;
-  padding: 4px;
+  padding: 5px;
   background-color: #1183ca;
-  color: white;
+  color: #ffffff;
+}
+.file input{
+  position: absolute;
+  top:250px;
+  left:15px;
+  font-size:16px;
+  font-family:'Hanuman';
 }
