@@ -1,0 +1,172 @@
+.online {
+    margin-top: 0px;
+}
+
+.table {
+
+    position: absolute;
+    top: 30px;
+
+}
+
+.table_box {
+    margin: 0px auto;
+    position: absolute;
+    left: 0;
+    /* background: #eae0da; */
+
+
+    /* background: url("../../assets/footwear.gif"); */
+
+
+
+}
+
+.table_row {
+    display: table;
+    width: 850px;
+    margin-left: 250px;
+    margin-bottom: 10px;
+    font-family: 'Hanuman';
+    font-weight: 700;
+    /* From https://css.glass */
+    /* background: rgba(255, 255, 255, 0.2); */
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1.4px);
+    -webkit-backdrop-filter: blur(1.4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* background: rgb(243, 176, 76); */
+    color: #555;
+    font-size: 13px;
+    box-shadow: 0 1px 4px 0px rgba(0, 0, 50, 0.3);
+}
+
+.table_head {
+    /* background: linear-gradient(180deg, rgba(182, 148, 98, 0.88) 22.92%, rgba(179, 149, 43, 0.57) 45.83%, rgba(182, 148, 98, 0.88) 69.27%); */
+    box-shadow: none;
+    background: linear-gradient(180deg, #573605 0%, rgba(182, 148, 98, 0.88) 38.54%, #B6945F 68.23%, #573605 96.87%);
+    /* background: linear-gradient(180deg, #573605 0%, rgba(182, 148, 98, 0.88) 42.71%, #B6945F 64.06%, rgba(179, 149, 43, 0.77) 74.48%, #573605 96.87%); */
+    /* background: #967E76; */
+    color: #fff;
+    font-weight: 700;
+    font-family: 'Hanuman';
+    font-size: 18px;
+
+}
+
+.table_row p {
+    font-size: 19px;
+    font-weight: 500;
+
+
+}
+
+.table_head p {
+    font-size: 23px;
+    font-weight: 900;
+}
+
+.table_cell {
+    display: table-cell;
+    width: 20%;
+    text-align: center;
+    padding: 0px 0;
+    vertical-align: middle;
+
+    font-family: 'Hanuman';
+    font-weight: 500;
+
+}
+
+
+.first_cell {
+    text-align: left;
+    padding-left: 140px;
+}
+
+.last_cell {
+    /* position: absolute; */
+    right: 0px;
+    border-right: none;
+}
+
+.dress {
+    width: 100%;
+    height: 130vh;
+    position: absolute;
+    background: #fff1dc;
+}
+
+.dress img {
+    width: 40%;
+    height: 100vh;
+    left: -180px;
+    top: 20px;
+    position: absolute;
+}
+
+.dress1 img {
+    width: 40%;
+    height: 100vh;
+    left: 1040px;
+    top: 180px;
+    position: absolute;
+}
+
+.last_cell a {
+    font-size: 16px;
+    font-family: 'Hanuman';
+}
+
+.dress_2 {
+    width: 100%;
+    height: 80.7vh;
+    position: absolute;
+    background: #fff1dc;
+}
+
+.dress_2 img {
+    position: absolute;
+    top: -10px;
+    left: -90px;
+}
+
+.dress_3 {
+    position: absolute;
+    left: 1150px;
+    top: 20px;
+}
+
+.offline {
+    position: absolute;
+    /* text-align: center; */
+    left: 590px;
+    top: 150px;
+    width: 250px;
+    display: flex;
+}
+
+.tag p {
+    position: relative;
+    top: 60px;
+    text-align: center;
+    color: #573605;
+    font-size: 32px;
+    font-family: 'Hanuman';
+
+}
+
+.offline select {
+    /* width: 680px; */
+    height: 30px;
+    margin-right: 15px;
+}
+
+.offline button {
+    background-color: #B6945F;
+    color: white;
+    border: none;
+    /* width: 100%; */
+
+}

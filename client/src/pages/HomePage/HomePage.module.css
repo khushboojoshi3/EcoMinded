@@ -115,11 +115,12 @@ color: #FFFFFF;
     
 }   
 .heading h1{
-    font-size:42px;
+    font-size:50px;
     font-family: 'Hanuman';
 font-style: normal;
 font-weight: 700;
-padding-left: 520px;
+left: 455px;
+top: 1440px;
 position: absolute;
 margin-top:10px;
 
@@ -128,6 +129,21 @@ color: #375F42;
 
 
 } 
+.heading2 h1 {
+    font-size: 50px;
+    font-family: 'Hanuman';
+    font-style: normal;
+    font-weight: 700;
+    left: 695px;
+    top:1440px;
+    position: absolute;
+    margin-top: 10px;
+
+
+    color: white;
+
+
+}
 .cause{
     background-color: whitesmoke;
     height: 710px;
@@ -156,7 +172,7 @@ color: #375F42;
  color:#375F42;
  top:1200px;
  left:640px;
- opacity: 0.3;
+ opacity: 0.15;
 }
 .bgcause1 h1 {
     position: absolute;
@@ -166,7 +182,7 @@ color: #375F42;
     color: #375F42;
     top: 1050px;
     left: 1120px;
-    opacity: 0.3;
+    opacity: 0.15;
 }
 .bgcause2 h1 {
     position: absolute;
@@ -176,7 +192,7 @@ color: #375F42;
     color: #375F42;
     top: 720px;
     left: 505px;
-    opacity: 0.3;
+    opacity: 0.15;
 }
 .bgcause3 h1 {
     position: absolute;
@@ -186,7 +202,7 @@ color: #375F42;
     color: #375F42;
     top: 1230px;
     left: 975px;
-    opacity: 0.3;
+    opacity: 0.15;
 }
 .bgcause4 h1 {
     position: absolute;
@@ -196,7 +212,7 @@ color: #375F42;
     color: #375F42;
     top: 845px;
     left: 995px;
-    opacity: 0.3;
+    opacity: 0.15;
 }
 
 .content_det1{
@@ -393,7 +409,7 @@ font-weight:700;
      margin-bottom: -85px;
 } */
 .soln{
-height:710px;
+height:715px;
 /* margin-top:10px; */
 background-color:#ebf7ebc9;
 /* background:linear-gradient(180deg, rgba(154, 225, 143, 0.73) 10.27%, rgba(240, 241, 149, 0.963002) 96.87%); */
@@ -403,24 +419,63 @@ background-color:#ebf7ebc9;
     top: 1430px;
     right:0px;
     height: 190px;
-    width: 68%;
-    background-color: black;
+    width: 49%;
+    border-radius: 5px 5px 0px 5px;
+    background-color:#559668e3;
 }
 .recsoln1 {
     position: absolute;
-    top: 1618px;
+    top:1580px;
     right: 0px;
     height: 138px;
-    width: 88%;
-    background-color: red;
+    width: 58%;
+    border-radius: 5px 0px 0px 5px;
+    background-color: rgba(56, 240, 169, 0.524);
 }
 .recsoln2 {
     position: absolute;
-    top: 1755px;
+    top: 1715px;
     right: 0px;
-    height: 138px;
-    width: 48%;
-    background-color: black;
+    height: 142px;
+    width: 72%;
+    border-radius: 5px 5px 0px 0px;
+    background-color: #559668e3;
+}
+.recsoln3 {
+    position: absolute;
+    top: 1800px;
+    right: 0px;
+    height: 140px;
+    width: 57%;
+    border-radius: 5px 5px 0 0 ;
+    background-color: rgba(56, 240, 169, 0.524);;
+}
+.recsoln4 {
+    position: absolute;
+    top: 1935px;
+    right: 0px;
+    height: 150px;
+    width: 80%;
+    border-radius: 5px 0px 0px 5px;
+    background-color: #559668e3;
+}
+.recsoln5 {
+    position: absolute;
+    top: 1985px;
+    right: 0px;
+    height: 150px;
+    width: 87%;
+    border-radius:5px 0px 0px 5px;
+    background-color: rgba(56, 240, 169, 0.524);
+}
+.recsoln6 {
+    position: absolute;
+    top: 2125px;
+    right: 0px;
+    height: 30px;
+    width: 97%;
+    border-radius: 5px 0px 0px 5px;
+    background-color: #559668e3;
 }
 .frontrow{
     position: absolute;
@@ -430,7 +485,7 @@ background-color:#ebf7ebc9;
 .card1{
     background-color: #F6F6DB;
     height: 250px;
-    width: 370px;
+    width: 310px;
     position: absolute;
     left: 40px;
     top: 1320px;
@@ -438,26 +493,35 @@ background-color:#ebf7ebc9;
     box-shadow: #9ace9a 5px 6px;
 
 }
-.card1 p{
+.card1 h2{
     position: absolute;
-    top: 180px;
-    left: 50px;
+    top: 140px;
+    left: 20px;
     font-size:20px;
     font-weight:600;
     color:#375F42;
 }
+.card1 p {
+    position: absolute;
+    top: 175px;
+    left: 5px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #1cbd4a;
+    text-align: center;
+}
 .card1 img{
-    height: 260px;
-    width: 90%;
+    height: 180px;
+    width: 62%;
     position : absolute;
-    top:-46px;
-    left:22px;
+    top:0px;
+    left:72px;
 
 }
 .card2 {
     background-color: #F6F6DB;
     height: 250px;
-    width: 370px;
+        width: 310px;
     position: absolute;
     left: 40px;
     top: 1620px;
@@ -465,22 +529,31 @@ background-color:#ebf7ebc9;
     box-shadow: #9ace9a 5px 6px;
 
 }
-
-.card2 p {
+.card2 h2 {
     position: absolute;
-    top: 180px;
-    left: 80px;
+    top: 140px;
+    left: 55px;
     font-size: 20px;
     font-weight: 600;
     color: #375F42;
 }
 
+.card2 p {
+        position: absolute;
+        top: 175px;
+        left: 5px;
+        font-size: 15px;
+        font-weight: 500;
+        color: #1cbd4a;
+        text-align: center;
+}
+
 .card2 img {
-    height: 230px;
-    width: 75%;
-    position: absolute;
-    top: -16px;
-    left: 47px;
+    height: 165px;
+        width: 64%;
+        position: absolute;
+        top: 0px;
+        left: 62px;
 
 }
 .secondrow {
@@ -491,7 +564,7 @@ background-color:#ebf7ebc9;
 .card3 {
     background-color: #F6F6DB;
     height: 250px;
-    width: 370px;
+    width: 310px;
     position: absolute;
     left: 40px;
     top: 1320px;
@@ -499,28 +572,37 @@ background-color:#ebf7ebc9;
     box-shadow: #9ace9a 5px 6px;
 
 }
-
-.card3 p {
+.card3 h2 {
     position: absolute;
-    top: 180px;
-    left: 80px;
+    top: 140px;
+    left: 55px;
     font-size: 20px;
     font-weight: 600;
     color: #375F42;
 }
 
-.card3 img {
-    height: 260px;
-    width: 90%;
+.card3 p {
     position: absolute;
-    top: -36px;
-    left: 1px;
+    top: 175px;
+    left: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #1cbd4a;
+    text-align: center;
+}
+
+.card3 img {
+    height: 185px;
+        width: 70%;
+        position: absolute;
+        top: -2px;
+        left: 30px;
 
 }
 .card4 {
     background-color: #F6F6DB;
-    height: 250px;
-    width: 370px;
+height: 250px;
+    width: 310px;
     position: absolute;
     left: 40px;
     top: 1620px;
@@ -528,34 +610,31 @@ background-color:#ebf7ebc9;
     box-shadow: #9ace9a 5px 6px;
 
 }
-
-.card4 p {
+.card4 h2 {
     position: absolute;
-    top: 180px;
-    left: 100px;
+    top: 140px;
+    left: 68px;
     font-size: 20px;
     font-weight: 600;
     color: #375F42;
 }
 
+.card4 p {
+position: absolute;
+    top: 175px;
+    left: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #1cbd4a;
+    text-align: center;
+}
+
 .card4 img {
-    height: 230px;
-    width: 75%;
-    position: absolute;
-    top: -16px;
-    left: 47px;
+       height: 185px;
+        width: 70%;
+        position: absolute;
+        top: -2px;
+        left: 50px;
 
 }
 
-.footer{
-    padding-top: 0px;
-    height:160px;
-    background: linear-gradient(180deg, rgba(81, 102, 142, 0.729) 0%, rgba(83, 149, 101, 0.729) 62.51%, rgba(41, 164, 61, 0.783) 96.35%, rgba(38, 165, 58, 0.846) 100%);
-}
-.col{
-    color: whitesmoke;
-}
-.idea h1{
-    margin-left: 18px;
-    
-}

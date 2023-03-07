@@ -9,6 +9,7 @@ import electricityBillRoute from "./routes/electricityBill.js";
 import artRoute from "./routes/art.js";
 import blogRoute from "./routes/blog.js";
 import rewardRoute from "./routes/reward.js";
+import leaderboardRoute from "./routes/leaderboard.js";
 import cors from "cors";
 const app = express();
 dotenv.config();
@@ -33,6 +34,7 @@ app.use("/api/donate", donateRoute);
 app.use("/api/art", artRoute);
 app.use("/api/blog", blogRoute);
 app.use("/api/reward", rewardRoute);
+app.use("/api/leaderboard",leaderboardRoute);
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
   const errorMessage = err.message || "Something went wrong!";

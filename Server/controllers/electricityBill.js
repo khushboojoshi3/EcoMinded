@@ -4,30 +4,26 @@ import ElectricityBill from "../models/ElectricityBill.js";
 export const createElectricityBill = async (req, res, next) => {
   const userId = req.params.userid;
   try {
-    
-    const response = await fetch(
-        "https://beta3.api.climatiq.io/estimate",
-        {
-          method: "POST",
-          headers: {
-            "Authorization": `Bearer ${process.env.API_KEY}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            emission_factor: {
-              activity_id: "electricity-energy_source_grid_mix",
-              source: "ADEME",
-              region: "IN",
-              year: "2021",
-              lca_activity: "electricity_generation",
-            },
-            parameters: {
-              energy: parseInt(req.body.units),
-              energy_unit: "kWh",
-            },
-          }),
-        }
-    );
+    const response = await fetch("https://beta3.api.climatiq.io/estimate", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        emission_factor: {
+          activity_id: "electricity-energy_source_grid_mix",
+          source: "ADEME",
+          region: "IN",
+          year: "2021",
+          lca_activity: "electricity_generation",
+        },
+        parameters: {
+          energy: parseInt(req.body.units),
+          energy_unit: "kWh",
+        },
+      }),
+    });
     const responseCo2 = await response.json();
     const request = { ...req.body, co2e: responseCo2.co2e };
     const newElectricityBill = new ElectricityBill(request);
@@ -35,7 +31,7 @@ export const createElectricityBill = async (req, res, next) => {
     try {
       await User.findByIdAndUpdate(userId, {
         $push: { electricityBills: savedElectricityBill._id },
-        $inc:{coins:10}
+        $inc: { coins: 10 },
       });
     } catch (err) {
       next(err);

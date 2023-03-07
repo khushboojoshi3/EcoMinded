@@ -11,15 +11,15 @@ import axios from "axios";
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
-  const { user, dispatch } = useContext(AuthContext); 
+  const { user, dispatch } = useContext(AuthContext);
   const handleLogout = async () => {
     try {
       await axios.get("/auth/logout");
-      dispatch({ type: "LOGOUT" }); 
+      dispatch({ type: "LOGOUT" });
     } catch (err) {
       console.log(err);
     }
-  }
+  };
   return (
     <>
       <div className={styles.navbar}>
@@ -52,10 +52,15 @@ function Navbar() {
             </li>
             <div className={styles.nav_det}>
               {SidebarData.map((item, index) => {
-                // const itemClass=item.cName;
                 return (
                   <li key={index} className={styles.nav_text}>
-                    <Link to={item.path}>
+                    <Link
+                      to={
+                        item.title === "Profile"
+                          ? `${item.path}/${user._id}`
+                          : item.path
+                      }
+                    >
                       {item.icon}
                       <span>{item.title}</span>
                     </Link>

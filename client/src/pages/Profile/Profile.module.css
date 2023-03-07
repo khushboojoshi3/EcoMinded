@@ -1,0 +1,81 @@
+.profile {
+    font-size: 1.2rem;
+    font-family: 'Hanuman';
+    font-style: normal;
+    font-weight: 400;
+}
+
+.userMain {
+    background: radial-gradient(328px at 2.9% 15%, rgb(191, 224, 251) 0%, rgb(232, 233, 251) 25.8%, rgb(252, 239, 250) 50.8%, rgb(234, 251, 251) 77.6%, rgb(240, 251, 244) 100.7%);
+    padding: 20px;
+    height: 250px;
+    position: relative;
+}
+
+.userInfo {
+    width: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+/* .userImage{
+    display:flex;
+} */
+.avatar {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.userName p {
+    margin-top: 10px;
+    margin-bottom: 3px;
+    font-size: 1.3rem;
+    color: #041E42;
+}
+
+.information {
+    padding: 10px;
+}
+
+.pivots span {
+    font-size: 1rem !important;
+}
+/* .Modal{
+    background-color: black;
+}*/
+.modalHeader{ 
+    font-family:'Hanuman';
+    font-size: 20px;
+}
+.uploadButton{
+    height: 30px;
+    width: 65px;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+        border: 2px solid white;
+        background: rgb(99, 79, 218)
+}
+.info{
+    font-size: 20px;
+    font-family: 'Hanuman';
+    color: black;
+    margin-top:30px;
+    
+}
+.submit input{
+height: 30px;
+    width: 65px;
+    margin-top:10px;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 2px solid white;
+    background: rgb(99, 79, 218)
+}

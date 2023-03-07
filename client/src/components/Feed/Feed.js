@@ -18,7 +18,7 @@ import { VscSmiley } from "react-icons/vsc";
 import { AuthContext } from "../../context/AuthContext";
 Modal.setAppElement("#root");
 
-export function Feed({ blogs, updateBlogs }) {
+function Feed({ blogs, updateBlogs }) {
   const { user } = useContext(AuthContext);
   // console.log(user);
   const [blogData, setBlogData] = useState(
@@ -327,3 +327,4 @@ export function Feed({ blogs, updateBlogs }) {
     </>
   );
 }
+export default Feed;

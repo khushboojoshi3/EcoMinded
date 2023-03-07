@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./HomePage.module.css";
 import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 
 import main from '../../assets/main.jpg'
-import env from '../../assets/env.png';
 import card1 from '../../assets/card1.png';
 import card2 from '../../assets/card2.png';
 import card3 from '../../assets/card3.png';
@@ -12,8 +12,7 @@ import card4 from '../../assets/card4.png';
 import gif from "../../assets/gif.gif";
 import gif12 from "../../assets/gif12.gif";
 
-import gif from '../../assets/gif.gif';
-import gif12 from '../../assets/gif12.gif';
+
 
 function HomePage(){
 return (
@@ -105,49 +104,45 @@ return (
       <div className={styles.recsoln}></div>
       <div className={styles.recsoln1}></div>
       <div className={styles.recsoln2}></div>
+      <div className={styles.recsoln3}></div>
+      <div className={styles.recsoln4}></div>
+      <div className={styles.recsoln5}></div>
+      <div className={styles.recsoln6}></div>
       <div className={styles.heading}>
-        <h1>We are the solution!</h1>
+        <h1>We are the</h1>
+        <div className={styles.heading2}>
+          <h1>solution!</h1>
+        </div>
       </div>
       <div className={styles.cards}>
         <div className={styles.frontrow}>
           <div className={styles.card1}>
             <img src={card1} alt="../reduce energy consumption" />
-            <p>Reducing Energy Consumption</p>
+            <h2>Reducing Energy Consumption</h2>
+            <p>Save money and the planet by being energy-efficient.</p>
           </div>
           <div className={styles.card2}>
             <img src={card2} alt="../reduce energy consumption" />
-            <p>Proper Waste Disposal</p>
+            <h2>Proper Waste Disposal</h2>
+            <p>Disposal today, a cleaner and healthier tomorrow.</p>
           </div>
         </div>
         <div className={styles.secondrow}>
           <div className={styles.card3}>
             <img src={card3} alt="../reduce energy consumption" />
-            <p>Purchasing Sustainably</p>
+            <h2>Purchasing Sustainably</h2>
+            <p>Shop sustainabitily, make a difference for a better world.</p>
           </div>
           <div className={styles.card4}>
             <img src={card4} alt="../reduce energy consumption" />
-            <p>Zero waste practices</p>
+            <h2>Zero waste practices</h2>
+            <p>Zero waste,maximum impact: a cleaner future.</p>
           </div>
         </div>
       </div>
     </div>
-
-    <div className={styles.footer}>
-      <div className={styles.contain}>
-        <div className={styles.col}>
-          <div className={styles.idea}>
-            <h1>Idea</h1>
-          </div>
-          <ul>
-            <li>About</li>
-            <li>Mission</li>
-            <li>Services</li>
-            <li>Social</li>
-            <li>Get in touch</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+ <Footer/>
+    
   </>
 );
 }

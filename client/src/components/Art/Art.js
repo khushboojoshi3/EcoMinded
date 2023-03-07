@@ -40,8 +40,6 @@ const Art = ({ arts, updateArts }) => {
     );
   }, [arts]);
 
-  
-
   const [image, setImage] = useState("");
   const [url, setUrl] = useState("");
   const uploadImage = () => {
@@ -74,7 +72,7 @@ const Art = ({ arts, updateArts }) => {
   const closeModal = () => {
     setIsOpen(false);
   };
- 
+
   const [viewArt, setViewArt] = useState(false);
   const openArt = async (art) => {
     setViewArt(true);
@@ -115,26 +113,6 @@ const Art = ({ arts, updateArts }) => {
     return str;
   };
 
-  // const handleLikeClickForModal = async () => {
-  //   try {
-  //     let currArt = false;
-  //     const artid = artInfo?.data?._id;
-  //     const artObj = artInfo;
-  //     // console.log(artObj);
-  //     artObj.likeCount += artObj.isLiked ? -1 : 1;
-  //     artObj.isLiked = !artObj.isLiked;
-  //     currArt = artObj.isLiked;
-  //     setArtInfo(artObj);
-
-  //     if (currArt) {
-  //       await axios.put(`/art/likes/${artid}/${user._id}`);
-  //     } else {
-  //       await axios.put(`/art/dislikes/${artid}/${user._id}`);
-  //     }
-  //   } catch (err) {
-  //     console.log(err.response.data);
-  //   }
-  // };
   const handleLikeClick = async (artid) => {
     try {
       let currArt = false;
@@ -153,6 +131,7 @@ const Art = ({ arts, updateArts }) => {
       } else {
         await axios.put(`/art/dislikes/${artid}/${user._id}`);
       }
+      await updateArts();
     } catch (err) {
       console.log(err);
     }
@@ -172,7 +151,6 @@ const Art = ({ arts, updateArts }) => {
           headers: { "Content-Type": "application/json" },
         }
       );
-      // navigate("")
       await updateArts();
       closeModal();
       setIsSubmitDisabled(false);
@@ -193,40 +171,41 @@ const Art = ({ arts, updateArts }) => {
         ></div>
         <div className={styles.card__content}>
           <p className={styles.card__category}>{art.data.title}</p>
-          <div className={styles.bottom}></div>
-          <div className={styles.post_metadata}>
-            <img
-              alt=""
-              className={styles.avatar_image}
-              src={art.artist.photo}
-              height="40"
-              width="40"
-            />
-            <div className={styles.post_info}>
-              <div data-react-className={styles.PopoverLink}>
-                <span className={styles.popover_link} data-reactroot="">
-                  <a href={`/profile/${art.artist.id}`}>{art.artist.name}</a>
-                </span>
+          <div className={styles.bottom}>
+            <div className={styles.post_metadata}>
+              <img
+                alt=""
+                className={styles.avatar_image}
+                src={art.artist.photo}
+                height="40"
+                width="40"
+              />
+              <div className={styles.post_info}>
+                <div data-react-className={styles.PopoverLink}>
+                  <span className={styles.popover_link} data-reactroot="">
+                    <a href={`/profile/${art.artist.id}`}>{art.artist.name}</a>
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className={styles.icon}>
-            <div className={styles.iconClass}>
-              <FontAwesomeIcon
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleLikeClick(art.data._id);
-                }}
-                icon={faHeart}
-                className={art.isLiked ? styles.liked : styles.unliked}
-                size="2x"
-              />
-              <p className={styles.count}>{art.likeCount}</p>
-            </div>
-            <div className={styles.iconClass}>
-              <FontAwesomeIcon icon={faEye} size="2x" />
-              <p className={styles.count}>{art.data.views}</p>
+            <div className={styles.icon}>
+              <div className={styles.iconClass}>
+                <FontAwesomeIcon
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleLikeClick(art.data._id);
+                  }}
+                  icon={faHeart}
+                  className={art.isLiked ? styles.liked : styles.unliked}
+                  size="2x"
+                />
+                <p className={styles.count}>{art.likeCount}</p>
+              </div>
+              <div className={styles.iconClass}>
+                <FontAwesomeIcon icon={faEye} size="2x" />
+                <p className={styles.count}>{art.data.views}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -239,15 +218,15 @@ const Art = ({ arts, updateArts }) => {
         href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
         rel="stylesheet"
       ></link>
-      <section className={styles.hero_section}>
-        <div className={styles.buttonGrid}>
-          <button className={styles.button_9} role="button">
-            <span onClick={openModal} className={styles.text}>+ New Art</span>
+      <div className={styles.hero_section}>
+        <div>
+          <button className={styles.button_9}>
+            <span onClick={openModal}>+ New Art</span>
           </button>
         </div>
 
         <div className={styles.card_grid}>{displayArts}</div>
-      </section>
+      </div>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}

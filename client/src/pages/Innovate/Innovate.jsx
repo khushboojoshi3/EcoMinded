@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Label, Pivot, PivotItem } from "@fluentui/react";
-import { Feed } from "../../components/Feed/Feed";
+import  Feed  from "../../components/Feed/Feed";
 import Art from "../../components/Art/Art";
 import { useState } from "react";
 import { useQuery } from "react-query";

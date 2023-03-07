@@ -1,14 +1,14 @@
 import Reward from "../models/Reward.js";
-// import User from "../models/User.js";
+import User from "../models/User.js";
 export const createReward = async (req, res, next) => {
-    const newReward = new Reward(req.body);
-  
-    try {
-      const savedReward = await newReward.save();
-      res.status(200).json(savedReward);
-    } catch (err) {
-      next(err);
-    }
+  const newReward = new Reward(req.body);
+
+  try {
+    const savedReward = await newReward.save();
+    res.status(200).json(savedReward);
+  } catch (err) {
+    next(err);
+  }
 };
 
 export const updateReward = async (req, res, next) => {
@@ -36,7 +36,7 @@ export const updateReward = async (req, res, next) => {
 //       await User.findByIdAndUpdate(userid, {
 //         $dec: { coins: reward.coins },
 //     });
-    
+
 //     }
 //     catch (err) {
 //     next(err);
@@ -66,12 +66,15 @@ export const getReward = async (req, res, next) => {
   }
 };
 
-export const getRewards = async (req,res,next)=>{
-    try {
-      const rewards = await Reward.find();
-      res.status(200).json(rewards);
-    } catch (err) {
-      next(err);
-    }
+export const getRewards = async (req, res, next) => {
+  try {
+    const rewards = await Reward.find();
+    const user = await User.findById(req.params.userid);
+    const list = rewards.filter(
+      (reward) => user.claimedRewards.includes(reward._id, 0) === false
+    );
+    res.status(200).json(list);
+  } catch (err) {
+    next(err);
+  }
 };
-
