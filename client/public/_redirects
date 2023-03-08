@@ -1,0 +1,9 @@
+/auth/* https://ecominded-api.onrender.com/api/auth/:splat 200
+/user/* https://ecominded-api.onrender.com/api/user/:splat 200
+/art/* https://ecominded-api.onrender.com/api/art/:splat 200
+/donate/* https://ecominded-api.onrender.com/api/donate/:splat 200
+/blog/* https://ecominded-api.onrender.com/api/blog/:splat 200
+/electricityBill/* https://ecominded-api.onrender.com/api/electricityBill/:splat 200
+/reward/* https://ecominded-api.onrender.com/api/reward/:splat 200
+/leaderboard/* https://ecominded-api.onrender.com/api/leaderboard/:splat 200
+/* /index.html 200

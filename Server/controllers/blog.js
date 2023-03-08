@@ -7,9 +7,14 @@ export const createBlog = async (req, res, next) => {
   try {
     const savedBlog = await newBlog.save();
     try {
-      await User.findByIdAndUpdate(userId, {
-        $push: { blogs: savedBlog._id },
-      });
+      await User.findByIdAndUpdate(
+        userId,
+        {
+          $push: { blogs: savedBlog._id },
+          $inc: { coins: 10 },
+        },
+        { new: true }
+      );
     } catch (err) {
       next(err);
     }

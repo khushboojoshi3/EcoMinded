@@ -176,6 +176,8 @@ img.avatar_image {
 }
 
 .post_panel .post_picture_wrapper {
+  /* left: 960px;
+    width: 100%; */
   padding: 1.2em 0 0;
 }
 
@@ -507,7 +509,14 @@ blockquote.pull_right .small:after {
 }
 
 .blogBackground {
-  background: radial-gradient(1200px at 50% 40%, rgb(191, 224, 251) 0%, rgb(232, 233, 251) 25.8%, rgb(252, 239, 250) 50.8%, rgb(234, 251, 251) 77.6%, rgb(240, 251, 244) 100.7%);
+  background: radial-gradient(
+    1200px at 50% 40%,
+    rgb(191, 224, 251) 0%,
+    rgb(232, 233, 251) 25.8%,
+    rgb(252, 239, 250) 50.8%,
+    rgb(234, 251, 251) 77.6%,
+    rgb(240, 251, 244) 100.7%
+  );
 }
 .iconClass {
   margin: 4px;
@@ -517,6 +526,7 @@ blockquote.pull_right .small:after {
   text-align: center;
 }
 
+/* CSS */
 .button_9 {
   appearance: button;
   backface-visibility: hidden;
@@ -570,15 +580,14 @@ blockquote.pull_right .small:after {
   font-size: 20px;
   font-weight: 500;
   color: black;
-  font-family: 'Hanuman';
+  font-family: "Hanuman";
   position: absolute;
 }
 
 .close button {
   position: absolute;
   top: 36px;
-  left:320px;
-
+  left: 320px;
 }
 
 .close button {
@@ -590,33 +599,34 @@ blockquote.pull_right .small:after {
   width: 50px;
   font-size: 1rem;
 }
-.input{
-  font-size:18px;
-  position: absolute;
-  font-family:'Hanuman';
-  top:70px;
+.input {
+  font-size: 18px;
+  font-family: "Hanuman";
 }
 .newBillForm input {
   display: block;
   font-size: 1rem;
-  margin-top: 70px;
   width: 150px;
   padding: 5px;
-  font-size:18px;
-  border:none;
-  border-radius:5px;
-  font-family:'Hanuman';
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  font-family: "Hanuman";
+  margin-bottom: 10px;
 }
 .newBillForm div {
   margin-top: 20px;
 }
 #submitBtn {
+  font-size: 18px;
+  font-family: "Hanuman";
   border: none;
   border-radius: 5px;
   width: 130px;
-  height:30px;
+  height: 30px;
   padding: 6px;
   color: white;
+  margin-top: 20px;
 }
 .submitEnabled {
   background-color: #1183ca;
@@ -627,31 +637,20 @@ blockquote.pull_right .small:after {
 
 textarea {
   resize: none;
-  position: absolute;
-  left:20px;
-  top:185px;
-  border:none;
-  border-radius:5px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
 }
-.choose{
-  position: absolute;
-  top:185px;
-  left:15px;
-  
-}
-.choose input{
-  position: absolute;
+.choose input {
   width: 100px;
-  top: -15px;
-    left: -20px;
   font-size: 13px;
-  padding:25px;
+  padding: 25px;
 }
-.add{
+.add {
   position: absolute;
-  top:145px;
-  font-size:18px;
-  font-family: 'Hanuman';
+  top: 145px;
+  font-size: 18px;
+  font-family: "Hanuman";
 }
 
 .liked {
@@ -663,9 +662,6 @@ textarea {
 }
 
 .uploadButton {
-  position: relative;
-  left: 230px;
-  top:75px;
   border: none;
   border-radius: 5px;
   width: 90px;
@@ -673,10 +669,18 @@ textarea {
   background-color: #1183ca;
   color: white;
 }
-.smiley{
+.smiley {
   margin-left: 10px;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
-.smiley:hover{
-  color:#a94064;
+.smiley:hover {
+  color: #1183ca;
+}
+.uploaded p {
+  font-size: 18px;
+  font-family: "Hanuman";
+}
+.uploaded img {
+  font-size: 18px;
+  font-family: "Hanuman";
 }

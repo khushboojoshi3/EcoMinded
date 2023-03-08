@@ -7,9 +7,14 @@ export const createArt = async (req, res, next) => {
     try {
       const savedArt = await newArt.save();
        try {
-         await User.findByIdAndUpdate(userId, {
-           $push: { art: savedArt._id },
-         });
+         await User.findByIdAndUpdate(
+           userId,
+           {
+             $push: { art: savedArt._id },
+             $inc: { coins: 10 },
+           },
+           { new: true }
+         );
        } catch (err) {
          next(err);
        }

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../../../context/AuthContext.js";
 const Questions = () => {
-  const { user } = useContext(AuthContext);
+  const { user, dispatch } = useContext(AuthContext);
   const [showButton, setShowButton] = useState(false);
   const [questionAnswered, setQuestionAnswered] = useState(false);
   const [score, setScore] = useState(0);
@@ -38,7 +38,7 @@ const Questions = () => {
   };
   const handleFinish = async () => {
     try {
-      await axios.post(
+      const newPlayer = await axios.post(
         `/leaderboard/${user._id}`,
         {
           playerid: user._id,
@@ -48,6 +48,7 @@ const Questions = () => {
           headers: { "Content-Type": "application/json" },
         }
       );
+      dispatch({ type: "UPDATE_USER", payload: newPlayer.data.user });
     } catch (err) {
       console.log(err.response.data);
     }
@@ -78,7 +79,7 @@ const Questions = () => {
     {
       type: "Party",
       image: require("../../../assets/quiz1.jpg"),
-    }
+    },
   ];
   const updatecount = () => {
     setCount((count) => count + 1);

@@ -16,7 +16,7 @@ import { AuthContext } from "../../context/AuthContext";
 Modal.setAppElement("#root");
 
 function Feed({ blogs, updateBlogs }) {
-  const { user } = useContext(AuthContext);
+  const { user,dispatch } = useContext(AuthContext);
   const [blogData, setBlogData] = useState(
     blogs.map((blog) => {
       return {
@@ -82,6 +82,7 @@ function Feed({ blogs, updateBlogs }) {
       boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
       backdropFilter: "blur(1.4px)",
       transform: "translate(-50%, -50%)",
+      height:"520px",
       width: "400px",
     },
   };
@@ -129,10 +130,11 @@ function Feed({ blogs, updateBlogs }) {
           headers: { "Content-Type": "application/json" },
         }
       );
+      const updated_user = await axios.get(`/user/${user._id}`);
       await updateBlogs();
+      dispatch({ type: "UPDATE_USER", payload: updated_user.data });
       closeModal();
       setIsSubmitDisabled(false);
-      console.log(newBlog);
       navigate(`/blogview/${newBlog.data._id}`);
     } catch (err) {
       console.log(err.response.data);
@@ -291,7 +293,8 @@ function Feed({ blogs, updateBlogs }) {
             />
             <VscSmiley
               className={styles.smiley}
-              onClick={() => {
+              onClick={(e) => {
+                e.preventDefault();
                 console.log("hello");
                 setEmojiPicker(!emojiPicker);
               }}

@@ -152,7 +152,7 @@ function Electricity() {
           headers: { "Content-Type": "application/json" },
         }
       );
-      const updated_user = await axios.get(`user/${user._id}`);
+      const updated_user = await axios.get(`/user/${user._id}`);
       dispatch({ type: "UPDATE_USER", payload: updated_user.data });
       await refetch();
       closeModal();

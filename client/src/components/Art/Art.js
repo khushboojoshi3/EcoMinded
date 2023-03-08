@@ -10,7 +10,7 @@ import axios from "axios";
 Modal.setAppElement("#root");
 
 const Art = ({ arts, updateArts }) => {
-  const { user } = useContext(AuthContext);
+  const { user,dispatch } = useContext(AuthContext);
 
   const [artData, setArtData] = useState(
     arts.map((art) => {
@@ -139,6 +139,8 @@ const Art = ({ arts, updateArts }) => {
           headers: { "Content-Type": "application/json" },
         }
       );
+      const updated_user = await axios.get(`/user/${user._id}`);
+      dispatch({ type: "UPDATE_USER", payload: updated_user.data });
       await updateArts();
       closeModal();
       setIsSubmitDisabled(false);
