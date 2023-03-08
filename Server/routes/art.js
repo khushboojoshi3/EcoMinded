@@ -8,7 +8,7 @@ import {
   updateDislikes,
   updateLikes,
   updateViews
-} from "../controllers/Art.js";
+} from "../controllers/art.js";
 import {verifyUser} from "../utils/verifyToken.js"
 
 const router = express.Router();

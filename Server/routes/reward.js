@@ -6,10 +6,7 @@ import {
   getReward,
   getRewards,
   updateReward,
-} from "../controllers/Reward.js";
-
-import Reward from "../models/Reward.js";
-import { createError } from "../utils/error.js";
+} from "../controllers/reward.js";
 import {verifyUser, verifyAdmin} from "../utils/verifyToken.js";
 
 const router = express.Router();

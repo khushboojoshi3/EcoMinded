@@ -10,7 +10,7 @@ import {
   updateLikes,
   updateDislikes,
   updateViews
-} from "../controllers/Blog.js";
+} from "../controllers/blog.js";
 import {verifyUser} from "../utils/verifyToken.js"
 
 const router = express.Router();
