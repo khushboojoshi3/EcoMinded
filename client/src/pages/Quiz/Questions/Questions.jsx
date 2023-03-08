@@ -48,11 +48,6 @@ const handleFinish = async () => {
         headers: { "Content-Type": "application/json" },
       }
     );
-    // await updateBlogs();
-    // closeModal();
-    // setIsSubmitDisabled(false);
-    console.log(newPlayer);
-    // navigate(`/blogview/${newBlog.data._id}`);
   } catch (err) {
     console.log(err.response.data);
   }
@@ -116,7 +111,6 @@ const handleFinish = async () => {
         />
       )}
       {count === 5 && (
-        // handleFinish()
         <Popup
           style={{ display: displayPopup }}
           score={score}
@@ -161,6 +155,5 @@ const handleFinish = async () => {
       </div>
     </div>
   );
-  //   }
 };
 export default Questions;

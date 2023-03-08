@@ -25,9 +25,6 @@ const BlogView = () => {
     return axios.get(`/blog/find/${id}`);
   });
 
-  console.log(blog);
-  // const bd = ;
-  // console.log(bd);
   const [blogData, setBlogData] = useState({
     ...blog,
     likeCount: blog?.data?.data?.likes?.length,
@@ -49,7 +46,6 @@ const BlogView = () => {
       let currBlog = false;
       const blogid = blogData?.data?.data?._id;
       const blogObj = blogData;
-      console.log(blogObj);
       blogObj.likeCount += blogObj.isLiked ? -1 : 1;
       blogObj.isLiked = !blogObj.isLiked;
       currBlog = blogObj.isLiked;
@@ -65,17 +61,15 @@ const BlogView = () => {
       console.log(err);
     }
   };
-  // console.log(blogData);
 
   const getBlogDate = (createdAt) => {
     const date = new Date(createdAt);
     const day = date.getDate();
-    const month = date.getMonth(); // getMonth() returns month from 0 to 11
+    const month = date.getMonth();
     const year = date.getFullYear();
     const str = `${day}-${months[month]}-${year}`;
     return str;
   };
-  //   console.log(blog);
   return (
     <>
       <Header />

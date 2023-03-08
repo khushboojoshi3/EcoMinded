@@ -38,9 +38,6 @@ const Clothing = () => {
                 <div className={Styles.dress_3}>
                   <img src={dress} />
                 </div>
-                {/* <div className={styles.clothes_tag}>
-                  <p>Style that won't cost the Earth!</p>
-                </div> */}
                 <Offline stores={data.Clothing.Offline} tagline="Style that won't cost the Earth!" />
               </div>
             </Label>

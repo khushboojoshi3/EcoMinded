@@ -7,7 +7,6 @@ import Offline from "../Offline/Offline";
 import Online from "../Online/Online";
 import styles from "./Grocery.module.css";
 import Styles from "../Design.module.css";
-// import dress from "../../../assets/dress.png";
 import groc1 from "../../../assets/groc1.png";
 import groc2 from "../../../assets/groc2.png";
 import data from '../data';

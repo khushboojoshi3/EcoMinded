@@ -21,14 +21,8 @@ function Quiz() {
     },
     { refetchInterval: 120000 }
   );
-
-  console.log(players);
   const fetchUpdatedPlayers = async () => {
     await refetchPlayer();
-  };
-
-  const playclick = () => {
-    console.log("Click");
   };
 
   return (

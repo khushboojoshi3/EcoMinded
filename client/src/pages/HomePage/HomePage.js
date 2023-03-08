@@ -32,7 +32,6 @@ return (
     <div className={styles.cause}>
       <div className={styles.rec1}></div>
       <div className={styles.rec2}></div>
-      {/* <div className={styles.rec3}></div> */}
       <div className={styles.polaroid}>
         <div className={styles.gifi}>
           <img src={gif12} alt="Global Warming"/>
@@ -92,9 +91,6 @@ return (
           </div>
         </div>
       </div>
-      {/* <div className={styles.bor_env}>
-          <img src={env}/>
-          </div> */}
     </div>
 
     <div className={styles.soln}>

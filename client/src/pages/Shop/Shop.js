@@ -8,10 +8,6 @@ import groc from "../../assets/groc.png";
 import fur from "../../assets/fur.png";
 import { Link } from "react-router-dom";
 function Shop() {
-  const imageClick = () => {
-    // console.log("Click");
-  };
-
   return (
     <>
       <Header />
@@ -28,19 +24,19 @@ function Shop() {
           <div className={styles.front_row}>
             <div className={styles.circle_shop}>
               <Link to="./clothing">
-                <img src={shop} onClick={() => imageClick()} alt="clothes" />
+                <img src={shop} alt="clothes" />
                 <p>Clothes</p>
               </Link>
             </div>
             <div className={styles.circle_groc}>
               <Link to="./grocery">
-                <img src={groc} onClick={() => imageClick()} alt="grocery" />
+                <img src={groc} alt="grocery" />
                 <p>Grocery</p>
               </Link>
             </div>
             <div className={styles.circle_foot}>
               <Link to="./footwear">
-                <img src={foot} onClick={() => imageClick()} alt="footwear" />
+                <img src={foot} alt="footwear" />
                 <p>Footwear</p>
               </Link>
             </div>
@@ -48,13 +44,13 @@ function Shop() {
           <div className={styles.second_row}>
             <div className={styles.circle_fur}>
               <Link to="./furniture">
-                <img src={fur} onClick={() => imageClick()} alt="furniture" />
+                <img src={fur} alt="furniture" />
                 <p>Furniture</p>
               </Link>
             </div>
             <div className={styles.circle_stat}>
               <Link to="./stationery">
-                <img src={stat} onClick={() => imageClick()} alt="stationery" />
+                <img src={stat} alt="stationery" />
                 <p>Stationery</p>
               </Link>
             </div>

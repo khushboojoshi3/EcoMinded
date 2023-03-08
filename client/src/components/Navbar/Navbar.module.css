@@ -23,7 +23,6 @@
   top: 0;
   transition: 850ms;
   right: 0;
-  /* transition: 350ms; */
   z-index: 1;
 }
 .pfpdet h2{
@@ -48,9 +47,6 @@
     margin-top:0px;
     margin-bottom:10px;
 }
-/* .pfp_logo{
-  font-size: 68px;
-} */
 .coins{
   margin-top:-8px;
 }

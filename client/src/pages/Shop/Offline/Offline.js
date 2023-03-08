@@ -17,7 +17,6 @@ const Offline = (props) => {
           <div className={styles.offline}>
             <select
               value={selectedCity}
-              //   className={Style.selection}
               onChange={(e) => {
                 setSelectedCity(e.target.value);
               }}

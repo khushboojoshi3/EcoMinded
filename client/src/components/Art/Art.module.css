@@ -10,11 +10,7 @@
 
 
 .hero_section {
-  /* align-items: flex-start; */
   background: radial-gradient(1200px at 50% 40%, rgb(191, 224, 251) 0%, rgb(232, 233, 251) 25.8%, rgb(252, 239, 250) 50.8%, rgb(234, 251, 251) 77.6%, rgb(240, 251, 244) 100.7%);
-  /* display: flex; */
-  /* min-height: 100%; */
-  /* justify-content: center; */
   padding: var(--spacing-xl) var(--spacing-xl);
 }
 
@@ -123,48 +119,6 @@
   width: 100%;
 }
 
-/* CSS */
-/* .button_9 {
-  appearance: button;
-  backface-visibility: hidden;
-  background-color: #375f42;
-  border-radius: 6px;
-  border-width: 0;
-  box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 1px inset,
-    rgba(50, 50, 93, 0.1) 0 2px 5px 0, rgba(0, 0, 0, 0.07) 0 1px 1px 0;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
-    Ubuntu, sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  height: 44px;
-  line-height: 1.15;
-  outline: none;
-  overflow: hidden;
-  position: relative;
-  text-align: center;
-  text-transform: none;
-  transform: translateZ(0);
-  transition: all 0.2s, box-shadow 0.08s ease-in;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: 20%;
-  left: 45%;
-}
-
-.button_9:disabled {
-  cursor: default;
-}
-
-.button_9:focus {
-  box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 1px inset,
-    rgba(50, 50, 93, 0.2) 0 6px 15px 0, rgba(0, 0, 0, 0.1) 0 2px 2px 0,
-    rgba(50, 151, 211, 0.3) 0 0 0 4px;
-} */
-
 .button_9 {
   appearance: button;
   backface-visibility: hidden;
@@ -222,7 +176,6 @@
 }
 
 .post_metadata .post_info {
-  /* position: fixed; */
   padding-left: 10px;
   margin-top: 5px;
 }
@@ -393,7 +346,6 @@ textarea {
 }
 
 .post_metadata_modal .post_info {
-  /* position: fixed; */
   padding-left: 10px;
   margin-top: 5px;
 }
@@ -413,12 +365,10 @@ textarea {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  /* margin-left: -1%; */
 }
 
 .pull_right {
   display: flex;
-  /* float: right; */
   position: absolute;
   padding-top: 3%;
   left: 300px;
@@ -440,17 +390,6 @@ textarea {
   color: #555353;
 }
 
-/* h1,
-h2,
-h3,
-h4 {
-  color: #373737;
-}
-h3 {
-  font-size: 1.6em;
-  font-weight: 700;
-} */
-
 .contentClass {
   width: 358px;
   top: 280px;
@@ -458,8 +397,6 @@ h3 {
   line-height: 1.5em;
   margin: 5px 0;
   padding-top: 30px;
-  /* padding: 30px; */
-  /* display: flex; */
   font-style: italic;
   justify-content: flex-start;
   left: 8%;
@@ -491,14 +428,12 @@ h3 {
   margin-top: 15px;
   font-size: 23px;
   font-weight: 500;
-  /* left: 23%; */
   text-align: center;
 }
 
 
 .pull_right_modal {
   display: flex;
-  /* float: right; */
   position: absolute;
   padding-top: 3%;
   left: 300px;

@@ -82,7 +82,6 @@ function Store() {
   };
 
   const handleFinalClick = async () => {
-    console.log(rewardInfo);
     if (rewardInfo.coins <= user.coins) {
       try {
         const updatedUser = await axios.put(

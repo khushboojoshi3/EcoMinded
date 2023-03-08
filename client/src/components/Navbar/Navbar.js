@@ -13,9 +13,6 @@ function Navbar() {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
   const { user, dispatch } = useContext(AuthContext); 
-  // const { data, isLoading, error } = useQuery("userInfo", () => {
-  //    return axios.get(`/user/${user._id}`);
-  // });
   const handleLogout = async () => {
     try {
       await axios.get("/auth/logout");

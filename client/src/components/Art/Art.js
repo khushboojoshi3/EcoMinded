@@ -13,7 +13,6 @@ Modal.setAppElement("#root");
 
 const Art = ({ arts, updateArts }) => {
   const { user } = useContext(AuthContext);
-  // console.log(user);
 
   const [artData, setArtData] = useState(
     arts.map((art) => {
@@ -35,7 +34,7 @@ const Art = ({ arts, updateArts }) => {
         };
       })
     );
-  }, [arts,user._id]);
+  }, [arts, user._id]);
 
   const [image, setImage] = useState("");
   const [url, setUrl] = useState("");
@@ -63,7 +62,6 @@ const Art = ({ arts, updateArts }) => {
   const navigate = useNavigate();
 
   const [artInfo, setArtInfo] = useState({});
-  // console.log(artInfo);
   const openModal = () => {
     setIsOpen(true);
   };
@@ -101,6 +99,7 @@ const Art = ({ arts, updateArts }) => {
       height: "520px",
       backdropFilter: "blur(1.4px)",
       width: "320px",
+      border: "5px solid white",
       borderRadius: "16px",
       boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
     },
@@ -286,7 +285,7 @@ const Art = ({ arts, updateArts }) => {
           </div>
           <div className={styles.upload}>
             <p>Uploaded image will be displayed here</p>
-            <img width="200" height="120" src={url} alt= "Uploaded Art" />
+            <img width="200" height="120" src={url} alt="Uploaded Art" />
           </div>
           <input
             type="submit"
@@ -299,81 +298,6 @@ const Art = ({ arts, updateArts }) => {
           />
         </form>
       </Modal>
-
-      {/* <Modal
-        isOpen={viewArt}
-        onRequestClose={closeArt}
-        style={customstyless}
-        contentLabel="Viewing Art"
-      >
-        {
-          <>
-            <div className={styles.modalHeader}>
-              <div>You can view art here</div>
-              <div className={styles.close}>
-                <button onClick={closeArt}>close</button>
-              </div>
-            </div>
-            <div className={styles.infoHeader}>
-              <div className={styles.post_metadata_modal}>
-                <img
-                  alt=""
-                  className={styles.avatar_image}
-                  src={artInfo?.artist?.photo}
-                  height="40"
-                  width="40"
-                />
-                <div className={styles.post_info}>
-                  <div data-react-className={styles.PopoverLink}>
-                    <span className={styles.popover_link} data-reactroot="">
-                      <a href={`/profile/${artInfo?.artist?.id}`}>
-                        {artInfo?.artist?.name}
-                      </a>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div className={`${styles.post_stats} ${styles.clearfix}`}>
-                <div className={styles.pull_right}>
-                  <div className={styles.iconClass}>
-                    <FontAwesomeIcon
-                      className={
-                        artInfo.isLiked ? styles.liked : styles.unliked
-                      }
-                      onClick={handleLikeClickForModal}
-                      icon={faHeart}
-                      size="2x"
-                    ></FontAwesomeIcon>
-                    <p className={styles.count}>
-                      {artInfo?.data?.likes.length}
-                    </p>
-                  </div>
-                  <div className={styles.iconClass}>
-                    <FontAwesomeIcon icon={faEye} size="2x" />
-                    <p className={styles.count}>{artInfo?.data?.views}</p>
-                  </div>
-                </div>
-
-                <div className={styles.pull_left}>
-                  <p>{getArtDate(artInfo?.data?.createdAt)}</p>
-                </div>
-              </div>
-            </div>
-            <div className={styles.singleArt}>
-              <div className={styles.modalTitle}>
-                <h3>{artInfo?.data?.title}</h3>
-              </div>
-
-              <div className={styles.art_img}>
-                <img src={artInfo?.data?.url} />
-              </div>
-              <div className={styles.contentClass}>
-                <p>{artInfo?.data?.description}</p>
-              </div>
-            </div>
-          </>
-        }
-      </Modal> */}
       <ArtView
         viewArt={viewArt}
         closeArt={closeArt}

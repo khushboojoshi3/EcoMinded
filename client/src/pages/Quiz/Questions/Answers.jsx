@@ -17,7 +17,6 @@ class Answers extends Component {
         let { isAnswered } = this.props;
         
         if(!isAnswered) {
-            // this.clearClasses();
             let elem = e.currentTarget;
             let { correct, increaseScore } = this.props;
             let answer = Number(elem.dataset.id);
@@ -51,7 +50,6 @@ class Answers extends Component {
         
     }
     render() {
-        // this.clearClasses();
         let { answers } = this.props;
         let { classNames } = this.state;
         
