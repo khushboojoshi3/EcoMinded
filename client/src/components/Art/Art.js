@@ -1,14 +1,11 @@
-import React, { Component, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import styles from "../Art/Art.module.css";
-import { render } from "react-dom";
 import { useState } from "react";
 import { months } from "../../utils/date";
 import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import { faHeart, faEye } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import useFetch from "../../utils/useFetch";
-import { useQuery } from "react-query";
 import ArtView from "../ArtView/ArtView";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
@@ -16,7 +13,7 @@ Modal.setAppElement("#root");
 
 const Art = ({ arts, updateArts }) => {
   const { user } = useContext(AuthContext);
-  // console.log(user);
+  
 
   const [artData, setArtData] = useState(
     arts.map((art) => {
@@ -38,7 +35,7 @@ const Art = ({ arts, updateArts }) => {
         };
       })
     );
-  }, [arts]);
+  }, [arts,user._id]);
 
   const [image, setImage] = useState("");
   const [url, setUrl] = useState("");
@@ -47,12 +44,13 @@ const Art = ({ arts, updateArts }) => {
     data.append("file", image);
     data.append("upload_preset", "ecoMinded");
     data.append("cloud_name", "drclthcb6");
-    fetch("  https://api.cloudinary.com/v1_1/drclthcb6/image/upload", {
+    fetch(" https://api.cloudinary.com/v1_1/drclthcb6/image/upload", {
       method: "post",
       body: data,
     })
       .then((resp) => resp.json())
       .then((data) => {
+        console.log(data.url);
         setUrl(data.url);
       })
       .catch((err) => console.log(err));
@@ -65,7 +63,7 @@ const Art = ({ arts, updateArts }) => {
   const navigate = useNavigate();
 
   const [artInfo, setArtInfo] = useState({});
-  // console.log(artInfo);
+  
   const openModal = () => {
     setIsOpen(true);
   };
@@ -112,7 +110,7 @@ const Art = ({ arts, updateArts }) => {
   const getArtDate = (createdAt) => {
     const date = new Date(createdAt);
     const day = date.getDate();
-    const month = date.getMonth(); // getMonth() returns month from 0 to 11
+    const month = date.getMonth(); 
     const year = date.getFullYear();
 
     const str = `${day}-${months[month]}-${year}`;
@@ -294,6 +292,7 @@ const Art = ({ arts, updateArts }) => {
           <input
             type="submit"
             id={styles.submitBtn}
+            value="Submit"
             className={
               isSubmitDisabled ? styles.submitDisabled : styles.submitEnabled
             }

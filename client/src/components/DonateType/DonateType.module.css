@@ -1,0 +1,5 @@
+.radio{
+    display:flex;
+    column-gap: 7px;
+    margin-bottom:20px;
+}

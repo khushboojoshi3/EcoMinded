@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Header from "../../../components/Header/Header";
 import styles from "../Design.module.css";
 const Offline = (props) => {
   const [showOptions, setShowOptions] = useState(true);

@@ -9,17 +9,17 @@ import Shop from "./pages/Shop/Shop";
 import Quiz from "./pages/Quiz/Quiz";
 import Dispose from "./pages/Dispose/Dispose";
 import Store from "./pages/Store/Store";
-import Profile from "./pages/Profile/Profile";
 import Questions from "./pages/Quiz/Questions/Questions";
-// import Donate from "./pages/Donate/Donate";
-
+import Donate from "./pages/Donate/Donate";
+import DonateForm from "./pages/Donate/DonateForm/DonateForm";
+import Profile from "./pages/Profile/Profile";
 import Clothing from "./pages/Shop/Clothing/Clothing";
-
 import Grocery from "./pages/Shop/Grocery/Grocery";
 import Footwear from "./pages/Shop/Footwear/Footwear";
 import Furniture from "./pages/Shop/Furniture/Furniture";
 import Stationery from "./pages/Shop/Stationery/Stationery";
 import { ProtectedRoutes } from "./components/ProtectedRoutes/ProtectedRoutes";
+
 function App() {
   return (
     <BrowserRouter>
@@ -139,7 +139,22 @@ function App() {
             </ProtectedRoutes>
           }
         />
-        
+         <Route
+          path="/donate"
+          element={
+            <ProtectedRoutes>
+              <Donate />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/donateform"
+          element={
+            <ProtectedRoutes>
+              <DonateForm />
+            </ProtectedRoutes>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

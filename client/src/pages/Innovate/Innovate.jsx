@@ -1,13 +1,10 @@
 import * as React from "react";
 import { Label, Pivot, PivotItem } from "@fluentui/react";
-import  Feed  from "../../components/Feed/Feed";
+import Feed from "../../components/Feed/Feed";
 import Art from "../../components/Art/Art";
-import { useState } from "react";
 import { useQuery } from "react-query";
 import Header from "../../components/Header/Header";
 import axios from "axios";
-import styles from "./Innovate.module.css";
-
 const labelStyles = {
   root: { marginTop: 5, backgroundColor: "white" },
 };
@@ -37,21 +34,25 @@ const Innovate = (props) => {
     },
     { refetchInterval: 120000 }
   );
-  console.log(arts);
-  // console.log(arts.data);
-
+  
   const fetchUpdatedBlogs = async () => {
     await refetchBlog();
   };
   const fetchUpdatedArts = async () => {
     await refetchArt();
   };
-
+  const pivotStyles = {
+    root: {
+      marginLeft:"20px"
+    },
+     text: {
+       fontSize: "1.2rem",
+     },
+   };
   return (
     <>
       <Header/>
-      <div className={styles.pivot}>
-        <Pivot aria-label="Innovate">
+        <Pivot aria-label="Innovate" styles={pivotStyles}>
           <PivotItem headerText="Art">
             {errArt ? (
              console.log(errArt.response.data)
@@ -76,7 +77,6 @@ const Innovate = (props) => {
             )}
           </PivotItem>
         </Pivot>
-      </div>
     </>
   );
 };

@@ -93,12 +93,13 @@ function Electricity() {
     if (lastBill.units < avgMonthWiseConsumption[month - 1][0]) {
       return (
         <div className={`${Style.zone} ${Style.green}`}>
-          <p>Green Zone</p><p>Carbon Dioxide Equivalent: {lastBill.co2e}</p>
+          <p>Green Zone</p>
+          <p>Carbon Dioxide Equivalent: {lastBill.co2e}</p>
           <p>
             Ideal Consumption: {avgMonthWiseConsumption[month - 1][0]}-
             {avgMonthWiseConsumption[month - 1][1]} units
           </p>
-          <p>You carbon consumption is {stand}% less than average user</p>
+          <p>You carbon consumption is {stand}% less than ideal consumption.</p>
         </div>
       );
     } else if (
@@ -113,7 +114,9 @@ function Electricity() {
             Ideal Consumption: {avgMonthWiseConsumption[month - 1][0]}-
             {avgMonthWiseConsumption[month - 1][1]} units
           </p>
-          <p>You carbon consumption is {stand}% is more than average user</p>
+          <p>
+            You carbon consumption is {stand}% is more than ideal consumption.
+          </p>
         </div>
       );
     } else {
@@ -125,7 +128,7 @@ function Electricity() {
             Ideal Consumption: {avgMonthWiseConsumption[month - 1][0]}-
             {avgMonthWiseConsumption[month - 1][1]} units
           </p>
-          <p>You carbon consumption is {stand}% is more than average user</p>
+          <p>You carbon consumption is {stand}% is more than ideal consumption.</p>
         </div>
       );
     }

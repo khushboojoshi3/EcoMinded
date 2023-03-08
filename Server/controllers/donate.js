@@ -5,7 +5,7 @@ const getItems = (items) => {
     const arr = [];
     let total_co2e = 0;
     items.forEach((item) => {
-        if (item.qty != 0) {
+        if (item.qty != null) {
             let item_co2e = item.qty * emissionFactor[item.name];
             arr.push({ name: item.name, qty: item.qty, co2e: item_co2e });
             total_co2e += item_co2e;
@@ -15,15 +15,17 @@ const getItems = (items) => {
 }
 export const createDonation = async (req, res, next) => {
   const userId = req.params.userid;
-  const { items, total_co2e } = getItems(req.body.items);
-   const request = {
-     date: req.body.date,
+  const { items } = getItems(req.body.items);
+  const request = {
      items: items,
      status: req.body.status,
-     address: req.body.address,
      pickupType: req.body.pickupType,
-     charges: req.body.charges,
-   };
+  };
+  if (req.body.pickupType === "doorstep") {
+    request.timeSlot = req.body.timeSlot;
+    request.address = req.body.address;
+    request.charges = parseInt(req.body.charges);
+  }
   try {
     const newDonation = new Donate(request);
     const savedDonation = await newDonation.save();

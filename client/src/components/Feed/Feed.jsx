@@ -6,12 +6,11 @@ import {
   faBookmark,
 } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useQuery } from "react-query";
+
 import { useState } from "react";
 import {months} from "../../utils/date";
 import axios from "axios";
-import data from "@emoji-mart/data";
-import Picker from "@emoji-mart/react";
+
 import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import { VscSmiley } from "react-icons/vsc";

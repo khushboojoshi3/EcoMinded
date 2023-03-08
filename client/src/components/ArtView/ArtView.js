@@ -59,7 +59,7 @@ const ArtView = ({ viewArt, closeArt, art , userid, updateArts}) => {
           <div className={styles.modalHeader}>
             <div className={styles.viewArt}>You can view art here</div>
             <div className={styles.close}>
-              <button onClick={closeArt}>close</button>
+              <button onClick={()=>closeArt()}>close</button>
             </div>
           </div>
           <div className={styles.infoHeader}>
@@ -109,7 +109,7 @@ const ArtView = ({ viewArt, closeArt, art , userid, updateArts}) => {
             </div>
 
             <div className={styles.art_img}>
-              <img src={artInfo?.data?.url} />
+              <img src={artInfo?.data?.url} alt="Art view" />
             </div>
             <div className={styles.contentClass}>
               <p>{artInfo?.data?.description}</p>

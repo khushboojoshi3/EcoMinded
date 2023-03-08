@@ -4,11 +4,11 @@ const UserSchema = new mongoose.Schema(
     username: {
       type: String,
       required: true,
-      unique:true,
+      unique: true,
     },
     fname: {
       type: String,
-      required:true
+      required: true,
     },
     lname: {
       type: String,
@@ -19,6 +19,8 @@ const UserSchema = new mongoose.Schema(
     },
     photo: {
       type: String,
+      deafult:
+        "http://res.cloudinary.com/drclthcb6/image/upload/v1678130195/kdzzxzypygh2mdazovak.png",
     },
     email: {
       type: String,
@@ -45,12 +47,12 @@ const UserSchema = new mongoose.Schema(
       type: [String],
     },
     claimedRewards: {
-      type:[String],
+      type: [String],
     },
-    isAdmin:{
+    isAdmin: {
       type: Boolean,
-      deafult:false,  
-    }
+      deafult: false,
+    },
   },
   { timestamps: true }
 );

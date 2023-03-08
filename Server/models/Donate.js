@@ -2,7 +2,9 @@ import mongoose from "mongoose";
 const DonateSchema = new mongoose.Schema({
   date: {
     type: Date,
-    required: true,
+  },
+  timeSlot: {
+    type: String,
   },
   items: {
     type: [{name:String,qty:Number,co2e:Number}],
@@ -14,15 +16,14 @@ const DonateSchema = new mongoose.Schema({
   },
   address: {
     type: {addressLine1:String,addressLine2:String,city:String,state:String,pincode:String},
-    required: true,
    },
    pickupType:{
     type: String,
     required:true
    },
    charges: {
-    type: Number,
-    required:true
+     type: Number,
+     default:0,
    }
 });
 

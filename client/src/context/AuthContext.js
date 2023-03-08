@@ -46,6 +46,17 @@ const AuthReducer = (state, action) => {
 
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE);
+  // useEffect(() => {
+  //   const handleCookieChange = () => {
+  //     const cookieValue = Cookies.get("access_token");
+  //     console.log(cookieValue);
+  //     if (!cookieValue) {
+  //       dispatch({type:"LOGOUT"});
+  //     }
+  //   };
+  //   return (handleCookieChange());
+  // }, []);
+  // console.log(document.cookie);
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(state.user));
   }, [state.user]);

@@ -6,7 +6,7 @@
 }
 
 .userMain {
-    background: radial-gradient(328px at 2.9% 15%, rgb(191, 224, 251) 0%, rgb(232, 233, 251) 25.8%, rgb(252, 239, 250) 50.8%, rgb(234, 251, 251) 77.6%, rgb(240, 251, 244) 100.7%);
+    background: radial-gradient(328px at 50% 50%, rgb(191, 224, 251) 0%, rgb(232, 233, 251) 25.8%, rgb(252, 239, 250) 50.8%, rgb(234, 251, 251) 77.6%, rgb(240, 251, 244) 100.7%);
     padding: 20px;
     height: 250px;
     position: relative;
@@ -30,8 +30,17 @@
     width: 150px;
     margin-right: auto;
     margin-left: auto;
+    position:relative;
 }
-
+.camera{
+    position: absolute;
+    bottom: 0;
+    right: -5px;
+    font-size: 1.5rem;
+}
+.camera:hover{
+    color:#5072A7;
+}
 .userName p {
     margin-top: 10px;
     margin-bottom: 3px;
@@ -49,6 +58,7 @@
 /* .Modal{
     background-color: black;
 }*/
+
 .modalHeader{ 
     font-family:'Hanuman';
     font-size: 20px;
@@ -70,7 +80,7 @@
     
 }
 .submit input{
-height: 30px;
+    height: 30px;
     width: 65px;
     margin-top:10px;
     color: white;

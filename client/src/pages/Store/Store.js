@@ -126,10 +126,10 @@ function Store() {
                           onClick={() => openReward(reward)}
                           className={styles.card}
                         >
-                          <img src={reward.url} />
+                          <img src={reward.url} alt="reward img" />
                           <p>{reward.desc}</p>
                           <div className={styles.coins}>
-                            <img src={coin}></img>
+                            <img src={coin} alt="coins"></img>
                             <p>{reward.coins}</p>
                           </div>
                         </div>

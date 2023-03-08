@@ -36,7 +36,7 @@ function Quiz() {
       <Header />
       <div className={styles.quiz}>
         <div className={styles.gif}>
-          <img src={quiz} />
+          <img src={quiz} alt="quiz bg"/>
           <div className={styles.button}>
             <div className={styles.rect}>
               <Link to="./questions" className={styles.playicon}>

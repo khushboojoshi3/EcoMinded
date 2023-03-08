@@ -1,0 +1,81 @@
+.main {
+  background: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+  min-height: 100vh;
+  padding-top: 30px;
+  font-family: "Hanuman";
+  font-style: normal;
+  font-size: 1.3rem;
+}
+.form {
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  min-height: 400px;
+  background-color: white;
+  padding: 25px;
+  position: relative;
+}
+.form input {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 5px;
+  font-size: 1rem;
+}
+.form label {
+  display: block;
+  margin-bottom: 15px;
+}
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 1.7rem;
+  color: #1b4d3e;
+}
+.footer {
+  position: absolute;
+  width: 90%;
+  bottom: 0;
+  padding-bottom: 15px;
+}
+.footer .button {
+  width: 120px;
+  background-color: #00674b;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+.button:hover {
+  background-color: #ace1af;
+  color: black;
+}
+.prev {
+  margin-right: 20px;
+}
+.next {
+  float: right;
+}
+.submitDisabled {
+  background-color: #ace1af;
+  color: black;
+}
+.progressBar {
+  height: 8px;
+  background-color: white;
+  border: 1px solid black;
+  margin-bottom: 20px;
+}
+.progressBar div {
+  width: 33.3%;
+  height: 100%;
+  background-color: #32de84;
+}
+input[type="radio"] {
+  accent-color: #1b4d3e;
+  width: 20px;
+}
+.err {
+  margin-bottom: 50px;
+  color: red;
+}

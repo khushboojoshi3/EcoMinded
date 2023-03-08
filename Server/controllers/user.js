@@ -82,15 +82,15 @@ export const getMyArt = async (req, res, next) => {
     const obj = [];
     for (let i = 0; i < arts.length; i++) {
       const art = arts[i];
-      obj.push({
-        data: art,
-        artist: {
-          name: user.username,
-          id: user._id,
-          photo: user.photo,
-        },
-      });
-    }
+        obj.push({
+          data: art,
+          artist: {
+            name: user.username,
+            id: user._id,
+            photo: user.photo,
+          },
+        });
+    } 
     res.status(200).json(obj);
   } catch (err) {
     next(err);
@@ -105,14 +105,14 @@ export const getMyBlogs = async (req, res, next) => {
         return Blog.findById(blog);
       })
     );
-    const obj = [];
-    for (let i = 0; i < blogs.length; i++) {
-      const blog = blogs[i];
-      obj.push({
-        data: blog,
-        author: { name: user.username, id: user._id, photo: user.photo },
-      });
-    }
+     const obj = [];
+     for (let i = 0; i < blogs.length; i++) {
+       const blog = blogs[i];
+        obj.push({
+          data: blog,
+          author: { name: user.username, id: user._id, photo: user.photo },
+        });
+     }
     res.status(200).json(obj);
   } catch (err) {
     next(err);

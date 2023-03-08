@@ -1,0 +1,29 @@
+.radio{
+    display:flex;
+    column-gap: 7px;
+    margin-bottom:20px;
+    background-color: #D0F0C0;
+    padding:10px;
+    border-radius: 10px;
+}
+.radio label{
+     margin-bottom:0px;
+}
+.address input{
+    width:350px;
+    font-size:1rem;
+}
+.address input[type="radio"]{
+    margin-bottom:0px;
+}
+.pickupCharge{
+    margin-bottom: 60px;
+}
+
+.pickupCharge span{
+    background-color: #00674b;
+    color:white;
+    padding:5px;
+    border-radius:5px;
+    margin-left:12px;
+}

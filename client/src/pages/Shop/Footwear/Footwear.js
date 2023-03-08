@@ -1,9 +1,6 @@
 import React from "react";
 import { Label, Pivot, PivotItem } from "@fluentui/react";
-import { useState } from "react";
-import { useQuery } from "react-query";
 import Header from "../../../components/Header/Header";
-import styles from "./Footwear.module.css";
 import Offline from "../Offline/Offline";
 import Online from "../Online/Online";
 import data from "../data";
@@ -17,7 +14,7 @@ const Footwear = () => {
   return (
     <>
       <Header />
-      <div className={styles.pivot}>
+      <div >
         <Pivot aria-label="Shop">
           <PivotItem headerText="Online Stores">
             <Label styles={labelStyles}>

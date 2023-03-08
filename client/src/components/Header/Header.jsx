@@ -4,6 +4,7 @@ import logo from "../../assets/logo.png";
 import Navbar from "../../components/Navbar/Navbar";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import { Link } from "react-router-dom";
 function Header() {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
@@ -13,7 +14,9 @@ function Header() {
         <img src={logo} alt="logo" />
       </div>
       <div className={Style.heading}>
-        <h1>EcoMinded</h1>
+        <Link to="/">
+          <h1>EcoMinded</h1>
+        </Link>
       </div>
       {!user ? (
         <div className={Style.login}>
