@@ -35,13 +35,12 @@ return (
       {/* <div className={styles.rec3}></div> */}
       <div className={styles.polaroid}>
         <div className={styles.gifi}>
-          <img src={gif12} alt="Global Warming"/>
+          <img src={gif12} alt="Global Warming" />
         </div>
         <div className={styles.fact}>
           <h1>Did you know?</h1>
           <p>
-            The Amazon rainforest,known as the "lungs of the Earth, is
-            disapperaing at an alarming rate.{" "}
+            Earth in 2022 was about 2 degrees Fahrenheit warmer than the late 19th century average.
           </p>
         </div>
       </div>
@@ -138,8 +137,7 @@ return (
         </div>
       </div>
     </div>
- <Footer/>
-    
+    <Footer />
   </>
 );
 }

@@ -1,13 +1,10 @@
-import React, { Component, useContext, useEffect } from "react";
+import React, { useState,useContext, useEffect } from "react";
 import styles from "./Feed.module.css";
 import {
   faHeart,
-  faEye,
-  faBookmark,
+  faEye
 } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useQuery } from "react-query";
-import { useState } from "react";
 import {months} from "../../utils/date";
 import axios from "axios";
 import data from "@emoji-mart/data";
@@ -40,7 +37,7 @@ function Feed({ blogs, updateBlogs }) {
         };
       })
     );
-  }, [blogs]);
+  }, [blogs,user?._id]);
   const [image, setImage] = useState("");
   const [url, setUrl] = useState("");
   const uploadImage = () => {
@@ -61,7 +58,7 @@ function Feed({ blogs, updateBlogs }) {
 
   const [modalIsOpen, setIsOpen] = useState(false);
   const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
-  const [name, setName] = useState("");
+  const [emojiPicker, setEmojiPicker] = useState(false);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
@@ -80,14 +77,12 @@ function Feed({ blogs, updateBlogs }) {
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      height: "500px",
       width: "400px",
     },
   };
   const handleReadMoreClick =async (blogid) => {
     try{
       await axios.put(`/blog/views/${blogid}`);
-      navigate(`/blogview/${blogid}`);
     }catch(err){
       console.log(err.response.data);
     }
@@ -180,9 +175,8 @@ function Feed({ blogs, updateBlogs }) {
               {blog.data.content.substring(0, 200)} ...
               <a
                 className={styles.read_more}
-                href="javascript:void(0)"
                 onClick={() => handleReadMoreClick(blog.data._id)}
-                // href={`/blogview/${blog.data._id}`}
+                href={`/blogview/${blog.data._id}`}
               >
                 Read more
               </a>
@@ -230,7 +224,6 @@ function Feed({ blogs, updateBlogs }) {
       </div>
     );
   });
-
   return (
     <>
       <div className={styles.blogBackground}>
@@ -283,17 +276,27 @@ function Feed({ blogs, updateBlogs }) {
             onChange={(e) => setTitle(e.target.value)}
           />
           <label for="content">Add Blog Content</label>
-          <textarea
-            id="content"
-            name="content"
-            rows="4"
-            cols="40"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-          >
-            hello
-          </textarea>
-          <VscSmiley />
+            <textarea
+              id="content"
+              name="content"
+              rows="4"
+              cols="40"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+            />
+            <VscSmiley
+              className={styles.smiley}
+              onClick={() => {
+                console.log("hello");
+                setEmojiPicker(!emojiPicker);
+              }}
+            />
+            {emojiPicker && (
+              <Picker
+                data={data}
+                onEmojiSelect={(emoji) => setContent(content + emoji.native)}
+              />
+            )}
           <div>
             <input
               type="file"

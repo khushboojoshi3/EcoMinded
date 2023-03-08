@@ -599,8 +599,8 @@ blockquote.pull_right .small:after {
   margin-top: 20px;
 }
 #submitBtn {
-  position: absolute;
-  bottom: 22px;
+  /* position: absolute;
+  bottom: 22px; */
   border: none;
   border-radius: 5px;
   width: 170px;
@@ -635,4 +635,14 @@ textarea {
   padding: 4px;
   background-color: #1183ca;
   color: white;
+}
+.textarea{
+  position:relative;
+}
+.smiley{
+  margin-left: 10px;
+  font-size: 1.5rem;
+}
+.smiley:hover{
+  color:#a94064;
 }
