@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import { useQuery } from "react-query";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import { Link } from "react-router-dom";

@@ -61,7 +61,7 @@
   width: 20%;
 }
 .nav_text {
-  padding: 4px 0px 0px 0px;
+  padding: 0px 0px 0px 0px; /*change*/
   font-family: 'Hanuman';
   font-style: normal;
   font-weight: 700;
@@ -77,7 +77,7 @@
   height: 100%;
   display: flex;
   align-items: center;
-  padding: 10px 60px 10px;
+  padding: 10px 60px 13px; /*change*/
 }
 
 .nav_text a:hover,.nav_text div:hover {

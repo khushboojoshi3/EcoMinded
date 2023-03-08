@@ -6,12 +6,11 @@ import {
   faBookmark,
 } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useQuery } from "react-query";
+
 import { useState } from "react";
 import { months } from "../../utils/date";
 import axios from "axios";
-import data from "@emoji-mart/data";
-import Picker from "@emoji-mart/react";
+
 import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import { VscSmiley } from "react-icons/vsc";
@@ -81,7 +80,7 @@ function Feed({ blogs, updateBlogs }) {
       marginRight: "-50%",
       background: "#D4F1E0",
       borderRadius: "16px",
-      border: "5px solid white",
+      border:"5px solid white",
       boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
       backdropFilter: "blur(1.4px)",
       transform: "translate(-50%, -50%)",

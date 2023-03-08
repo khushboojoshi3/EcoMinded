@@ -13,6 +13,7 @@ Modal.setAppElement("#root");
 
 const Art = ({ arts, updateArts }) => {
   const { user } = useContext(AuthContext);
+  
 
   const [artData, setArtData] = useState(
     arts.map((art) => {
@@ -62,6 +63,7 @@ const Art = ({ arts, updateArts }) => {
   const navigate = useNavigate();
 
   const [artInfo, setArtInfo] = useState({});
+  
   const openModal = () => {
     setIsOpen(true);
   };
@@ -108,7 +110,7 @@ const Art = ({ arts, updateArts }) => {
   const getArtDate = (createdAt) => {
     const date = new Date(createdAt);
     const day = date.getDate();
-    const month = date.getMonth(); // getMonth() returns month from 0 to 11
+    const month = date.getMonth(); 
     const year = date.getFullYear();
 
     const str = `${day}-${months[month]}-${year}`;

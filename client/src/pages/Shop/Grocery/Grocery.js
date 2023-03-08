@@ -5,7 +5,6 @@ import { useQuery } from "react-query";
 import Header from "../../../components/Header/Header";
 import Offline from "../Offline/Offline";
 import Online from "../Online/Online";
-import styles from "./Grocery.module.css";
 import Styles from "../Design.module.css";
 import groc1 from "../../../assets/groc1.png";
 import groc2 from "../../../assets/groc2.png";
@@ -17,7 +16,7 @@ const Grocery = () => {
     return (
       <>
         <Header />
-        <div className={styles.pivot}>
+        <div>
           <Pivot aria-label="Shop">
             <PivotItem headerText="Online Stores">
               <Label styles={labelStyles}>
