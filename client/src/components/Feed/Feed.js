@@ -74,14 +74,19 @@ function Feed({ blogs, updateBlogs }) {
   };
   const customstyless = {
     content: {
-      top: "60%",
+      top: "55%",
       left: "50%",
       right: "auto",
       bottom: "auto",
       marginRight: "-50%",
+      background: "#D4F1E0",
+      borderRadius: "16px",
+      border:"5px solid white",
+      boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+      backdropFilter: "blur(1.4px)",
       transform: "translate(-50%, -50%)",
-      height: "500px",
-      width: "400px",
+      height: "520px",
+      width: "350px",
     },
   };
   const handleReadMoreClick =async (blogid) => {
@@ -261,7 +266,7 @@ function Feed({ blogs, updateBlogs }) {
         contentLabel="New Blog"
       >
         <div className={styles.modalHeader}>
-          <div>Add a New Blog</div>
+          <p>Add a New Blog</p>
           <div className={styles.close}>
             <button onClick={closeModal}>close</button>
           </div>
@@ -274,7 +279,7 @@ function Feed({ blogs, updateBlogs }) {
             handleSubmit();
           }}
         >
-          <div>Add Title</div>
+          <div className={styles.input}>Add Title</div>
           <input
             type="text"
             required
@@ -282,7 +287,9 @@ function Feed({ blogs, updateBlogs }) {
             placeholder="Title..."
             onChange={(e) => setTitle(e.target.value)}
           />
-          <label for="content">Add Blog Content</label>
+          <label for="content">
+            <div className={styles.add}>Add Blog Content</div>
+          </label>
           <textarea
             id="content"
             name="content"
@@ -293,8 +300,10 @@ function Feed({ blogs, updateBlogs }) {
           >
             hello
           </textarea>
-          <VscSmiley />
-          <div>
+          <div className={styles.smile}>
+            <VscSmiley />
+          </div>
+          <div className={styles.choose}>
             <input
               type="file"
               placeholder="Choose image"
@@ -310,9 +319,9 @@ function Feed({ blogs, updateBlogs }) {
               Upload
             </button>
           </div>
-          <div>
-            Uploaded image will be displayed here
-            <img width="200" height="120" src={url} />
+          <div className={styles.uploaded}>
+            <p>Uploaded image will be displayed here</p>
+            <img width="200" height="120" src={url} alt="Uploaded Image" />
           </div>
           <input
             type="submit"

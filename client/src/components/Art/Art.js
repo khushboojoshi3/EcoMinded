@@ -103,6 +103,7 @@ const Art = ({ arts, updateArts }) => {
       height: "520px",
       backdropFilter: "blur(1.4px)",
       width: "320px",
+      border: "5px solid white",
       borderRadius: "16px",
       boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
     },

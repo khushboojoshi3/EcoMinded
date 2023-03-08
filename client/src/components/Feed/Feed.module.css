@@ -575,9 +575,21 @@ blockquote.pull_right .small:after {
 .modalHeader div {
   display: inline-block;
 }
-.close {
-  float: right;
+.modalHeader p {
+  font-size: 20px;
+  font-weight: 500;
+  color: black;
+  font-family: 'Hanuman';
+  position: absolute;
 }
+
+.close button {
+  position: absolute;
+  top: 36px;
+  left:320px;
+
+}
+
 .close button {
   background-color: red;
   color: white;
@@ -587,12 +599,22 @@ blockquote.pull_right .small:after {
   width: 50px;
   font-size: 1rem;
 }
+.input{
+  font-size:18px;
+  position: absolute;
+  font-family:'Hanuman';
+  top:70px;
+}
 .newBillForm input {
   display: block;
   font-size: 1rem;
-  margin-top: 10px;
+  margin-top: 70px;
   width: 150px;
   padding: 5px;
+  font-size:18px;
+  border:none;
+  border-radius:5px;
+  font-family:'Hanuman';
 }
 .newBillForm div {
   margin-top: 20px;
@@ -600,9 +622,13 @@ blockquote.pull_right .small:after {
 #submitBtn {
   position: absolute;
   bottom: 22px;
+  font-size: 18px;
+    font-family: 'Hanuman';
+  top:440px;
   border: none;
   border-radius: 5px;
-  width: 170px;
+  width: 130px;
+  height:30px;
   padding: 6px;
   color: white;
 }
@@ -615,6 +641,32 @@ blockquote.pull_right .small:after {
 
 textarea {
   resize: none;
+  position: absolute;
+  left:20px;
+  top:185px;
+  border:none;
+  border-radius:5px;
+}
+.choose{
+  position: absolute;
+  top:185px;
+  left:15px;
+  
+}
+.choose input{
+  position: absolute;
+  width: 100px;
+  top: -15px;
+    left: -20px;
+  font-size: 13px;
+  padding:25px;
+  /* height: 45px; */
+}
+.add{
+  position: absolute;
+  top:145px;
+  font-size:18px;
+  font-family: 'Hanuman';
 }
 
 .liked {
@@ -627,7 +679,8 @@ textarea {
 
 .uploadButton {
   position: relative;
-  left: 4px;
+  left: 230px;
+  top:75px;
   border: none;
   border-radius: 5px;
   width: 90px;
@@ -635,3 +688,21 @@ textarea {
   background-color: #1183ca;
   color: white;
 }
+.smile{
+  position: absolute;
+  top:215px;
+  left:338px;
+}
+.uploaded p{
+  font-size: 18px;
+    font-family: 'Hanuman';
+  position: absolute;
+  top: 320px;
+}
+.uploaded img{
+  font-size: 18px;
+    font-family: 'Hanuman';
+  position:absolute;
+  top:370px;
+}
+
