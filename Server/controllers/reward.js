@@ -23,29 +23,6 @@ export const updateReward = async (req, res, next) => {
     next(err);
   }
 };
-// export const updateUserReward = async (req, res, next) => {
-//   const reward = await Reward.findById(req.params.id);
-//   const user = await User.findById(req.params.userid);
-//   try {
-//     const updatedReward = await Reward.findByIdAndUpdate(
-//       req.params.id,
-//       { $set: {isClaimed: true} },
-//       { new: true }
-//     );
-//     try{
-//       await User.findByIdAndUpdate(userid, {
-//         $dec: { coins: reward.coins },
-//     });
-
-//     }
-//     catch (err) {
-//     next(err);
-//   }
-//     res.status(200).json(updatedReward);
-//   } catch (err) {
-//     next(err);
-//   }
-// };
 
 export const deleteReward = async (req, res, next) => {
   try {
@@ -56,7 +33,6 @@ export const deleteReward = async (req, res, next) => {
   }
 };
 
-//how to get only unclaimed rewards
 export const getReward = async (req, res, next) => {
   try {
     const reward = await Reward.findById(req.params.id);

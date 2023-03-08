@@ -1,10 +1,10 @@
-import React, { Component, useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import data from "./data.js";
 import Answers from "./Answers.jsx";
 import Popup from "./Popup.jsx";
 import Styles from "./Questions.module.css";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 import { AuthContext } from "../../../context/AuthContext.js";
 const Questions = () => {
   const { user } = useContext(AuthContext);
@@ -12,7 +12,7 @@ const Questions = () => {
   const [questionAnswered, setQuestionAnswered] = useState(false);
   const [score, setScore] = useState(0);
   const [count, setCount] = useState(0);
-  
+
   const [displayPopup, setDisplayPopup] = useState("flex");
   const [total, setTotal] = useState(data.length);
   const [question, setQuestion] = useState("");
@@ -36,28 +36,22 @@ const Questions = () => {
     setShowButton(true);
     setQuestionAnswered(true);
   };
-const handleFinish = async () => {
-  try {
-    const newPlayer = await axios.post(
-      `/leaderboard/${user._id}`,
-      {
-        playerid: user._id,
-        score: score
-      },
-      {
-        headers: { "Content-Type": "application/json" },
-      }
-    );
-    // await updateBlogs();
-    // closeModal();
-    // setIsSubmitDisabled(false);
-    console.log(newPlayer);
-    // navigate(`/blogview/${newBlog.data._id}`);
-  } catch (err) {
-    console.log(err.response.data);
-  }
-};
-
+  const handleFinish = async () => {
+    try {
+      await axios.post(
+        `/leaderboard/${user._id}`,
+        {
+          playerid: user._id,
+          score: score,
+        },
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+    } catch (err) {
+      console.log(err.response.data);
+    }
+  };
 
   const nextQuestion = () => {
     if (count === total) {
@@ -84,19 +78,7 @@ const handleFinish = async () => {
     {
       type: "Party",
       image: require("../../../assets/quiz1.jpg"),
-    },
-    {
-      type: "Wedding",
-      image: require("../../../assets/fur.png"),
-    },
-    {
-      type: "Architecture",
-      image: require("../../../assets/netflix.png"),
-    },
-    {
-      type: "Christening",
-      image: require("../../../assets/foot.png"),
-    },
+    }
   ];
   const updatecount = () => {
     setCount((count) => count + 1);
@@ -109,14 +91,13 @@ const handleFinish = async () => {
         <Popup
           style={{ display: displayPopup }}
           buttonText="Go Green!"
-          text=" 
-           How Green are you ?"
+          text="How Green are you?"
+          tagline="There is no PLANet B"
           popupHandle={handleStartQuiz}
           title="Welcome"
         />
       )}
       {count === 5 && (
-        // handleFinish()
         <Popup
           style={{ display: displayPopup }}
           score={score}
@@ -161,6 +142,5 @@ const handleFinish = async () => {
       </div>
     </div>
   );
-  //   }
 };
 export default Questions;

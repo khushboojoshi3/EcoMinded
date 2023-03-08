@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import { useQuery } from "react-query";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -13,9 +12,6 @@ function Navbar() {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
   const { user, dispatch } = useContext(AuthContext); 
-  // const { data, isLoading, error } = useQuery("userInfo", () => {
-  //    return axios.get(`/user/${user._id}`);
-  // });
   const handleLogout = async () => {
     try {
       await axios.get("/auth/logout");

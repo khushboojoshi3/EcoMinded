@@ -24,8 +24,6 @@ export function Graph({ graphData }) {
         const chartWidth = chartArea.right - chartArea.left;
         const chartHeight = chartArea.bottom - chartArea.top;
         if (!gradient || width !== chartWidth || height !== chartHeight) {
-        // Create the gradient because this is either the first render
-        // or the size of the chart has changed
         width = chartWidth;
         height = chartHeight;
         gradient = ctx.createLinearGradient(
@@ -76,7 +74,6 @@ export function Graph({ graphData }) {
           const { ctx, chartArea } = chart;
 
           if (!chartArea) {
-            // This case happens on initial chart load
             return;
           }
           return getGradient(ctx, chartArea);

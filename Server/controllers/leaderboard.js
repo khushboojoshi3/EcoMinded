@@ -6,7 +6,6 @@ export const createUpdatePlayer = async (req, res, next) => {
     const player = await Leaderboard.findOne({ playerid: playerid });
     let savedPlayer = undefined;
     if (player) {
-      // player.score = req.body.score;
       savedPlayer = await Leaderboard.findByIdAndUpdate(
         player._id,
         { $set: { score: req.body.score } },
@@ -22,14 +21,6 @@ export const createUpdatePlayer = async (req, res, next) => {
     next(err);
   }
 };
-// export const getPlayers = async (req, res, next) => {
-//   try {
-//     const players = await Leaderboard.find();
-//     res.status(200).json(players);
-//   } catch (err) {
-//     next(err);
-//   }
-// };
 
 export const getPlayers = async (req, res, next) => {
   try {

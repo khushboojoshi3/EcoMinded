@@ -38,7 +38,6 @@
   display: flex;
 }
 .post_metadata_modal .post_info {
-  /* position: fixed; */
   padding-left: 10px;
   margin-top: 5px;
 }
@@ -56,12 +55,10 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  /* margin-left: -1%; */
 }
 
 .pull_right {
   display: flex;
-  /* float: right; */
   position: absolute;
   padding-top: 3%;
   left: 300px;

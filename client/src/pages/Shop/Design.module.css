@@ -13,10 +13,6 @@
     margin: 0px auto;
     position: absolute;
     left: 0;
-    /* background: #eae0da; */
-
-
-    /* background: url("../../assets/footwear.gif"); */
 
 
 
@@ -29,25 +25,19 @@
     margin-bottom: 10px;
     font-family: 'Hanuman';
     font-weight: 700;
-    /* From https://css.glass */
-    /* background: rgba(255, 255, 255, 0.2); */
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(1.4px);
     -webkit-backdrop-filter: blur(1.4px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    /* background: rgb(243, 176, 76); */
     color: #555;
     font-size: 13px;
     box-shadow: 0 1px 4px 0px rgba(0, 0, 50, 0.3);
 }
 
 .table_head {
-    /* background: linear-gradient(180deg, rgba(182, 148, 98, 0.88) 22.92%, rgba(179, 149, 43, 0.57) 45.83%, rgba(182, 148, 98, 0.88) 69.27%); */
-    box-shadow: none;
+   box-shadow: none;
     background: linear-gradient(180deg, #573605 0%, rgba(182, 148, 98, 0.88) 38.54%, #B6945F 68.23%, #573605 96.87%);
-    /* background: linear-gradient(180deg, #573605 0%, rgba(182, 148, 98, 0.88) 42.71%, #B6945F 64.06%, rgba(179, 149, 43, 0.77) 74.48%, #573605 96.87%); */
-    /* background: #967E76; */
     color: #fff;
     font-weight: 700;
     font-family: 'Hanuman';
@@ -86,7 +76,6 @@
 }
 
 .last_cell {
-    /* position: absolute; */
     right: 0px;
     border-right: none;
 }
@@ -140,7 +129,6 @@
 
 .offline {
     position: absolute;
-    /* text-align: center; */
     left: 590px;
     top: 150px;
     width: 250px;
@@ -158,7 +146,6 @@
 }
 
 .offline select {
-    /* width: 680px; */
     height: 30px;
     margin-right: 15px;
 }
@@ -167,6 +154,5 @@
     background-color: #B6945F;
     color: white;
     border: none;
-    /* width: 100%; */
 
 }

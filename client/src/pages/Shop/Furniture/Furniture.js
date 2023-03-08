@@ -1,9 +1,6 @@
 import React from "react";
 import { Label, Pivot, PivotItem } from "@fluentui/react";
-import { useState } from "react";
-import { useQuery } from "react-query";
 import Header from "../../../components/Header/Header";
-import styles from "./Furniture.module.css";
 import Offline from "../Offline/Offline";
 import Online from "../Online/Online";
 import data from "../data";
@@ -17,14 +14,14 @@ const Furniture = () => {
   return (
     <>
       <Header />
-      <div className={styles.pivot}>
+      <div>
         <Pivot aria-label="Shop">
           <PivotItem headerText="Online Stores">
             <Label styles={labelStyles}>
              <div className={Styles.dress}>
-                <img src={fur2} />
+                <img src={fur2} alt="furniture"/>
                 <div className={Styles.dress1}>
-                  <img src={fur1} />
+                  <img src={fur1} alt="furniture"/>
                 </div>
               <Online stores={data.Furniture.Online} />
               </div>
@@ -33,9 +30,9 @@ const Furniture = () => {
           <PivotItem headerText="Offline Stores">
             <Label styles={labelStyles}>
                <div className={Styles.dress_2}>
-                <img width="420"  height ="520" src={fur2} />
+                <img width="420"  height ="520" src={fur2} alt="furniture" />
                 <div className={Styles.dress_3}>
-                  <img src={fur1} />
+                  <img src={fur1} alt="furniture"/>
                 </div>
               <Offline stores={data.Furniture.Offline}
               tagline="Furnish your home with a clear conscience!"/>

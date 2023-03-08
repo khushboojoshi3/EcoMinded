@@ -31,7 +31,6 @@ const ArtView = ({ viewArt, closeArt, art , userid, updateArts}) => {
       let currArt = false;
       const artid = artInfo?.data?._id;
       const artObj = artInfo;
-      // console.log(artObj);
       artObj.likeCount += artObj.isLiked ? -1 : 1;
       artObj.isLiked = !artObj.isLiked;
       currArt = artObj.isLiked;

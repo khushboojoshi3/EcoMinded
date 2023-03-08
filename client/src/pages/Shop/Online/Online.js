@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../Design.module.css";
-import Header from "../../../components/Header/Header";
+
 const Online = (props) => {
   return (
     <>

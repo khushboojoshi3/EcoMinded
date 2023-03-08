@@ -176,8 +176,6 @@ img.avatar_image {
 }
 
 .post_panel .post_picture_wrapper {
-  /* left: 960px;
-    width: 100%; */
   padding: 1.2em 0 0;
 }
 
@@ -509,14 +507,7 @@ blockquote.pull_right .small:after {
 }
 
 .blogBackground {
-  /* background: linear-gradient(135deg, rgb(121, 241, 164) 10%, rgb(14, 92, 173) 100%); */
-  /* background: linear-gradient(116.4deg, rgba(233, 171, 226, 0.859375) 12.25%, #9EEBEB 26.82%, rgba(178, 169, 232, 0.934896) 37.65%, rgba(233, 171, 226, 0.859375) 45.87%, rgba(192, 155, 205, 0.203536) 59.32%, rgba(159, 73, 189, 0.474918) 67.91%, rgba(131, 179, 189, 0.719142) 75.38%, #7C71C2 83.6%); */
-  /* background: linear-gradient(132.6deg, #9EEBEB 15.35%, rgba(233, 171, 226, 0.859375) 29.26%, rgba(192, 155, 205, 0.203536) 46.14%, rgba(159, 73, 189, 0.474918) 59.72%, #7F75BD 73.95%); */
-  /* background: url("../../assets/blog_bg.jpg");
-  background-size: contain;
-  background-repeat: repeat; */
   background: radial-gradient(1200px at 50% 40%, rgb(191, 224, 251) 0%, rgb(232, 233, 251) 25.8%, rgb(252, 239, 250) 50.8%, rgb(234, 251, 251) 77.6%, rgb(240, 251, 244) 100.7%);
-  /* background: linear-gradient(180deg, #6761AB 11.98%, #817AC1 18.75%, #A097DA 26.56%, #DDA0D0 29.69%, rgba(231, 233, 144, 0.98125) 31.77%, rgba(95, 200, 112, 0.94) 43.23%, rgba(88, 167, 213, 0.73) 54.17%, rgba(190, 93, 224, 0.616957) 64.58%, rgba(236, 238, 111, 0.65) 78.12%, rgba(155, 220, 165, 0.94) 82.81%, #897DD3 91.67%, #8ED5DA 100%); */
 }
 .iconClass {
   margin: 4px;
@@ -526,7 +517,6 @@ blockquote.pull_right .small:after {
   text-align: center;
 }
 
-/* CSS */
 .button_9 {
   appearance: button;
   backface-visibility: hidden;
@@ -576,9 +566,21 @@ blockquote.pull_right .small:after {
 .modalHeader div {
   display: inline-block;
 }
-.close {
-  float: right;
+.modalHeader p {
+  font-size: 20px;
+  font-weight: 500;
+  color: black;
+  font-family: 'Hanuman';
+  position: absolute;
 }
+
+.close button {
+  position: absolute;
+  top: 36px;
+  left:320px;
+
+}
+
 .close button {
   background-color: red;
   color: white;
@@ -588,22 +590,31 @@ blockquote.pull_right .small:after {
   width: 50px;
   font-size: 1rem;
 }
+.input{
+  font-size:18px;
+  position: absolute;
+  font-family:'Hanuman';
+  top:70px;
+}
 .newBillForm input {
   display: block;
   font-size: 1rem;
-  margin-top: 10px;
+  margin-top: 70px;
   width: 150px;
   padding: 5px;
+  font-size:18px;
+  border:none;
+  border-radius:5px;
+  font-family:'Hanuman';
 }
 .newBillForm div {
   margin-top: 20px;
 }
 #submitBtn {
-  /* position: absolute;
-  bottom: 22px; */
   border: none;
   border-radius: 5px;
-  width: 170px;
+  width: 130px;
+  height:30px;
   padding: 6px;
   color: white;
 }
@@ -616,6 +627,31 @@ blockquote.pull_right .small:after {
 
 textarea {
   resize: none;
+  position: absolute;
+  left:20px;
+  top:185px;
+  border:none;
+  border-radius:5px;
+}
+.choose{
+  position: absolute;
+  top:185px;
+  left:15px;
+  
+}
+.choose input{
+  position: absolute;
+  width: 100px;
+  top: -15px;
+    left: -20px;
+  font-size: 13px;
+  padding:25px;
+}
+.add{
+  position: absolute;
+  top:145px;
+  font-size:18px;
+  font-family: 'Hanuman';
 }
 
 .liked {
@@ -628,16 +664,14 @@ textarea {
 
 .uploadButton {
   position: relative;
-  left: 4px;
+  left: 230px;
+  top:75px;
   border: none;
   border-radius: 5px;
   width: 90px;
   padding: 4px;
   background-color: #1183ca;
   color: white;
-}
-.textarea{
-  position:relative;
 }
 .smiley{
   margin-left: 10px;

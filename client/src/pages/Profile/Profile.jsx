@@ -152,9 +152,6 @@ function Profile() {
                     >
                       <FaCamera className={styles.camera} onClick={openModal} />
                     </div>
-                    {/* <div onClick={openModal}>
-                      <FaCamera />
-                    </div> */}
                   </div>
                   <div className={styles.userName}>
                     <p>@{data.data.username}</p>
@@ -213,9 +210,6 @@ function Profile() {
         >
           <div className={styles.modalHeader}>
             <p>Add a New Profile Photo</p>
-            {/* <div className={styles.close}>
-              <button onClick={closeModal}>close</button>
-            </div> */}
           </div>
           <form
             className={styles.newBillForm}

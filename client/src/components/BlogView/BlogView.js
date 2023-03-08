@@ -1,9 +1,8 @@
-import React, { Component, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHeart,
-  faEye,
-  faBookmark,
+  faEye
 } from "@fortawesome/free-regular-svg-icons";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
@@ -19,15 +18,11 @@ const BlogView = () => {
   const {
     data: blog,
     isLoading,
-    error,
     refetch,
   } = useQuery("blog_view", () => {
     return axios.get(`/blog/find/${id}`);
   });
 
-  console.log(blog);
-  // const bd = ;
-  // console.log(bd);
   const [blogData, setBlogData] = useState({
     ...blog,
     likeCount: blog?.data?.data?.likes?.length,
@@ -41,7 +36,7 @@ const BlogView = () => {
       likeCount: blog?.data?.data?.likes?.length,
       isLiked: blog?.data?.data?.likes.includes(user?._id),
     });
-  }, [blog]);
+  }, [blog,user?._id]);
  
   const handleLikeClick = async () => {
     
@@ -49,7 +44,6 @@ const BlogView = () => {
       let currBlog = false;
       const blogid = blogData?.data?.data?._id;
       const blogObj = blogData;
-      console.log(blogObj);
       blogObj.likeCount += blogObj.isLiked ? -1 : 1;
       blogObj.isLiked = !blogObj.isLiked;
       currBlog = blogObj.isLiked;
@@ -65,17 +59,15 @@ const BlogView = () => {
       console.log(err);
     }
   };
-  // console.log(blogData);
 
   const getBlogDate = (createdAt) => {
     const date = new Date(createdAt);
     const day = date.getDate();
-    const month = date.getMonth(); // getMonth() returns month from 0 to 11
+    const month = date.getMonth();
     const year = date.getFullYear();
     const str = `${day}-${months[month]}-${year}`;
     return str;
   };
-  //   console.log(blog);
   return (
     <>
       <Header />
@@ -131,7 +123,7 @@ const BlogView = () => {
                   <h3>{blogData?.data?.data?.title}</h3>
                 </summary>
                 <div className={styles.blog_img}>
-                  <img src={blogData?.data?.data?.feature_img}></img>
+                  <img src={blogData?.data?.data?.feature_img} alt="User blog"></img>
                 </div>
                 <p className={styles.contentClass}>
                   {blogData?.data?.data?.content}

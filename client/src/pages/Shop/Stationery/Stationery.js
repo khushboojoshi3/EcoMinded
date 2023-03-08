@@ -1,9 +1,6 @@
 import React from "react";
 import { Label, Pivot, PivotItem } from "@fluentui/react";
-import { useState } from "react";
-import { useQuery } from "react-query";
 import Header from "../../../components/Header/Header";
-import styles from "./Stationery.module.css";
 import Offline from "../Offline/Offline";
 import Online from "../Online/Online";
 import data from "../data";
@@ -17,14 +14,14 @@ const Stationery = () => {
   return (
     <>
       <Header />
-      <div className={styles.pivot}>
+      <div>
         <Pivot aria-label="Shop">
           <PivotItem headerText="Online Stores">
             <Label styles={labelStyles}>
               <div className={Styles.dress}>
-                <img src={stat1} />
+                <img src={stat1} alt="stationery"/>
                 <div className={Styles.dress1}>
-                  <img src={stat2} />
+                  <img src={stat2} alt="pencils"/>
                 </div>
                 <Online stores={data.Stationery.Online} />
               </div>
@@ -33,9 +30,9 @@ const Stationery = () => {
           <PivotItem headerText="Offline Stores">
             <Label styles={labelStyles}>
               <div className={Styles.dress_2}>
-                <img src={stat1} />
+                <img src={stat1} alt="stationery"/>
                 <div className={Styles.dress_3}>
-                  <img src={stat2} />
+                  <img src={stat2} alt="stationery"/>
                 </div>
                 <Offline stores={data.Stationery.Offline}
                 tagline="Write with purpose,purchase with impact!" />

@@ -1,13 +1,9 @@
 import React from 'react';
 import { Label, Pivot, PivotItem } from "@fluentui/react";
-import { useState } from "react";
-import { useQuery } from "react-query";
 import Header from "../../../components/Header/Header";
 import Offline from "../Offline/Offline";
 import Online from "../Online/Online";
-import styles from "./Grocery.module.css";
 import Styles from "../Design.module.css";
-// import dress from "../../../assets/dress.png";
 import groc1 from "../../../assets/groc1.png";
 import groc2 from "../../../assets/groc2.png";
 import data from '../data';
@@ -18,14 +14,14 @@ const Grocery = () => {
     return (
       <>
         <Header />
-        <div className={styles.pivot}>
+        <div>
           <Pivot aria-label="Shop">
             <PivotItem headerText="Online Stores">
               <Label styles={labelStyles}>
                 <div className={Styles.dress}>
-                  <img src={groc1} />
+                  <img src={groc1} alt="grocery" />
                   <div className={Styles.dress1}>
-                    <img src={groc2} />
+                    <img src={groc2} alt="grocery" />
                   </div>
                   <Online stores={data.Grocery.Online} />
                 </div>
@@ -34,9 +30,9 @@ const Grocery = () => {
             <PivotItem headerText="Offline Stores">
               <Label styles={labelStyles}>
                 <div className={Styles.dress_2}>
-                  <img src={groc1} />
+                  <img src={groc1} alt="grocery" />
                   <div className={Styles.dress_3}>
-                    <img width="260" height="420" src={groc2} />
+                    <img width="260" height="420" src={groc2} alt="grocery" />
                   </div>
                   <Offline
                     stores={data.Grocery.Offline}

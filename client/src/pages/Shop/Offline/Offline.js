@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Header from "../../../components/Header/Header";
 import styles from "../Design.module.css";
 const Offline = (props) => {
   const [showOptions, setShowOptions] = useState(true);
@@ -17,7 +16,6 @@ const Offline = (props) => {
           <div className={styles.offline}>
             <select
               value={selectedCity}
-              //   className={Style.selection}
               onChange={(e) => {
                 setSelectedCity(e.target.value);
               }}

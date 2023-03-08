@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import styles from "../Footer/Footer.module.css";
-import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 function Footer(){
     return (

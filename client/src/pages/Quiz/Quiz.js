@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import Header from "../../components/Header/Header";
 import styles from "./Quiz.module.css";
 import quiz from "../../assets/quiz.jpg";
@@ -13,7 +13,6 @@ function Quiz() {
     data: players,
     isLoading: isLoadingPlayer,
     error: errPlayer,
-    refetch: refetchPlayer,
   } = useQuery(
     "leaderboard",
     () => {
@@ -21,16 +20,7 @@ function Quiz() {
     },
     { refetchInterval: 120000 }
   );
-
-  console.log(players);
-  const fetchUpdatedPlayers = async () => {
-    await refetchPlayer();
-  };
-
-  const playclick = () => {
-    console.log("Click");
-  };
-
+ 
   return (
     <>
       <Header />
