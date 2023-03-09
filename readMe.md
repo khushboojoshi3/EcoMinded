@@ -65,3 +65,6 @@ React, MongoDB, Node.js, Express
   * User with the highest score will stand out in our leaderboard panel.
   * EcoMinded will reward the top 3 quiz players monthly.   
 ![quiz](https://user-images.githubusercontent.com/64426164/224031608-4bef817b-1aec-4c68-8878-2e14336dfcee.png)
+
+# Try It Out
+https://ecominded.netlify.app/
