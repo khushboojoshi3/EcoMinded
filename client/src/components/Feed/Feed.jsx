@@ -1,13 +1,10 @@
-import React, { useState,useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import styles from "./Feed.module.css";
-import {
-  faHeart,
-  faEye
-} from "@fortawesome/free-regular-svg-icons";
+import { faHeart, faEye } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {months} from "../../utils/date";
+import { months } from "../../utils/date";
 import axios from "axios";
-import Picker  from "@emoji-mart/react";
+import Picker from "@emoji-mart/react";
 import data from "@emoji-mart/data";
 import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
@@ -15,8 +12,8 @@ import { VscSmiley } from "react-icons/vsc";
 import { AuthContext } from "../../context/AuthContext";
 Modal.setAppElement("#root");
 
-function Feed({ blogs, updateBlogs }) {
-  const { user,dispatch } = useContext(AuthContext);
+function Feed({ blogs, updateBlogs, isVisible }) {
+  const { user, dispatch } = useContext(AuthContext);
   const [blogData, setBlogData] = useState(
     blogs.map((blog) => {
       return {
@@ -37,7 +34,7 @@ function Feed({ blogs, updateBlogs }) {
         };
       })
     );
-  }, [blogs,user?._id]);
+  }, [blogs, user?._id]);
   const [image, setImage] = useState("");
   const [url, setUrl] = useState("");
   const uploadImage = () => {
@@ -78,18 +75,18 @@ function Feed({ blogs, updateBlogs }) {
       marginRight: "-50%",
       background: "#D4F1E0",
       borderRadius: "16px",
-      border:"5px solid white",
+      border: "5px solid white",
       boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
       backdropFilter: "blur(1.4px)",
       transform: "translate(-50%, -50%)",
-      height:"520px",
+      height: "520px",
       width: "400px",
     },
   };
   const handleReadMoreClick = async (blogid) => {
     try {
       await axios.put(`/blog/views/${blogid}`);
-    }catch(err){
+    } catch (err) {
       console.log(err.response.data);
     }
   };
@@ -144,7 +141,7 @@ function Feed({ blogs, updateBlogs }) {
   const getBlogDate = (createdAt) => {
     const date = new Date(createdAt);
     const day = date.getDate();
-    const month = date.getMonth(); 
+    const month = date.getMonth();
     const year = date.getFullYear();
     const str = `${day}-${months[month]}-${year}`;
     return str;
@@ -235,9 +232,11 @@ function Feed({ blogs, updateBlogs }) {
     <>
       <div className={styles.blogBackground}>
         <div>
-          <button className={styles.button_9}>
-            <span onClick={openModal}>+ New Blog</span>
-          </button>
+          {(isVisible === undefined || isVisible) && (
+            <button className={styles.button_9}>
+              <span onClick={openModal}>+ New Blog</span>
+            </button>
+          )}
         </div>
 
         <div className={`${styles.container_fluid} ${styles.main_container}`}>
@@ -283,28 +282,28 @@ function Feed({ blogs, updateBlogs }) {
             onChange={(e) => setTitle(e.target.value)}
           />
           <label for="content">Add Blog Content</label>
-            <textarea
-              id="content"
-              name="content"
-              rows="4"
-              cols="40"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
+          <textarea
+            id="content"
+            name="content"
+            rows="4"
+            cols="40"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          />
+          <VscSmiley
+            className={styles.smiley}
+            onClick={(e) => {
+              e.preventDefault();
+              console.log("hello");
+              setEmojiPicker(!emojiPicker);
+            }}
+          />
+          {emojiPicker && (
+            <Picker
+              data={data}
+              onEmojiSelect={(emoji) => setContent(content + emoji.native)}
             />
-            <VscSmiley
-              className={styles.smiley}
-              onClick={(e) => {
-                e.preventDefault();
-                console.log("hello");
-                setEmojiPicker(!emojiPicker);
-              }}
-            />
-            {emojiPicker && (
-              <Picker
-                data={data}
-                onEmojiSelect={(emoji) => setContent(content + emoji.native)}
-              />
-            )}
+          )}
           <div>
             <input
               type="file"

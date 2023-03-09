@@ -9,8 +9,8 @@ import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 Modal.setAppElement("#root");
 
-const Art = ({ arts, updateArts }) => {
-  const { user,dispatch } = useContext(AuthContext);
+const Art = ({ arts, updateArts, isVisible }) => {
+  const { user, dispatch } = useContext(AuthContext);
 
   const [artData, setArtData] = useState(
     arts.map((art) => {
@@ -210,9 +210,11 @@ const Art = ({ arts, updateArts }) => {
       ></link>
       <div className={styles.hero_section}>
         <div>
-          <button className={styles.button_9}>
-            <span onClick={openModal}>+ New Art</span>
-          </button>
+          {(isVisible === undefined || isVisible) && (
+            <button className={styles.button_9}>
+              <span onClick={openModal}>+ New Art</span>
+            </button>
+          )}
         </div>
 
         <div className={styles.card_grid}>{displayArts}</div>
