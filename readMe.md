@@ -3,6 +3,8 @@
 Eco-Minded is an initiative to make people more responsible towards the planet.
 It educates people about sustainable lifestyle and helps them in adopting it.
 
+![homepage](https://user-images.githubusercontent.com/64426164/224044372-6c854c05-9e73-433e-a72f-24a88e515e95.png)
+
 # TechStack
 React, MongoDB, Node.js, Express
 
