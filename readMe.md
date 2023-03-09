@@ -24,6 +24,7 @@ React, MongoDB, Node.js, Express
     * To know the type of waste user can either upload an image or enter the name of the item manually.
     * Our ML model will classify the waste into Organic, Recyclable or Non-Recyclable waste.
   ![dispose](https://user-images.githubusercontent.com/64426164/224029228-c90cbb9c-15bc-4285-9eac-fc8cc242166c.png)
+  ![Capture](https://user-images.githubusercontent.com/53914778/224034242-ebae2d80-c891-4ace-bc32-506c38776f9e.JPG)
     
 * **Electricity** 
    * It helps users to monitor their carbon footprint based on their electricity consumption. 
@@ -31,6 +32,7 @@ React, MongoDB, Node.js, Express
    * Energy-saving tips are provided to reduce carbon dioxide equivalent and electricity bills.
    * Users get coins as a reward for monthly updating their energy consumption.
   ![e](https://user-images.githubusercontent.com/64426164/224029434-cd32c7f1-9de7-4715-abee-d4d6aa7e7a8c.png)
+  ![elec](https://user-images.githubusercontent.com/53914778/224034104-ca1a2f6e-e7f0-4cff-8aa7-01d43989fca5.JPG)
 
 * **Donate**
     * Users can give a second life to their unused products by donating them.
